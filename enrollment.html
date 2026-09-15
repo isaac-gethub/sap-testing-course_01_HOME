@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Full Sweep — Reserve Your Class Time</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16212E;
+    --paper:#F7F5EF;
+    --steel:#3D5166;
+    --signal:#B8923F;
+    --confirm:#4B7B62;
+    --full:#A24B3F;
+    --line:#DAD4C6;
+    --panel:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  .wrap{
+    max-width:960px;
+    margin:0 auto;
+    padding:28px 18px 60px;
+  }
+
+  header.masthead{
+    border-bottom:1px solid var(--line);
+    padding-bottom:20px;
+    margin-bottom:8px;
+  }
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:.02em;
+    color:var(--steel);
+    margin:0 0 6px;
+  }
+  h1{
+    font-family:'Lora',serif;
+    font-weight:600;
+    font-size:clamp(26px,5vw,38px);
+    margin:0 0 10px;
+    color:var(--ink);
+  }
+  .sub{
+    font-size:15px;
+    color:var(--steel);
+    max-width:60ch;
+    margin:0;
+  }
+
+  .cohort-tabs{
+    display:flex;
+    gap:0;
+    margin:24px 0 0;
+    border-bottom:1px solid var(--line);
+    overflow-x:auto;
+  }
+  .cohort-tab{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    letter-spacing:.02em;
+    padding:12px 16px;
+    color:var(--steel);
+    background:transparent;
+    border:none;
+    border-bottom:2px solid transparent;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .cohort-tab.active{
+    color:var(--ink);
+    border-bottom-color:var(--signal);
+    font-weight:600;
+  }
+
+  .cohort-panel{display:none;}
+  .cohort-panel.active{display:block;}
+
+  .cohort-strip{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px 24px;
+    margin:20px 0 30px;
+    padding:16px 18px;
+    background:var(--panel);
+    border:1px solid var(--line);
+  }
+  .cohort-strip div{font-size:14px;}
+  .cohort-strip dt{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--steel);
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    margin:0 0 3px;
+  }
+  .cohort-strip dd{margin:0;font-size:15px;font-weight:500;}
+
+  .class-block{
+    margin-bottom:28px;
+    border:1px solid var(--line);
+    background:var(--panel);
+  }
+  .class-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:6px;
+    padding:16px 18px;
+    border-bottom:1px solid var(--line);
+  }
+  .class-head h2{
+    font-family:'Lora',serif;
+    font-weight:600;
+    font-size:19px;
+    margin:0;
+  }
+  .class-time{
+    font-size:15px;
+    color:var(--steel);
+    font-weight:500;
+  }
+
+  .seat-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:10px;
+    padding:16px 18px;
+  }
+  .seat{
+    aspect-ratio:1/1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    border:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    text-align:center;
+    background:var(--paper);
+  }
+  .seat .seat-num{
+    font-family:'Lora',serif;
+    font-size:16px;
+    font-weight:600;
+  }
+  .seat.open{
+    color:var(--confirm);
+    border-color:var(--confirm);
+    cursor:pointer;
+    background:rgba(75,123,98,0.06);
+  }
+  .seat.open:hover{background:rgba(75,123,98,0.14);}
+  .seat.open.picked{
+    background:var(--confirm);
+    color:#fff;
+  }
+  .seat.closed{
+    color:var(--full);
+    border-color:var(--line);
+    background:#F1EEE6;
+    cursor:not-allowed;
+    opacity:.75;
+  }
+
+  form.enroll{
+    margin-top:8px;
+    padding:20px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    display:none;
+  }
+  form.enroll.active{display:block;}
+  form.enroll h3{
+    font-family:'Lora',serif;
+    font-size:17px;
+    margin:0 0 4px;
+  }
+  form.enroll .picked-label{
+    font-size:13.5px;
+    color:var(--steel);
+    margin:0 0 18px;
+  }
+  .field{margin-bottom:14px;}
+  .field label{
+    display:block;
+    font-size:12.5px;
+    font-family:'IBM Plex Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    color:var(--steel);
+    margin-bottom:6px;
+  }
+  .field input{
+    width:100%;
+    padding:11px 12px;
+    font-size:15px;
+    font-family:inherit;
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--ink);
+  }
+  .field input:focus{
+    outline:2px solid var(--signal);
+    outline-offset:1px;
+  }
+  button.submit{
+    width:100%;
+    padding:13px;
+    font-size:15px;
+    font-weight:600;
+    font-family:inherit;
+    background:var(--ink);
+    color:var(--paper);
+    border:none;
+    cursor:pointer;
+  }
+  button.submit:disabled{opacity:.5;cursor:wait;}
+  button.submit:hover:not(:disabled){background:var(--steel);}
+
+  .msg{
+    margin-top:14px;
+    padding:12px 14px;
+    font-size:14px;
+    display:none;
+  }
+  .msg.show{display:block;}
+  .msg.success{background:rgba(75,123,98,0.12);color:var(--confirm);border:1px solid var(--confirm);}
+  .msg.error{background:rgba(162,75,63,0.10);color:var(--full);border:1px solid var(--full);}
+
+  footer{
+    margin-top:40px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    font-size:12.5px;
+    color:var(--steel);
+  }
+
+  @media (min-width:600px){
+    .wrap{padding:40px 28px 70px;}
+    .cohort-strip{padding:20px 24px;}
+    .seat{font-size:12px;}
+  }
+
+  @media (min-width:880px){
+    .wrap{padding:56px 0 80px;}
+    h1{font-size:42px;}
+    .seat-grid{grid-template-columns:repeat(5,120px);justify-content:start;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="kicker">TIB SYSTEMS — SAP SOX/ITGC LIVE COHORT</p>
+    <h1>The Full Sweep</h1>
+    <p class="sub">Choose a cohort, then reserve one of 5 seats in the class time that works for you. Each class meets four days a week, at the same time every class day, for the full one-month run.</p>
+  </header>
+
+  <nav class="cohort-tabs" id="cohortTabs"></nav>
+
+  <div id="cohortPanels"></div>
+
+  <footer>
+    TIB Systems LLC · The Full Sweep · Questions: academy@tib-systems.com
+  </footer>
+
+</div>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+  const SUPABASE_URL = 'https://blfgwysgekfqhcafofhe.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJsZmd3eXNnZWtmcWhjYWZvZmhlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyODY0NDksImV4cCI6MjA5NTg2MjQ0OX0.HPdIMd-X30QBufoL9BVSVte6s_Fc-OOKIq9MbwLrzcI';
+  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const tabsEl = document.getElementById('cohortTabs');
+  const panelsEl = document.getElementById('cohortPanels');
+
+  const DAY_ORDER = { Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6 };
+
+  let selectedSlotText = '';
+
+  function formatDate(dstr){
+    const d = new Date(dstr + 'T00:00:00');
+    return d.toLocaleDateString('en-US', { month:'long', day:'numeric', year:'numeric' });
+  }
+
+  function formatTime(tstr){
+    const [h,m] = tstr.split(':').map(Number);
+    const period = h >= 12 ? 'PM' : 'AM';
+    const h12 = ((h + 11) % 12) + 1;
+    return `${h12}:${String(m).padStart(2,'0')} ${period}`;
+  }
+
+  function buildEnrollForm(slotId){
+    const wrap = document.createElement('form');
+    wrap.className = 'enroll';
+    wrap.dataset.slotId = slotId;
+    wrap.innerHTML = `
+      <h3>Reserve your seat</h3>
+      <p class="picked-label"></p>
+      <div class="field">
+        <label>Full name</label>
+        <input type="text" class="f-name" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" class="f-email" autocomplete="email" required>
+      </div>
+      <button type="submit" class="submit">Reserve this seat</button>
+      <div class="msg"></div>
+    `;
+    wrap.addEventListener('submit', (e) => handleSubmit(e, wrap));
+    return wrap;
+  }
+
+  async function handleSubmit(e, formEl){
+    e.preventDefault();
+    const slotId = formEl.dataset.slotId;
+    const name = formEl.querySelector('.f-name').value.trim();
+    const email = formEl.querySelector('.f-email').value.trim();
+    if (!name || !email) return;
+
+    const btn = formEl.querySelector('button.submit');
+    const msg = formEl.querySelector('.msg');
+    btn.disabled = true;
+    btn.textContent = 'Reserving…';
+    msg.className = 'msg';
+
+    const { data, error } = await supabase.rpc('fullsweep_enroll_student', {
+      p_slot_id: slotId,
+      p_name: name,
+      p_email: email
+    });
+
+    btn.disabled = false;
+    btn.textContent = 'Reserve this seat';
+
+    if (error){
+      msg.textContent = 'Something went wrong. Please try again.';
+      msg.className = 'msg error show';
+      console.error(error);
+      return;
+    }
+
+    if (data.success){
+      msg.textContent = `You're confirmed for ${selectedSlotText}. A confirmation will follow by email.`;
+      msg.className = 'msg success show';
+      formEl.querySelector('.f-name').value = '';
+      formEl.querySelector('.f-email').value = '';
+      await loadAll();
+    } else {
+      const messages = {
+        SLOT_FULL: 'That seat just filled up. Choose another open seat.',
+        ALREADY_ENROLLED: 'This email is already reserved for this class.',
+        SLOT_NOT_FOUND: 'This class is no longer available.'
+      };
+      msg.textContent = messages[data.error] || 'Could not complete your reservation. Please try again.';
+      msg.className = 'msg error show';
+      if (data.error === 'SLOT_FULL') await loadAll();
+    }
+  }
+
+  function renderClassBlock(slot){
+    const block = document.createElement('div');
+    block.className = 'class-block';
+
+    const head = document.createElement('div');
+    head.className = 'class-head';
+    head.innerHTML = `
+      <h2>${slot.label}</h2>
+      <span class="class-time">${formatTime(slot.start_time)} – ${formatTime(slot.end_time)} CT</span>
+    `;
+    block.appendChild(head);
+
+    const grid = document.createElement('div');
+    grid.className = 'seat-grid';
+
+    for (let i = 1; i <= slot.capacity; i++){
+      const seat = document.createElement('div');
+      const isClosed = i <= slot.enrolled_count;
+      seat.className = 'seat ' + (isClosed ? 'closed' : 'open');
+      seat.innerHTML = `<span class="seat-num">${i}</span><span>${isClosed ? 'Closed' : 'Open'}</span>`;
+
+      if (!isClosed){
+        seat.addEventListener('click', () => openForm(slot, block, seat));
+      }
+      grid.appendChild(seat);
+    }
+    block.appendChild(grid);
+
+    const form = buildEnrollForm(slot.slot_id);
+    block.appendChild(form);
+
+    return block;
+  }
+
+  function openForm(slot, block, seatEl){
+    block.querySelectorAll('.seat.open').forEach(s => s.classList.remove('picked'));
+    seatEl.classList.add('picked');
+
+    selectedSlotText = `${slot.label} · ${formatTime(slot.start_time)} – ${formatTime(slot.end_time)} CT`;
+
+    const form = block.querySelector('form.enroll');
+    form.querySelector('.picked-label').textContent = `Selected: ${selectedSlotText}`;
+    form.classList.add('active');
+    form.querySelector('.msg').className = 'msg';
+    form.scrollIntoView({ behavior:'smooth', block:'nearest' });
+  }
+
+  async function loadAll(){
+    const { data, error } = await supabase
+      .from('fullsweep_slot_availability')
+      .select('*')
+      .order('start_date', { ascending:true })
+      .order('slot_number', { ascending:true });
+
+    if (error){
+      panelsEl.innerHTML = `<p class="msg error show">Could not load the schedule right now. Please refresh the page.</p>`;
+      console.error(error);
+      return;
+    }
+    if (!data || data.length === 0){
+      panelsEl.innerHTML = `<p class="msg error show">No cohorts are currently available.</p>`;
+      return;
+    }
+
+    const cohorts = new Map();
+    data.forEach(row => {
+      if (!cohorts.has(row.cohort_id)){
+        cohorts.set(row.cohort_id, {
+          cohort_id: row.cohort_id,
+          cohort_name: row.cohort_name,
+          start_date: row.start_date,
+          end_date: row.end_date,
+          days_pattern: row.days_pattern,
+          slots: []
+        });
+      }
+      cohorts.get(row.cohort_id).slots.push(row);
+    });
+
+    const cohortList = [...cohorts.values()];
+    const activeCohortId = tabsEl.dataset.activeCohort || cohortList[0].cohort_id;
+
+    tabsEl.innerHTML = '';
+    panelsEl.innerHTML = '';
+
+    cohortList.forEach((cohort, idx) => {
+      const isActive = cohort.cohort_id === activeCohortId;
+
+      const tab = document.createElement('button');
+      tab.className = 'cohort-tab' + (isActive ? ' active' : '');
+      tab.textContent = cohort.cohort_name.replace(/^Cohort \d+ — /, `Cohort ${idx+1}: `);
+      tab.addEventListener('click', () => {
+        tabsEl.dataset.activeCohort = cohort.cohort_id;
+        loadAll();
+      });
+      tabsEl.appendChild(tab);
+
+      const panel = document.createElement('div');
+      panel.className = 'cohort-panel' + (isActive ? ' active' : '');
+
+      const days = [...cohort.days_pattern].sort((a,b)=>DAY_ORDER[a]-DAY_ORDER[b]).join(' / ');
+      const strip = document.createElement('dl');
+      strip.className = 'cohort-strip';
+      strip.innerHTML = `
+        <div><dt>Meets</dt><dd>${days}</dd></div>
+        <div><dt>Runs</dt><dd>${formatDate(cohort.start_date)} – ${formatDate(cohort.end_date)}</dd></div>
+      `;
+      panel.appendChild(strip);
+
+      cohort.slots
+        .sort((a,b) => a.slot_number - b.slot_number)
+        .forEach(slot => panel.appendChild(renderClassBlock(slot)));
+
+      panelsEl.appendChild(panel);
+    });
+  }
+
+  loadAll();
+</script>
+
+</body>
+</html>
