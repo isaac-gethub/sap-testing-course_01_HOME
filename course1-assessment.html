@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Full Sweep — What's Included & How It's Assessed</title>
+<meta name="description" content="What's included in The Full Sweep, how it's paced, and the seven things a reviewer actually checks.">
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap');
+  :root{
+    --navy:#12213A; --navy-2:#1B3358; --amber:#C0812A; --amber-deep:#8F5D18;
+    --teal:#1F6B67; --paper:#EDE7D8; --paper-2:#F7F4EA; --line:#C9BFA3;
+    --ink:#12213A; --ink-soft:#4A5872; --text:#2B3548;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:var(--paper-2);color:var(--text);line-height:1.55;}
+  h1,h2,h3{font-family:'Spectral',Georgia,serif; color:var(--navy); margin:0 0 10px;}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 32px;}
+  a{color:inherit;}
+
+  header.site-nav{background:var(--navy);color:#fff;position:sticky;top:0;z-index:50;
+    border-bottom:3px solid var(--amber);}
+  header.site-nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;flex-wrap:wrap;gap:14px;}
+  .brand{font-family:'Spectral',serif;font-weight:700;font-size:19px;color:#fff;text-decoration:none;font-style:italic;}
+  .brand span{color:var(--amber);font-style:normal;}
+  .nav-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  nav.subnav{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;letter-spacing:0.2px;}
+  nav.subnav a{color:rgba(255,255,255,0.72);text-decoration:none;white-space:nowrap;padding-bottom:3px;border-bottom:2px solid transparent;}
+  nav.subnav a:hover{color:#fff;}
+  nav.subnav a.active{color:#fff;border-bottom:2px solid var(--amber);}
+  .nav-cross{font-size:11.5px;color:rgba(255,255,255,0.6);text-decoration:none;white-space:nowrap;font-style:italic;}
+  .nav-cross:hover{color:#fff;}
+  .nav-cta{background:var(--amber);color:#fff;padding:8px 16px;border-radius:4px;font-size:12.5px;
+    font-weight:700;text-decoration:none;white-space:nowrap;}
+  .nav-cta:hover{background:var(--amber-deep);}
+
+  .hero{background:linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);color:#fff;padding:56px 0 40px;}
+  .eyebrow{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:var(--amber);margin-bottom:16px;}
+  .hero h1{color:#fff;font-size:36px;line-height:1.2;max-width:20ch;margin-bottom:14px;}
+  .hero h1 em{color:var(--amber);font-style:italic;}
+  .hero .lede{max-width:64ch;color:rgba(255,255,255,0.78);font-size:16px;margin-bottom:22px;}
+  .role-tagline{max-width:60ch;color:#E7D9B8;font-size:14.5px;font-weight:500;margin-bottom:22px;
+    padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.16);}
+  .role-tagline strong{color:#fff;}
+
+  .role-tags{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 26px;}
+  .role-tag{display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.22);
+    color:#fff;font-size:12px;padding:6px 13px;border-radius:20px;font-weight:500;}
+
+  .hero-cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px;}
+  .btn{display:inline-block;padding:13px 26px;border-radius:5px;font-weight:600;font-size:14.5px;text-decoration:none;}
+  .btn-amber{background:var(--amber);color:#fff;}
+  .btn-amber:hover{background:var(--amber-deep);}
+  .btn-ghost{border:1px solid rgba(255,255,255,0.4);color:#fff;}
+  .btn-ghost:hover{border-color:#fff;}
+  .btn-outline{border:1px solid var(--line);color:var(--navy);background:#fff;}
+  .btn-outline:hover{border-color:var(--amber-deep);}
+
+  .stat-bar{display:grid;grid-template-columns:repeat(auto-fit, minmax(190px,1fr));gap:1px;
+    background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.14);border-radius:6px;overflow:hidden;margin-top:8px;}
+  .stat{background:var(--navy-2);padding:20px 18px;}
+  .stat-num{font-family:'Spectral',serif;font-weight:700;font-size:22px;color:var(--amber);margin-bottom:6px;}
+  .stat-desc{font-size:13px;color:rgba(255,255,255,0.72);line-height:1.5;}
+
+  .section-head{max-width:78ch;margin-bottom:28px;}
+  .section-head .eyebrow{color:var(--amber-deep);}
+  .section-head h2{font-size:26px;}
+  .section-head p{color:var(--ink-soft);font-size:15px;font-style:italic;max-width:70ch;}
+
+  .topic-section{padding:52px 0;border-bottom:1px solid var(--line);}
+  .topic-section:nth-child(even){background:var(--paper);}
+
+  .topic-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(310px, 1fr));gap:18px;}
+  .topic-card{background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;
+    display:flex;flex-direction:column;}
+  .topic-tab{background:var(--navy-2);padding:7px 14px;}
+  .topic-code{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;color:var(--amber);letter-spacing:0.5px;}
+  .topic-body{padding:16px 18px 18px;flex:1;}
+  .topic-body h3{font-size:16.5px;margin-bottom:10px;line-height:1.35;}
+  .topic-body p{margin:0 0 10px;font-size:13.5px;color:var(--text);line-height:1.55;}
+  .topic-body p.job{margin-bottom:0;}
+  .topic-body .lbl{display:block;font-size:10.5px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:3px;}
+  .topic-body p.do .lbl{color:var(--teal);}
+  .topic-body p.job .lbl{color:var(--amber-deep);}
+
+  .library-block{background:var(--navy);color:#fff;border-radius:8px;padding:32px 30px;margin-top:6px;}
+  .library-block h2{color:#fff;font-size:22px;}
+  .library-block p{color:rgba(255,255,255,0.82);font-size:14.5px;max-width:70ch;}
+  .library-block .lbl{color:var(--amber);font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;display:block;margin-bottom:4px;}
+
+  .story-block{background:var(--navy);color:#fff;border-radius:8px;padding:38px 34px;margin-top:6px;}
+  .story-block h2{color:#fff;font-size:24px;max-width:26ch;}
+  .story-block p{color:rgba(255,255,255,0.82);font-size:14.5px;max-width:70ch;margin-bottom:0;}
+  .story-block strong{color:var(--amber);}
+
+  .promise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:6px;}
+  .promise-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:26px 24px;}
+  .promise-col h3{font-size:16px;margin-bottom:14px;}
+  .promise-col.no h3{color:var(--amber-deep);}
+  .promise-col.yes h3{color:var(--teal);}
+  .promise-col ul{margin:0;padding-left:18px;}
+  .promise-col li{font-size:13.5px;color:var(--text);margin-bottom:10px;line-height:1.5;}
+
+  .outcomes-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+  .outcomes-list li{background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:4px;
+    padding:13px 16px;font-size:13.5px;color:var(--text);}
+
+  .included-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+  .included-list li{background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 18px;font-size:14px;
+    display:flex;gap:10px;align-items:flex-start;}
+  .included-list li::before{content:"✓";color:var(--teal);font-weight:700;flex-shrink:0;}
+
+  .reviewer-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
+  .reviewer-list li{background:#fff;border:1px solid var(--line);border-left:3px solid var(--amber);
+    border-radius:4px;padding:12px 16px;font-size:13.5px;color:var(--text);}
+  .reviewer-list .pct{font-family:'JetBrains Mono',monospace;color:var(--amber-deep);font-weight:700;margin-right:8px;}
+
+  .format-note{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:22px 24px;font-size:13.5px;
+    color:var(--ink-soft);margin-top:8px;}
+
+  .crosssell{background:#fff;border:1px dashed var(--line);border-radius:8px;padding:20px 22px;margin-top:32px;
+    font-size:13.5px;color:var(--ink-soft);}
+  .crosssell a{color:var(--amber-deep);font-weight:600;text-decoration:underline;}
+
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:18px 4px;font-family:'Spectral',serif;
+    font-size:16px;font-weight:600;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;
+    align-items:center;gap:14px;}
+  .faq-q .plus{font-family:'JetBrains Mono',monospace;color:var(--amber-deep);font-size:18px;flex-shrink:0;}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height 0.25s ease;}
+  .faq-a p{padding:0 4px 18px;font-size:14px;color:var(--ink-soft);margin:0;max-width:70ch;}
+
+  .page-links-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:34px;}
+  .page-link-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 22px;text-decoration:none;
+    display:block;}
+  .page-link-card:hover{border-color:var(--amber-deep);}
+  .page-link-card .plc-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:0.6px;
+    text-transform:uppercase;color:var(--amber-deep);display:block;margin-bottom:6px;}
+  .page-link-card h3{font-size:15.5px;margin-bottom:6px;}
+  .page-link-card p{font-size:12.5px;color:var(--ink-soft);margin:0;}
+
+  .cta-footer{background:var(--paper);text-align:center;padding:56px 24px;border-top:1px solid var(--line);}
+  .cta-footer h2{font-size:24px;max-width:30ch;margin:0 auto 10px;}
+  .cta-footer p{color:var(--ink-soft);margin-bottom:22px;}
+
+  footer.site-footer{background:var(--navy);color:rgba(255,255,255,0.6);padding:22px 24px;text-align:center;font-size:12.5px;}
+  footer.site-footer a{color:rgba(255,255,255,0.75);text-decoration:underline;}
+  footer.site-footer .foot-links{margin-bottom:8px;}
+
+  @media (max-width: 680px){
+    .hero h1{font-size:27px;}
+    nav.subnav{display:none;}
+    .nav-cross{display:none;}
+  }
+
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap">
+    <a href="sap-testing-course_01_HOME.html" class="brand">TIB <span>Systems</span></a>
+    <div class="nav-right">
+      <nav class="subnav">
+        <a href="sap-testing-course_01_HOME.html">Overview</a><a href="course1-curriculum.html">Curriculum</a><a href="course1-assessment.html" class="active">Assessment & Format</a><a href="course1-faq.html">FAQ</a>
+      </nav>
+      <a href="enrollment.html" class="nav-cta">Enroll</a>
+    </div>
+  </div>
+</header>
+
+
+<section class="hero" style="padding:44px 0 34px;">
+  <div class="wrap">
+    <span class="eyebrow">Assessment &amp; Format</span>
+    <h1 style="font-size:30px;max-width:24ch;">The Full Sweep, one company, built the way a real engagement runs.</h1>
+    <p class="lede">A live, instructor-led cohort — not a self-paced library. You move through the Controls Theory prerequisite, the optional Foundations, and the 11 Parts across 20 live sessions with a real instructor, with the Live SAP window open every session so you execute what you're being taught immediately, not days or weeks later.</p>
+  </div>
+</section>
+
+<section class="topic-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What's included</span>
+      <h2>Nothing metered, nothing gated behind an upsell</h2>
+    </div>
+    <ul class="included-list">
+      <li>The Controls Theory prerequisite — 11 topics (B0–B10) plus a 49-question final exam, 60% to pass, before Book 1 starts</li>
+      <li>8 optional Foundations modules — pure SAP navigation for anyone without prior hands-on experience</li>
+      <li>35 core Books across Parts I–X, plus 4 Manager Track Elective Books in Part XI — 39 Books total across all 11 Parts, the complete Thornfield Industrial Group case</li>
+      <li>Every Book — all 39 — comes with a fully completed workpaper exhibit: a real finished example to check your own work against, not a blank template</li>
+      <li>A Live SAP window running side-by-side with every topic — the same S/4HANA session, transaction codes, and Fiori apps a working consultant uses</li>
+      <li>The Evidence &amp; Templates Library — the control policy, control matrix, evidence tracker, and entity-level controls register a real engagement runs on</li>
+    </ul>
+  </div>
+</section>
+
+<section class="topic-section on-ink" style="background:var(--navy);color:#fff;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="color:var(--amber);">What a reviewer actually checks</span>
+      <h2 style="color:#fff;">SAP execution is the easy part. This is what every completed exhibit models.</h2>
+      <p style="color:rgba(255,255,255,0.75);">Every Book's fully completed workpaper exhibit is built to show you the same seven things a reviewer looks for on a real engagement — not just whether you clicked the right transaction.</p>
+    </div>
+    <ul class="reviewer-list">
+      <li><span class="pct">1</span>Business risk &amp; control understanding — can you say why this control exists before you test it</li>
+      <li><span class="pct">2</span>Testing strategy &amp; population definition — did you request the full population, or accept a pre-selected sample</li>
+      <li><span class="pct">3</span>Evidence evaluation — does the evidence actually support the conclusion, or just look complete</li>
+      <li><span class="pct">4</span>Consultant judgement &amp; escalation — do you know when a finding needs to go up, not just get logged</li>
+      <li><span class="pct">5</span>Workpaper &amp; conclusion quality — would this survive a reviewer's first pass without a follow-up question</li>
+      <li><span class="pct">6</span>Stakeholder communication — could you explain this finding to the SAP team and the audit team, in each one's own language</li>
+      <li><span class="pct">7</span>SAP execution accuracy — the right transaction, the right screen, correctly documented</li>
+    </ul>
+    <p style="color:rgba(255,255,255,0.6);font-size:13px;margin-top:18px;">If you only ever get faster at clicking through transactions, execution accuracy is the one line on this list you'll improve — and the one that matters least once you're actually staffed on an engagement.</p>
+  </div>
+</section>
+
+<section class="topic-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How it runs</span>
+      <h2>Theory, then live system, every single session.</h2>
+    </div>
+    <div class="promise-grid">
+      <div class="promise-col yes">
+        <h3>The order it runs in</h3>
+        <ul>
+          <li>Controls Theory prerequisite (B0–B10) and the 49-question exam — before Book 1, Days 1–2</li>
+          <li>Foundations (101–108) — for anyone without prior hands-on SAP time</li>
+          <li>Parts I through X, in order, across 20 live sessions — each one Hour 1 Theory, Hour 2 live Demo Lab</li>
+          <li>The Manager Track Elective (Part XI) — self-paced, after the live cohort ends</li>
+        </ul>
+      </div>
+      <div class="promise-col no">
+        <h3>What's required between sessions</h3>
+        <ul>
+          <li>Independent repetition of that day's full transaction walkthrough on your own training-client login</li>
+          <li>The instructor spot-checks evidence at the start of the following class</li>
+          <li>Self-check against each Book's completed exhibit before your own evidence goes in the app</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-footer">
+  <div class="wrap">
+    <h2>Questions before you start?</h2>
+    <p>See the FAQ, or go straight to the full topic-by-topic curriculum.</p>
+    <div class="hero-cta-row" style="justify-content:center;">
+      <a href="course1-faq.html" class="btn btn-amber">Read the FAQ →</a>
+      <a href="course1-curriculum.html" class="btn btn-outline">Browse the curriculum</a>
+    </div>
+  </div>
+</div>
+
+
+<footer class="site-footer">
+  <div class="foot-links">
+    <a href="sap-testing-course_01_HOME.html">Overview</a> ·
+    <a href="course1-curriculum.html">Curriculum</a> ·
+    <a href="course1-assessment.html">Assessment &amp; Format</a> ·
+    <a href="course1-faq.html">FAQ</a>
+  </div>
+  TIB Systems — Atlanta · Hyderabad · Ras Al Khaimah
+</footer>
+
+</body>
+</html>

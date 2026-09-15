@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Full Sweep — Curriculum: 66 Topics, TIB Systems</title>
+<meta name="description" content="The full Full Sweep curriculum: Controls Theory prerequisite, Foundations, and 11 Parts of 47 Books across the Thornfield Industrial Group case.">
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap');
+  :root{
+    --navy:#12213A; --navy-2:#1B3358; --amber:#C0812A; --amber-deep:#8F5D18;
+    --teal:#1F6B67; --paper:#EDE7D8; --paper-2:#F7F4EA; --line:#C9BFA3;
+    --ink:#12213A; --ink-soft:#4A5872; --text:#2B3548;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:var(--paper-2);color:var(--text);line-height:1.55;}
+  h1,h2,h3{font-family:'Spectral',Georgia,serif; color:var(--navy); margin:0 0 10px;}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 32px;}
+  a{color:inherit;}
+
+  header.site-nav{background:var(--navy);color:#fff;position:sticky;top:0;z-index:50;
+    border-bottom:3px solid var(--amber);}
+  header.site-nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;flex-wrap:wrap;gap:14px;}
+  .brand{font-family:'Spectral',serif;font-weight:700;font-size:19px;color:#fff;text-decoration:none;font-style:italic;}
+  .brand span{color:var(--amber);font-style:normal;}
+  .nav-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  nav.subnav{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;letter-spacing:0.2px;}
+  nav.subnav a{color:rgba(255,255,255,0.72);text-decoration:none;white-space:nowrap;padding-bottom:3px;border-bottom:2px solid transparent;}
+  nav.subnav a:hover{color:#fff;}
+  nav.subnav a.active{color:#fff;border-bottom:2px solid var(--amber);}
+  .nav-cross{font-size:11.5px;color:rgba(255,255,255,0.6);text-decoration:none;white-space:nowrap;font-style:italic;}
+  .nav-cross:hover{color:#fff;}
+  .nav-cta{background:var(--amber);color:#fff;padding:8px 16px;border-radius:4px;font-size:12.5px;
+    font-weight:700;text-decoration:none;white-space:nowrap;}
+  .nav-cta:hover{background:var(--amber-deep);}
+
+  .hero{background:linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);color:#fff;padding:56px 0 40px;}
+  .eyebrow{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:var(--amber);margin-bottom:16px;}
+  .hero h1{color:#fff;font-size:36px;line-height:1.2;max-width:20ch;margin-bottom:14px;}
+  .hero h1 em{color:var(--amber);font-style:italic;}
+  .hero .lede{max-width:64ch;color:rgba(255,255,255,0.78);font-size:16px;margin-bottom:22px;}
+  .role-tagline{max-width:60ch;color:#E7D9B8;font-size:14.5px;font-weight:500;margin-bottom:22px;
+    padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.16);}
+  .role-tagline strong{color:#fff;}
+
+  .role-tags{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 26px;}
+  .role-tag{display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.22);
+    color:#fff;font-size:12px;padding:6px 13px;border-radius:20px;font-weight:500;}
+
+  .hero-cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px;}
+  .btn{display:inline-block;padding:13px 26px;border-radius:5px;font-weight:600;font-size:14.5px;text-decoration:none;}
+  .btn-amber{background:var(--amber);color:#fff;}
+  .btn-amber:hover{background:var(--amber-deep);}
+  .btn-ghost{border:1px solid rgba(255,255,255,0.4);color:#fff;}
+  .btn-ghost:hover{border-color:#fff;}
+  .btn-outline{border:1px solid var(--line);color:var(--navy);background:#fff;}
+  .btn-outline:hover{border-color:var(--amber-deep);}
+
+  .stat-bar{display:grid;grid-template-columns:repeat(auto-fit, minmax(190px,1fr));gap:1px;
+    background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.14);border-radius:6px;overflow:hidden;margin-top:8px;}
+  .stat{background:var(--navy-2);padding:20px 18px;}
+  .stat-num{font-family:'Spectral',serif;font-weight:700;font-size:22px;color:var(--amber);margin-bottom:6px;}
+  .stat-desc{font-size:13px;color:rgba(255,255,255,0.72);line-height:1.5;}
+
+  .section-head{max-width:78ch;margin-bottom:28px;}
+  .section-head .eyebrow{color:var(--amber-deep);}
+  .section-head h2{font-size:26px;}
+  .section-head p{color:var(--ink-soft);font-size:15px;font-style:italic;max-width:70ch;}
+
+  .topic-section{padding:52px 0;border-bottom:1px solid var(--line);}
+  .topic-section:nth-child(even){background:var(--paper);}
+
+  .topic-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(310px, 1fr));gap:18px;}
+  .topic-card{background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;
+    display:flex;flex-direction:column;}
+  .topic-tab{background:var(--navy-2);padding:7px 14px;}
+  .topic-code{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;color:var(--amber);letter-spacing:0.5px;}
+  .topic-body{padding:16px 18px 18px;flex:1;}
+  .topic-body h3{font-size:16.5px;margin-bottom:10px;line-height:1.35;}
+  .topic-body p{margin:0 0 10px;font-size:13.5px;color:var(--text);line-height:1.55;}
+  .topic-body p.job{margin-bottom:0;}
+  .topic-body .lbl{display:block;font-size:10.5px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:3px;}
+  .topic-body p.do .lbl{color:var(--teal);}
+  .topic-body p.job .lbl{color:var(--amber-deep);}
+
+  .library-block{background:var(--navy);color:#fff;border-radius:8px;padding:32px 30px;margin-top:6px;}
+  .library-block h2{color:#fff;font-size:22px;}
+  .library-block p{color:rgba(255,255,255,0.82);font-size:14.5px;max-width:70ch;}
+  .library-block .lbl{color:var(--amber);font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;display:block;margin-bottom:4px;}
+
+  .story-block{background:var(--navy);color:#fff;border-radius:8px;padding:38px 34px;margin-top:6px;}
+  .story-block h2{color:#fff;font-size:24px;max-width:26ch;}
+  .story-block p{color:rgba(255,255,255,0.82);font-size:14.5px;max-width:70ch;margin-bottom:0;}
+  .story-block strong{color:var(--amber);}
+
+  .promise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:6px;}
+  .promise-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:26px 24px;}
+  .promise-col h3{font-size:16px;margin-bottom:14px;}
+  .promise-col.no h3{color:var(--amber-deep);}
+  .promise-col.yes h3{color:var(--teal);}
+  .promise-col ul{margin:0;padding-left:18px;}
+  .promise-col li{font-size:13.5px;color:var(--text);margin-bottom:10px;line-height:1.5;}
+
+  .outcomes-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+  .outcomes-list li{background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:4px;
+    padding:13px 16px;font-size:13.5px;color:var(--text);}
+
+  .included-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+  .included-list li{background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 18px;font-size:14px;
+    display:flex;gap:10px;align-items:flex-start;}
+  .included-list li::before{content:"✓";color:var(--teal);font-weight:700;flex-shrink:0;}
+
+  .reviewer-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
+  .reviewer-list li{background:#fff;border:1px solid var(--line);border-left:3px solid var(--amber);
+    border-radius:4px;padding:12px 16px;font-size:13.5px;color:var(--text);}
+  .reviewer-list .pct{font-family:'JetBrains Mono',monospace;color:var(--amber-deep);font-weight:700;margin-right:8px;}
+
+  .format-note{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:22px 24px;font-size:13.5px;
+    color:var(--ink-soft);margin-top:8px;}
+
+  .crosssell{background:#fff;border:1px dashed var(--line);border-radius:8px;padding:20px 22px;margin-top:32px;
+    font-size:13.5px;color:var(--ink-soft);}
+  .crosssell a{color:var(--amber-deep);font-weight:600;text-decoration:underline;}
+
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:18px 4px;font-family:'Spectral',serif;
+    font-size:16px;font-weight:600;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;
+    align-items:center;gap:14px;}
+  .faq-q .plus{font-family:'JetBrains Mono',monospace;color:var(--amber-deep);font-size:18px;flex-shrink:0;}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height 0.25s ease;}
+  .faq-a p{padding:0 4px 18px;font-size:14px;color:var(--ink-soft);margin:0;max-width:70ch;}
+
+  .page-links-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:34px;}
+  .page-link-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 22px;text-decoration:none;
+    display:block;}
+  .page-link-card:hover{border-color:var(--amber-deep);}
+  .page-link-card .plc-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:0.6px;
+    text-transform:uppercase;color:var(--amber-deep);display:block;margin-bottom:6px;}
+  .page-link-card h3{font-size:15.5px;margin-bottom:6px;}
+  .page-link-card p{font-size:12.5px;color:var(--ink-soft);margin:0;}
+
+  .cta-footer{background:var(--paper);text-align:center;padding:56px 24px;border-top:1px solid var(--line);}
+  .cta-footer h2{font-size:24px;max-width:30ch;margin:0 auto 10px;}
+  .cta-footer p{color:var(--ink-soft);margin-bottom:22px;}
+
+  footer.site-footer{background:var(--navy);color:rgba(255,255,255,0.6);padding:22px 24px;text-align:center;font-size:12.5px;}
+  footer.site-footer a{color:rgba(255,255,255,0.75);text-decoration:underline;}
+  footer.site-footer .foot-links{margin-bottom:8px;}
+
+  @media (max-width: 680px){
+    .hero h1{font-size:27px;}
+    nav.subnav{display:none;}
+    .nav-cross{display:none;}
+  }
+
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap">
+    <a href="sap-testing-course_01_HOME.html" class="brand">TIB <span>Systems</span></a>
+    <div class="nav-right">
+      <nav class="subnav">
+        <a href="sap-testing-course_01_HOME.html">Overview</a><a href="course1-curriculum.html" class="active">Curriculum</a><a href="course1-assessment.html">Assessment & Format</a><a href="course1-faq.html">FAQ</a>
+      </nav>
+      <a href="enrollment.html" class="nav-cta">Enroll</a>
+    </div>
+  </div>
+</header>
+
+
+<section class="topic-section" style="padding-top:40px;padding-bottom:36px;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The full curriculum</span>
+      <h2>66 topics across a Controls Theory prerequisite, Foundations, and 11 Parts of 47 Books</h2>
+      <p>One fictional company, Thornfield Industrial Group, worked front to back — the exact transaction codes, Fiori apps, and GRC navigation a working consultant uses, taught through 39 real deficiencies threaded into one connected case instead of scattered examples.</p>
+    </div>
+    <nav class="subnav" style="background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 18px;display:flex;">
+      <a href="#prereq-controls-theory-exam" style="color:var(--navy);">PREREQ</a>
+      <a href="#foundations-optional-before-book-01" style="color:var(--navy);">Foundations</a>
+      <a href="#part-i-access-control-identity" style="color:var(--navy);">Part I</a>
+      <a href="#part-ii-it-general-controls-change-operations" style="color:var(--navy);">Part II</a>
+      <a href="#part-iii-record-to-report" style="color:var(--navy);">Part III</a>
+      <a href="#part-iv-sap-grc-platform-modules" style="color:var(--navy);">Part IV</a>
+      <a href="#part-v-governance-disclosure-executive-reporting" style="color:var(--navy);">Part V</a>
+      <a href="#part-vi-legal-compliance-adjacent-scope" style="color:var(--navy);">Part VI</a>
+      <a href="#part-vii-business-application-controls" style="color:var(--navy);">Part VII</a>
+      <a href="#part-viii-order-to-cash-controls" style="color:var(--navy);">Part VIII</a>
+      <a href="#part-ix-treasury-tax-controls" style="color:var(--navy);">Part IX</a>
+      <a href="#part-x-adjacent-tools-emerging-practice" style="color:var(--navy);">Part X</a>
+      <a href="#part-xi-manager-track-elective" style="color:var(--navy);">Part XI</a>
+    </nav>
+  </div>
+</section>
+
+  <section class="topic-section" id="prereq-controls-theory-exam">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">PREREQ</span>
+        <h2>Controls Theory &amp; Exam</h2>
+        <p>Before you touch SAP at all, you learn the vocabulary and judgment framework every module after this one assumes you already have.</p>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">B0</span></div>
+          <div class="topic-body">
+            <h3>Primary Goals of SAP Controls &amp; Compliance</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Map all seven reasons SAP controls exist — regulatory, fraud, financial integrity, operational, ITGC, accountability, stakeholder confidence — to their SAP activity and their non-SAP activity side by side.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to answer “why does this control exist” for any finding you’re handed, in the specific language a CFO or audit committee expects, not just “because SOX says so.”</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">B1</span></div>
+          <div class="topic-body">
+            <h3>Risk Types</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Classify Financial, Compliance, and Operational risk, and apply the inherent-risk-versus-residual-risk framework to a real SoD conflict scenario.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to correctly classify a risk in a Risk and Controls Matrix — the classification decision that determines whether your test procedure is substantive or regulatory.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">B2</span></div>
+          <div class="topic-body">
+            <h3>Control Types</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Distinguish preventive from detective controls with concrete SAP examples, and apply the configured-versus-inherent-automated distinction to a real access scenario.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to tell a client whether their control needs a configuration review or a “has this been disabled” check — two completely different test procedures that look identical from the outside.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">B3</span></div>
+          <div class="topic-body">
+            <h3>Control Nature</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Place a control on the descending scale from configured automated through IT-dependent manual to fully manual, and match each position to its required audit evidence.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to correctly scope how much evidence a control actually needs — over-testing a fully automated control wastes budget, under-testing a manual one gets flagged by External Audit.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">B4</span></div>
+          <div class="topic-body">
+            <h3>Why Controls Matter</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Build the business case for a controls workstream in CFO-accessible language, and challenge the “lift-and-shift” instinct that carries old process design into a new S/4HANA system unchanged.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to answer a program sponsor’s “why are we spending budget on this during implementation” question with the actual cost comparison, not a compliance platitude.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">B5</span></div>
+          <div class="topic-body">
+            <h3>Engagement Types</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Describe how QA, advisory, and full hands-on engagements differ in scope, deliverables, and stakeholder relationships.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll walk into your first engagement already knowing which of the three you’re in, instead of learning it by making the wrong assumption in week one.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">B6</span></div>
+          <div class="topic-body">
+            <h3>S/4HANA Lifecycle</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Map the specific controls activities and deliverables across all four implementation phases — Solution Confirmation, Design and Build, Testing, and Cutover and Deploy.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll know exactly what a controls consultant is supposed to be producing in any phase of a live transformation project, not just what the finished state looks like.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">B7</span></div>
+          <div class="topic-body">
+            <h3>Reading FD Documents</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Apply a risk-first question sequence — business purpose, direction, frequency, error handling — to a real functional design document before extracting control parameters from it.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to open a functional design document you’ve never seen and pull the control-relevant parameters out of it correctly on the first pass.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">B8</span></div>
+          <div class="topic-body">
+            <h3>Testing Phase</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Define sufficient evidence for config, transactional, and IT-dependent-manual controls — including why testing only the scenarios that should pass isn’t a real test.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to defend your sample and your evidence standard to a reviewer or an external auditor without getting sent back to redo it.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">B9</span></div>
+          <div class="topic-body">
+            <h3>AI in Controls</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Identify exactly where AI agents add measurable value in a controls workstream — gap analysis, control proposal drafting, test coverage analysis — and where they don’t.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to use AI tooling as genuine leverage in your own work instead of either ignoring it or trusting it somewhere it shouldn’t be trusted.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">B10</span></div>
+          <div class="topic-body">
+            <h3>Practitioner Capstone</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Work through a full practitioner scenario that forces every prior module’s judgment call at once — consistency across teams, working with incomplete documentation, setting your own standard.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll have already made the mistakes this capstone puts in front of you once, in a training environment, instead of for the first time in front of a client.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">Exam</span></div>
+          <div class="topic-body">
+            <h3>Final Exam</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Answer 49 questions pooled from all ten modules, each with a full explanation regardless of whether you got it right.</p>
+            <p class="job"><span class="lbl">On the Job</span>A passing score is a documented, dated record that you actually know the theory before you’re handed a live SAP session — the credential a hiring manager can point to, not just a course-completion badge.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-section" id="foundations-optional-before-book-01">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Foundations</span>
+        <h2>Optional, Before Book 01</h2>
+        <p>For trainees with no prior hands-on SAP experience. Pure navigation — nothing here is a deficiency to investigate.</p>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">101</span></div>
+          <div class="topic-body">
+            <h3>Finding Your Way Around: SAP GUI, Fiori, and SPRO</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Log into both SAP GUI and Fiori Launchpad, and navigate SPRO’s configuration tree.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll never lose time in your first week just figuring out where things are — every later Book assumes this is already automatic.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">102</span></div>
+          <div class="topic-body">
+            <h3>Reviewing Users and Roles: SUIM, SU01, and PFCG in Display Mode</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Pull a user’s role assignments in SUIM, view their master record in SU01, and inspect a role’s authorization objects in PFCG without editing anything.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to answer “what can this user actually do” from the system itself, not from what someone tells you their role is supposed to allow.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">103</span></div>
+          <div class="topic-body">
+            <h3>Reading Security and System Logs: SM20, SM19, and SM21</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Read the Security Audit Log and System Log to reconstruct what actually happened in a session, and understand SM19’s logging configuration.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to independently verify a claim about what a user did or didn’t do, instead of taking someone’s word for it.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">104</span></div>
+          <div class="topic-body">
+            <h3>Change Management and Transports: STMS, SE01, SCC4</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>View the transport queue in STMS, inspect an individual transport’s contents in SE01, and check client settings in SCC4.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to trace any production change back to the transport that made it — the single most common evidence request in a change-management test.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">105</span></div>
+          <div class="topic-body">
+            <h3>Batch Jobs and Interfaces: SM37, WE02, BD87, and RFC Monitoring</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Monitor scheduled background jobs in SM37 and check IDoc-based interface status in WE02 and BD87.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to tell the difference between a job that failed and a job that silently did nothing — a distinction most reviews miss.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">106</span></div>
+          <div class="topic-body">
+            <h3>Displaying Financial Documents: FB03 and FBL3N</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Open a posted financial document in FB03 and pull a full population of general ledger line items in FBL3N.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to independently re-pull any financial population yourself instead of relying on someone else’s extract.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">107</span></div>
+          <div class="topic-body">
+            <h3>GRC Access Risk Analysis and Table Evidence Pulls: GRAC_SPM and SE16N</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Run a first GRC Access Risk Analysis and pull raw table data directly via SE16N.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to bypass a report you don’t trust and go straight to the underlying table — the exact move every anchor Book’s completed exhibit relies on.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">108</span></div>
+          <div class="topic-body">
+            <h3>Database Basics and Evidence Discipline</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Learn the evidence-capture convention used across the entire course — selection screen, then result, every time, labeled and dated.</p>
+            <p class="job"><span class="lbl">On the Job</span>Your workpapers will already match the documentation standard a reviewer expects, from your very first real test.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-section" id="part-i-access-control-identity">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Part I</span>
+        <h2>Access Control &amp; Identity</h2>
+        <p>Access Control/SoD is the domain most job postings ask for by name — this Part carries it in full, not as one topic among many.</p>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">1</span></div>
+          <div class="topic-body">
+            <h3>The Access List ★</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Run a GRC Access Risk Analysis at user level, then independently confirm the flagged conflict yourself through SUIM and PFCG.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to find a segregation-of-duties conflict and prove it’s real — not just flag it and hand it to someone else to verify.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">4</span></div>
+          <div class="topic-body">
+            <h3>The Next Badge</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Test new-hire and turnover access using SU01, SUIM, and the GRC Access Request History to confirm provisioning matched what was actually approved.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to catch the specific joiner/mover/leaver gap that shows up in nearly every SOX access-control finding: access that outlived its approval.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">7</span></div>
+          <div class="topic-body">
+            <h3>The Fourth Chair</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Run GRC Access Risk Analysis against a Procurement-specific ruleset and confirm via SE16N whether flagged access was ever actually used.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to distinguish access that’s merely risky from access that’s actually been exploited — the difference between a finding and a false alarm.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">13</span></div>
+          <div class="topic-body">
+            <h3>The Tile</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Review Fiori Launchpad catalog and role assignments and cross-check them against the backend authorization objects the tile actually calls.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to test Fiori security as rigorously as classic GUI security, instead of treating a tile as a black box because it “just launches an app.”</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">16</span></div>
+          <div class="topic-body">
+            <h3>The Firefighter Log ★</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Review firefighter ID activation logs in GRAC_SPM and cross-check actual transactions executed against the System Log in SM20.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to test emergency access the way an auditor actually wants it tested — not just “was it logged,” but “does the log match what was really done.”</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">17</span></div>
+          <div class="topic-body">
+            <h3>The Leaver</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Confirm a terminated user’s lock status in SU01, check for post-termination logins via SUIM and SM20, and verify their removal from access recertification.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to close the exact gap that produces the most reputationally damaging access finding: a former employee who could still log in.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-section" id="part-ii-it-general-controls-change-operations">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Part II</span>
+        <h2>IT General Controls: Change &amp; Operations</h2>
+        <p>ITGC Change Management is the second domain nearly every posting names explicitly — this Part gives you all three years of the recurring thread plus the operations and code-security topics around it.</p>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">2</span></div>
+          <div class="topic-body">
+            <h3>The Emergency Change ★</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Confirm every transport’s contents and release timestamp in SE01, then cross-reference it against the change ticket system to catch anything logged as emergency but never justified.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to test change management the way it actually breaks in practice — not “was there a ticket,” but “did the ticket exist before the change, not after.”</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">5</span></div>
+          <div class="topic-body">
+            <h3>The Cutover</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Pull a full cutover-weekend transport queue across every affected system and cross-check patch-level changes via SPAM/SAINT.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to test change management at the volume and speed of a real go-live weekend, not just a routine week.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">8</span></div>
+          <div class="topic-body">
+            <h3>The Third Party</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Confirm a vendor’s transports appear in the standard SAP transport log and reconcile them against the vendor’s own ticketing export.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to hold a third-party developer to the exact same change-control standard as an internal team — a gap most companies quietly don’t enforce.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">18</span></div>
+          <div class="topic-body">
+            <h3>The Untested Backup ★</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Review backup job completion in DB13/DB12 and confirm whether a live restore test has ever actually been performed.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to tell a client the difference between “we take backups” and “we’ve proven we can restore from them” — the gap that turns a routine control into a business-continuity crisis.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">19</span></div>
+          <div class="topic-body">
+            <h3>The Interface Gap ★</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Monitor RFC calls in SM58, check IDoc processing status in WE02/WE05, and reprocess errored IDocs via BD87.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to test system-to-system interfaces with the same rigor as a manual control — a scope area most junior testers skip because it feels “too technical.”</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">20</span></div>
+          <div class="topic-body">
+            <h3>The Back Door</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Review a custom transaction’s AUTHORITY-CHECK statements in SE38/SE80 and compare them against standard authorization defaults in SU24.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to test custom ABAP code for a missing authorization check — the exact kind of gap that lets someone bypass every access control you just tested in Part I.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-section" id="part-iii-record-to-report">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Part III</span>
+        <h2>Record to Report</h2>
+        
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">3</span></div>
+          <div class="topic-body">
+            <h3>The Approval Limit ★</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Pull a population of journal entries via FBL3N and confirm each one’s approval workflow in SWI1/SWIA against the configured routing threshold.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to prove a financial approval limit is actually enforced by the system, not just documented in a policy nobody checks.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">6</span></div>
+          <div class="topic-body">
+            <h3>The Other Ledger</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Test an acquired entity’s controls whether or not they’ve migrated onto SAP yet, requesting the full population instead of a pre-selected sample.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to walk into a post-acquisition environment and test controls that don’t yet run on your own systems — a scenario standard SAP training never covers.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">9</span></div>
+          <div class="topic-body">
+            <h3>The Tip Line</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Investigate one specific journal entry using FB03’s change-document history and independently re-pull the population via SE16N on BKPF/BSEG.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to run a targeted investigation from a single tip or complaint, not just a routine sample-based test.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-section" id="part-iv-sap-grc-platform-modules">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Part IV</span>
+        <h2>SAP GRC Platform Modules</h2>
+        <p>Testing whether the automated controls tools themselves are actually working — a level up from testing the controls they monitor.</p>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">14</span></div>
+          <div class="topic-body">
+            <h3>The Rule That Never Fired ★</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Review a GRC Process Control business rule’s exception history, confirm the underlying job actually ran via SM37, and independently query the source table to see what the rule should have found.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to catch an automated control that’s configured correctly but silently never actually executing — invisible to anyone who only checks the configuration.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">15</span></div>
+          <div class="topic-body">
+            <h3>The Risk Register</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Review the GRC Risk Management risk catalog and independently verify each risk’s linked mitigating control reference still exists and is active.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to catch a risk register that looks complete on paper but points to controls that were quietly retired or never built.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-section" id="part-v-governance-disclosure-executive-reporting">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Part V</span>
+        <h2>Governance, Disclosure &amp; Executive Reporting</h2>
+        
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">10</span></div>
+          <div class="topic-body">
+            <h3>The Signature Page</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Review the issue/deficiency tracker’s discipline and your team’s status-reporting practice against what ultimately reaches a CFO’s signature.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll understand exactly how your day-to-day testing work turns into the sentence a CFO signs their name to.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">11</span></div>
+          <div class="topic-body">
+            <h3>The Comment Letter</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Assemble evidence supporting an SEC response, organizing source documents chronologically and by control period.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to produce an evidence package that survives direct SEC scrutiny, not just an internal review.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">12</span></div>
+          <div class="topic-body">
+            <h3>The Four-Day Clock ★</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Reconstruct a security-relevant event’s technical timeline using SM21/SM20 and cross-reference it against the transport log.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to support a disclosure-controls review under a real regulatory deadline, with the technical evidence already assembled correctly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-section" id="part-vi-legal-compliance-adjacent-scope">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Part VI</span>
+        <h2>Legal &amp; Compliance Adjacent Scope</h2>
+        
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">21</span></div>
+          <div class="topic-body">
+            <h3>The Retention Policy</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Identify records by age in HR and vendor master tables via SE16N and review Information Lifecycle Management retention rules where configured.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to test a data-retention policy the way a privacy regulator actually checks it — against real record ages, not a written policy statement.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">22</span></div>
+          <div class="topic-body">
+            <h3>The Indirect Access</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Review SAP’s own license measurement output in USMM and quantify indirect-access volume via table queries and workload analysis in ST03N.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to flag a licensing exposure before it becomes an expensive true-up bill during a vendor audit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-section" id="part-vii-business-application-controls">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Part VII</span>
+        <h2>Business Application Controls</h2>
+        <p>Matching, payments, tolerances, batch jobs, and asset parameters — the business-process control layer above ITGC that most competing courses don’t cover at all.</p>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">23</span></div>
+          <div class="topic-body">
+            <h3>The Job That Stopped Running</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Review a job’s actual execution history in SM37 with cancelled runs included, and cross-check it against SM36’s defined schedule.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to catch a batch job that’s silently failing or silently doing nothing — invisible to a review that only checks for a “finished” status.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">24</span></div>
+          <div class="topic-body">
+            <h3>The Match That Wasn’t</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Pull purchase-order line items by plant via SE16N and confirm via ME23N and MB51 whether three-way match is actually enforced everywhere it’s supposed to be.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to test a match control’s configuration itself, not just sample invoices against a control that may never have been capable of catching anything.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">25</span></div>
+          <div class="topic-body">
+            <h3>The File That Left Twice</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Cross-reference payment run tables directly via SE16N to confirm proposal creation and execution were performed by different people, and count transmission records per file.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to catch a duplicate payment file transmission and the segregation-of-duties gap behind it, not just the payment run’s summary screen.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">26</span></div>
+          <div class="topic-body">
+            <h3>The Bank Detail Nobody Approved</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Build your test population from raw change-document tables rather than the workflow log, and calculate the day-count between a bank-detail change and the next payment.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to test the single highest-value target in vendor-fraud schemes — a control most testers check from the wrong starting population.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">27</span></div>
+          <div class="topic-body">
+            <h3>The Tolerance That Swallowed It</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Pull invoice tolerance configuration via OMR6 and confirm whether an empty blocked-invoice list means the control works or means it’s set too wide to catch anything.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to correctly read a “clean” control report as a possible red flag instead of automatically treating it as good news.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">28</span></div>
+          <div class="topic-body">
+            <h3>The Depreciation That Kept Running</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Group acquired assets by depreciation key via SE16N and confirm whether they were ever remapped to your own company’s depreciation policy.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to catch a post-acquisition control gap that can run silently, without error, for years — successful execution and correct calculation are not the same assertion.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-section" id="part-viii-order-to-cash-controls">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Part VIII</span>
+        <h2>Order-to-Cash Controls</h2>
+        <p>The revenue side of the business, held to the same standard as the money already covered in Part VII — credit release independence and billing cutoff.</p>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">29</span></div>
+          <div class="topic-body">
+            <h3>The Held Order</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Pull the population of credit-blocked sales orders straight from table VBUK and compare each release against the order’s original creator in VA03.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to spot a credit-hold control that’s become a formality the order’s own creator can clear alone, instead of assuming a block that eventually released was a block that worked.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">30</span></div>
+          <div class="topic-body">
+            <h3>The Early Invoice</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Reconstruct the billing population from tables VBRK/VBRP and compare each document’s creation timestamp against its delivery’s actual goods-issue time in VL03N.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to catch revenue pulled forward to hit a quarter-end target — a violation a date-only comparison, instead of a timestamp comparison, would miss entirely.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-section" id="part-ix-treasury-tax-controls">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Part IX</span>
+        <h2>Treasury &amp; Tax Controls</h2>
+        <p>Bank reconciliation and tax configuration — exposure most junior testers never get assigned until someone asks them to look at it.</p>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">31</span></div>
+          <div class="topic-body">
+            <h3>The Uncleared Item</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Pull the bank clearing account’s open-item aging directly via FAGLL03 and confirm every active house bank account is actually inside the reconciliation scope.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to catch an account quietly dropped from a reconciliation report’s scope — a gap that looks like a clean result instead of the finding it actually is.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">32</span></div>
+          <div class="topic-body">
+            <h3>The Rate That Didn’t Update</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Compare a tax code’s transport go-live date against its policy-effective date, then recompute the tax that should have posted using table BSET.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to quantify exactly what a configuration change’s timing gap cost in real dollars, instead of noting the gap existed and moving on.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-section" id="part-x-adjacent-tools-emerging-practice">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Part X</span>
+        <h2>Adjacent Tools &amp; Emerging Practice</h2>
+        <p>The tools and methods increasingly sitting alongside native SAP GRC — third-party platforms, full-population data analytics, and AI-assisted review.</p>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">33</span></div>
+          <div class="topic-body">
+            <h3>The Other Platform</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Run the same SoD risk analysis on native SAP GRC AC and a third-party platform side by side, then reconcile any mismatch back to its ruleset.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to work an engagement where SoD sign-off runs through Fastpath, Pathlock, or SailPoint instead of — or alongside — native SAP GRC, which a growing share of employers now expect.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">34</span></div>
+          <div class="topic-body">
+            <h3>The Spreadsheet That Found It</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Pull a full transaction population into a simple query and calculate every record’s variance against a control threshold in one pass, instead of a small manual sample.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to recognize when a finding only exists in aggregate — and reach for SQL or Power BI instead of stretching a 25-item sample that was never going to find it.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">35</span></div>
+          <div class="topic-body">
+            <h3>The Recommendation Nobody Checked</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Compare access-approval decisions against SAP GRC 2026’s Joule-generated recommendation and the elapsed decision time, to test whether real review is still happening.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to speak fluently about AI-assisted GRC review in an interview — and know exactly what a rubber-stamped recommendation looks like in the data.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="topic-section" id="part-xi-manager-track-elective">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Part XI · Elective</span>
+        <h2>Manager Track Elective — From Finding to Closure</h2>
+        <p>Turn the findings from every other Part into a Risk &amp; Control Matrix, a severity rating, and a defensible conclusion — the manager’s side of the engagement.</p>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">36</span></div>
+          <div class="topic-body">
+            <h3>The Map Before the Testing</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Turn a control-owner walkthrough into a fully attributed Risk &amp; Control Matrix — owner, frequency, key/non-key, and testing approach — before any fieldwork begins.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to build the document that drives an entire engagement’s testing plan, instead of just executing tests someone else scoped.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">37</span></div>
+          <div class="topic-body">
+            <h3>The Control That Was Never Built to Hold</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Review a control’s role design in PFCG to determine whether it could ever enforce independence — independent of what any operating sample happened to show.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to tell a design deficiency from an operating deficiency and send the right fix to the right owner, instead of re-testing a control that can’t pass no matter the sample size.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">38</span></div>
+          <div class="topic-body">
+            <h3>How Many Is Enough</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Apply a frequency-based sample-size standard across an engagement’s key controls, and retest whether earlier populations were sourced independently.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to defend a sample size and a population source as two separate, equally necessary decisions, instead of treating a correctly-sized sample as automatically a correct one.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">39</span></div>
+          <div class="topic-body">
+            <h3>What Kind of Finding Is This</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Rate a set of engagement findings as deficiency, significant deficiency, or material weakness using one consistent framework — impact, pervasiveness, and compensating controls.</p>
+            <p class="job"><span class="lbl">On the Job</span>You’ll be able to walk into an Audit Committee conversation with a severity call you can defend in one sentence, instead of a rating that was really just a gut feeling.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<section class="topic-section" id="reference">
+  <div class="wrap">
+    <div class="library-block">
+      <span class="eyebrow" style="color:var(--amber);">Reference — Not a Topic You Progress Through</span>
+      <h2>Evidence &amp; Templates Library</h2>
+      <p><span class="lbl">What It Gives You</span>The SOX/ITGC control policy, the control matrix, the evidence testing tracker, and the entity-level controls register, each with a plain-language "what it is / how it's used" explanation before you ever open it.</p>
+      <p><span class="lbl">On the Job</span>You'll recognize and know how to use the exact document types you're handed on day one of a real engagement, instead of encountering them for the first time under deadline pressure.</p>
+    </div>
+    <div class="page-links-row">
+      <a href="course1-assessment.html" class="page-link-card">
+        <span class="plc-eyebrow">Next</span>
+        <h3>What's included &amp; how it's assessed →</h3>
+        <p>The Controls Theory exam, every Book's completed workpaper exhibit, and the seven things a reviewer actually checks.</p>
+      </a>
+      <a href="course1-faq.html" class="page-link-card">
+        <span class="plc-eyebrow">Questions</span>
+        <h3>FAQ &amp; how to enroll →</h3>
+        <p>Format, pacing, SAP access, and what you walk away with.</p>
+      </a>
+      <a href="sap-testing-course_01_HOME.html" class="page-link-card">
+        <span class="plc-eyebrow">Back</span>
+        <h3>← Course 1 overview</h3>
+        <p>The promise, the roles this prepares you for, and the case you'll work.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="cta-footer">
+  <div class="wrap">
+    <h2>Every claim on this page, checkable against a real job posting.</h2>
+    <p>See what's included and how it's assessed, or start Course 1 directly.</p>
+    <div class="hero-cta-row" style="justify-content:center;">
+      <a href="course1-assessment.html" class="btn btn-amber">What's included &amp; assessed →</a>
+      <a href="enrollment.html" class="btn btn-outline">Enroll in Course 1</a>
+    </div>
+  </div>
+</div>
+
+
+<footer class="site-footer">
+  <div class="foot-links">
+    <a href="sap-testing-course_01_HOME.html">Overview</a> ·
+    <a href="course1-curriculum.html">Curriculum</a> ·
+    <a href="course1-assessment.html">Assessment &amp; Format</a> ·
+    <a href="course1-faq.html">FAQ</a>
+  </div>
+  TIB Systems — Atlanta · Hyderabad · Ras Al Khaimah
+</footer>
+
+</body>
+</html>
