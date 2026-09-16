@@ -30,14 +30,14 @@ body{
 }
 a{color:inherit;}
 .wrap{
-  max-width:960px;
+  max-width:1600px;
   margin:0 auto;
-  padding:28px 18px 60px;
+  padding:20px 24px 40px;
 }
 header.masthead{
   background:linear-gradient(135deg, var(--ink) 0%, #223449 100%);
   border-bottom:3px solid var(--signal);
-  padding:34px 0 30px;
+  padding:20px 0 18px;
   margin-bottom:8px;
 }
 header.masthead .wrap{padding-top:0;padding-bottom:0;}
@@ -52,7 +52,7 @@ h1{
   font-family:'Lora',serif;
   font-weight:600;
   font-size:clamp(26px,5vw,38px);
-  margin:0 0 10px;
+  margin:0 0 8px;
   color:#FDFBF6;
 }
 .sub{
@@ -65,7 +65,7 @@ h1{
   display:flex;
   flex-wrap:wrap;
   gap:10px;
-  margin-top:22px;
+  margin-top:14px;
 }
 .glance-pill{
   display:flex;
@@ -73,7 +73,7 @@ h1{
   gap:2px;
   background:rgba(255,255,255,0.07);
   border:1px solid rgba(255,255,255,0.18);
-  padding:9px 16px;
+  padding:7px 16px;
   min-width:150px;
 }
 .glance-pill .gp-label{
@@ -308,12 +308,12 @@ footer{
   color:var(--steel);
 }
 @media (min-width:600px){
-  .wrap{padding:40px 28px 70px;}
+  .wrap{padding:24px 32px 50px;}
   .cohort-strip{padding:20px 24px;}
   .seat{font-size:12px;}
 }
 @media (min-width:880px){
-  .wrap{padding:56px 0 80px;}
+  .wrap{padding:28px 40px 60px;}
   h1{font-size:42px;}
   .seat-grid{grid-template-columns:repeat(5,120px);justify-content:start;}
 }
@@ -394,7 +394,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
       Function settings (or set a new FULLSWEEP_WEBHOOK_SECRET there
       if you'd rather keep it separate).
    ============================================================ */
-const SYSTEME_CHECKOUT_URL = 'https://live-course1-2-homepage.systeme.io/fullsweeporder';
+const SYSTEME_CHECKOUT_URL = 'https://YOUR-SYSTEME-IO-CHECKOUT-URL';
 const COURSE_PRICE_DISPLAY = '$950';
 
 function buildCheckoutUrl(firstName, lastName, email, slotId, slotLabel){
