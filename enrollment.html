@@ -9,14 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#16212E;
-  --paper:#F7F5EF;
-  --steel:#3D5166;
-  --signal:#B8923F;
-  --confirm:#4B7B62;
-  --full:#A24B3F;
-  --line:#DAD4C6;
-  --panel:#FFFFFF;
+  --ink:#3B2416;
+  --paper:#FBF3E7;
+  --steel:#7A5B45;
+  --signal:#D97B29;
+  --confirm:#7A9450;
+  --full:#C0453A;
+  --line:#E8D5B8;
+  --panel:#FFFDF9;
 }
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
@@ -35,7 +35,7 @@ a{color:inherit;}
   padding:20px 24px 40px;
 }
 header.masthead{
-  background:linear-gradient(135deg, var(--ink) 0%, #223449 100%);
+  background:linear-gradient(135deg, var(--ink) 0%, #5C3820 100%);
   border-bottom:3px solid var(--signal);
   padding:20px 0 18px;
   margin-bottom:8px;
@@ -231,6 +231,7 @@ h1{
 form.enroll{
   margin-top:8px;
   padding:20px;
+  max-width:420px;
   background:var(--panel);
   border:1px solid var(--line);
   display:none;
@@ -281,15 +282,15 @@ button.submit{
   width:100%;
   padding:13px;
   font-size:15px;
-  font-weight:600;
+  font-weight:700;
   font-family:inherit;
-  background:var(--ink);
-  color:var(--paper);
+  background:var(--signal);
+  color:#fff;
   border:none;
   cursor:pointer;
 }
 button.submit:disabled{opacity:.5;cursor:wait;}
-button.submit:hover:not(:disabled){background:var(--steel);}
+button.submit:hover:not(:disabled){background:#8F5D18;}
 .msg{
   margin-top:14px;
   padding:12px 14px;
@@ -320,22 +321,22 @@ footer{
 
 /* Site nav — matches index.html / course1-*.html exactly, so every page
    (including this one) shares the same way back to the rest of the site. */
-header.site-nav{background:#12213A;color:#fff;border-bottom:3px solid #C0812A;}
+header.site-nav{background:#3B2416;color:#fff;border-bottom:3px solid #D97B29;}
 header.site-nav .site-nav-wrap{max-width:1600px;margin:0 auto;padding:14px 24px;
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
 header.site-nav .brand{font-family:'Lora',Georgia,serif;font-weight:700;font-size:19px;
   color:#fff;text-decoration:none;font-style:italic;}
-header.site-nav .brand span{color:#F5A83C;font-style:normal;}
+header.site-nav .brand span{color:#F0A868;font-style:normal;}
 header.site-nav .nav-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
 header.site-nav nav.subnav{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;letter-spacing:0.2px;
   font-family:'IBM Plex Sans',sans-serif;}
 header.site-nav nav.subnav a{color:#FFFFFF;font-weight:600;text-decoration:none;white-space:nowrap;
   padding-bottom:3px;border-bottom:2px solid transparent;}
-header.site-nav nav.subnav a:hover{color:#F5A83C;}
-header.site-nav nav.subnav a.active{border-bottom:2px solid #C0812A;}
-header.site-nav .nav-cta{background:#C0812A;color:#fff;padding:8px 16px;border-radius:4px;font-size:12.5px;
+header.site-nav nav.subnav a:hover{color:#F0A868;}
+header.site-nav nav.subnav a.active{border-bottom:2px solid #D97B29;}
+header.site-nav .nav-cta{background:#D97B29;color:#fff;padding:8px 16px;border-radius:4px;font-size:12.5px;
   font-weight:700;text-decoration:none;white-space:nowrap;font-family:'IBM Plex Sans',sans-serif;}
-header.site-nav .nav-cta:hover{background:#8F5D18;}
+header.site-nav .nav-cta:hover{background:#A85A1D;}
 </style>
 </head>
 <body>
