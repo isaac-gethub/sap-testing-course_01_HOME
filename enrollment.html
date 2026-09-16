@@ -374,34 +374,32 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 /* ============================================================
-   CONFIGURE THIS BEFORE DEPLOYING
+   CONFIGURATION NOTES
    ============================================================
-   1. SYSTEME_CHECKOUT_URL — paste your Systeme.io order/checkout
-      page URL for The Full Sweep ($950).
-   2. Test the URL once with something like
-      SYSTEME_CHECKOUT_URL + "?email=test@example.com&first_name=Test&last_name=User&slot_id=..."
-      and confirm email/first_name/last_name prefill on the
-      Systeme.io page. If Systeme.io's template uses different
-      parameter names, adjust the .set() calls inside
-      buildCheckoutUrl() below to match.
-   3. The seat is now provisioned by the fullsweep-payment-webhook
+   1. SYSTEME_CHECKOUT_URL — your Systeme.io order/checkout page
+      URL for The Full Sweep ($950). Already set below.
+   2. Only email is collected and passed through on the checkout
+      URL — confirmed against the real checkout page that its
+      "email" field is the one Systeme.io parameter that actually
+      prefills from the URL. First/last name are intentionally
+      NOT collected here or passed to Systeme.io: its checkout
+      form requires the trainee to enter a name anyway, and that
+      name may legitimately be the cardholder's rather than the
+      trainee's — the payment webhook reads whatever name Systeme.io
+      actually collects at checkout as the source of truth.
+   3. The seat is provisioned by the fullsweep-payment-webhook
       Supabase Edge Function AFTER payment succeeds — not by this
-      page. Register a webhook in Systeme.io (Settings → Webhooks →
-      Create) pointed at:
+      page. Webhook already registered in Systeme.io (Settings →
+      Webhooks), pointed at:
         https://blfgwysgekfqhcafofhe.supabase.co/functions/v1/fullsweep-payment-webhook
-      event: "New sale". Use the same secret key already stored as
-      SYSTEME_WEBHOOK_SECRET in this Supabase project's Edge
-      Function settings (or set a new FULLSWEEP_WEBHOOK_SECRET there
-      if you'd rather keep it separate).
+      event: "New sale".
    ============================================================ */
 const SYSTEME_CHECKOUT_URL = 'https://live-course1-2-homepage.systeme.io/fullsweeporder';
 const COURSE_PRICE_DISPLAY = '$950';
 
-function buildCheckoutUrl(firstName, lastName, email, slotId, slotLabel){
+function buildCheckoutUrl(email, slotId, slotLabel){
   const url = new URL(SYSTEME_CHECKOUT_URL);
   url.searchParams.set('email', email);
-  url.searchParams.set('first_name', firstName);
-  url.searchParams.set('last_name', lastName);
   url.searchParams.set('slot_id', slotId);
   url.searchParams.set('class_slot', slotLabel);
   return url.toString();
@@ -431,17 +429,7 @@ function buildEnrollForm(slotId){
   wrap.innerHTML = `
     <h3>Reserve your seat</h3>
     <p class="picked-label"></p>
-    <p class="price-label">${COURSE_PRICE_DISPLAY} one-time — your seat is confirmed once payment completes on the next screen</p>
-    <div class="field-row">
-      <div class="field">
-        <label>First name</label>
-        <input type="text" class="f-first" autocomplete="given-name" required>
-      </div>
-      <div class="field">
-        <label>Last name</label>
-        <input type="text" class="f-last" autocomplete="family-name" required>
-      </div>
-    </div>
+    <p class="price-label">${COURSE_PRICE_DISPLAY} one-time — you'll enter your name and payment details on the next screen. Your seat is confirmed once payment completes.</p>
     <div class="field">
       <label>Email</label>
       <input type="email" class="f-email" autocomplete="email" required>
@@ -456,10 +444,8 @@ function buildEnrollForm(slotId){
 async function handleSubmit(e, formEl){
   e.preventDefault();
   const slotId = formEl.dataset.slotId;
-  const firstName = formEl.querySelector('.f-first').value.trim();
-  const lastName = formEl.querySelector('.f-last').value.trim();
   const email = formEl.querySelector('.f-email').value.trim();
-  if (!firstName || !lastName || !email) return;
+  if (!email) return;
 
   const btn = formEl.querySelector('button.submit');
   const msg = formEl.querySelector('.msg');
@@ -497,15 +483,18 @@ async function handleSubmit(e, formEl){
 
   // Log which slot this email intends to pay for, so the payment webhook can
   // recover it even if Systeme.io doesn't echo the slot_id custom field back.
-  // Write-only from here — this table is never read by the browser.
+  // Write-only from here — this table is never read by the browser. Name is
+  // intentionally not collected here (see config notes above), so it's left
+  // out of this record; the webhook takes the real name from Systeme.io's
+  // own checkout payload instead.
   const { error: pendingError } = await supabase
     .from('fullsweep_pending_checkouts')
-    .insert({ slot_id: slotId, first_name: firstName, last_name: lastName, email });
+    .insert({ slot_id: slotId, email });
   if (pendingError){
     console.error('Could not log pending checkout (continuing anyway):', pendingError);
   }
 
-  const checkoutUrl = buildCheckoutUrl(firstName, lastName, email, slotId, selectedSlotText);
+  const checkoutUrl = buildCheckoutUrl(email, slotId, selectedSlotText);
   btn.textContent = 'Redirecting to payment…';
   msg.innerHTML = `Redirecting you to secure payment for ${selectedSlotText} — <a href="${checkoutUrl}">click here</a> if it doesn't happen automatically. Your seat is confirmed once payment completes.`;
   msg.className = 'msg success show';
