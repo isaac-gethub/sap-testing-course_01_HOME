@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job-Market Fit — 91% Matched to Live SAP SOX/ITGC Postings, TIB Systems</title>
+<meta name="description" content="How The Full Sweep scores against a global skills bank built from live SAP SOX/ITGC, GRC, and Clean Core job postings across the US/Canada, UK/Europe, and UAE/Middle East.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#12213A; --navy-2:#1B3358; --amber:#C0812A; --amber-deep:#8F5D18; --amber-bright:#F5A83C;
+    --teal:#1F6B67; --paper:#EDE7D8; --paper-2:#F7F4EA; --line:#C9BFA3;
+    --ink:#12213A; --ink-soft:#4A5872; --text:#2B3548; --red:#B3221A;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:var(--paper-2);color:var(--text);line-height:1.55;}
+  h1,h2,h3{font-family:'Spectral',Georgia,serif; color:var(--navy); margin:0 0 10px;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px;}
+
+  header.site-nav{background:var(--navy);color:#fff;position:sticky;top:0;z-index:50;
+    border-bottom:3px solid var(--amber);}
+  header.site-nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;flex-wrap:wrap;gap:14px;}
+  .brand{font-family:'Spectral',serif;font-weight:700;font-size:19px;color:#fff;text-decoration:none;font-style:italic;}
+  .brand span{color:var(--amber-bright);font-style:normal;}
+  nav.subnav{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;letter-spacing:0.2px;}
+  nav.subnav a{color:#FFFFFF;font-weight:600;text-decoration:none;white-space:nowrap;padding-bottom:3px;border-bottom:2px solid transparent;}
+  nav.subnav a:hover{color:var(--amber-bright);}
+  nav.subnav a.active{color:#fff;border-bottom:2px solid var(--amber);}
+  .nav-cta{background:var(--amber);color:#fff;padding:8px 16px;border-radius:4px;font-size:12.5px;
+    font-weight:700;text-decoration:none;white-space:nowrap;}
+  .nav-cta:hover{background:var(--amber-deep);}
+
+  .btn{display:inline-block;padding:12px 22px;border-radius:4px;font-weight:700;font-size:14px;text-decoration:none;}
+  .btn-amber{background:var(--amber);color:#fff;}
+  .btn-amber:hover{background:var(--amber-deep);}
+  .btn-outline{border:1px solid var(--line);color:var(--navy);background:#fff;}
+  .btn-outline:hover{border-color:var(--amber-deep);}
+
+  .hero{background:linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);color:#fff;padding:44px 0 40px;}
+  .eyebrow{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:var(--amber-bright);margin-bottom:14px;}
+  .hero h1{color:#fff;font-size:32px;line-height:1.18;max-width:24ch;margin-bottom:12px;}
+  .hero h1 em{color:var(--amber-bright);font-style:italic;}
+  .hero .lede{max-width:68ch;color:rgba(255,255,255,0.85);font-size:15.5px;margin-bottom:22px;}
+
+  .score-hero{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-top:8px;}
+  .score-dial{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:12px;
+    padding:22px 30px;text-align:center;min-width:150px;}
+  .score-dial .num{font-family:'Spectral',serif;font-weight:700;font-size:44px;color:var(--amber-bright);line-height:1;}
+  .score-dial .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.5px;text-transform:uppercase;
+    color:rgba(255,255,255,0.7);margin-top:6px;}
+  .score-hero-notes{max-width:44ch;font-size:14px;color:rgba(255,255,255,0.78);}
+
+  .topic-section{padding:52px 0;border-bottom:1px solid var(--line);}
+  .topic-section:nth-child(even){background:var(--paper);}
+  .section-head{max-width:80ch;margin-bottom:28px;}
+  .section-head .eyebrow{color:var(--amber-deep);}
+  .section-head h2{font-size:25px;}
+  .section-head p{color:var(--ink-soft);font-size:15px;max-width:76ch;}
+
+  .method-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px;}
+  .method-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px 16px;}
+  .method-card .m-num{font-family:'Spectral',serif;font-weight:700;font-size:22px;color:var(--navy);}
+  .method-card .m-lbl{font-size:12.5px;color:var(--ink-soft);margin-top:4px;}
+  @media (max-width:780px){.method-strip{grid-template-columns:1fr 1fr;}}
+
+  .cluster-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}
+  @media (max-width:780px){.cluster-grid{grid-template-columns:1fr;}}
+  .cluster-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px 20px;}
+  .cluster-card .cc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px;}
+  .cluster-card h3{font-size:15.5px;margin:0;font-family:'Inter',sans-serif;font-weight:700;color:var(--navy);max-width:34ch;}
+  .cluster-card p{font-size:13.5px;color:var(--ink-soft);margin:0;}
+  .score-badge{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;letter-spacing:0.3px;
+    padding:5px 12px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
+  .score-badge.strong{background:rgba(31,107,103,0.14);color:var(--teal);}
+  .score-badge.good{background:rgba(192,129,42,0.15);color:var(--amber-deep);}
+  .score-badge.gap{background:rgba(179,34,26,0.10);color:var(--red);}
+
+  .proof-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+  .proof-list li{background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:6px;
+    padding:14px 18px;font-size:14.5px;}
+  .proof-list li strong{color:var(--navy);}
+
+  .roadmap-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+  .roadmap-list li{background:#fff;border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:6px;
+    padding:14px 18px;font-size:14.5px;}
+  .roadmap-list li strong{color:var(--navy);}
+
+  .skip-note{background:var(--navy);color:#fff;border-radius:8px;padding:26px 28px;margin-top:8px;}
+  .skip-note h3{color:#fff;font-size:16px;margin-bottom:8px;}
+  .skip-note p{color:rgba(255,255,255,0.82);font-size:14px;margin:0 0 8px;max-width:74ch;}
+
+  .cta-footer{background:var(--paper);text-align:center;padding:56px 24px;border-top:1px solid var(--line);}
+  .cta-footer h2{font-size:24px;max-width:34ch;margin:0 auto 10px;}
+  .cta-footer p{color:var(--ink-soft);margin-bottom:22px;}
+  .hero-cta-row{display:flex;gap:12px;flex-wrap:wrap;}
+
+  footer.site-footer{background:var(--navy);color:rgba(255,255,255,0.6);padding:22px 24px;text-align:center;font-size:12.5px;}
+  footer.site-footer a{color:rgba(255,255,255,0.75);text-decoration:underline;}
+  footer.site-footer .foot-links{margin-bottom:8px;}
+
+  @media (max-width:600px){
+    .hero h1{font-size:25px;}
+    .hero .lede{font-size:14px;}
+    .score-hero{gap:16px;}
+    .score-dial{padding:16px 20px;min-width:120px;}
+    .score-dial .num{font-size:34px;}
+    nav.subnav{display:none;}
+    .method-strip{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">TIB <span>Systems</span></a>
+    <div style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;">
+      <nav class="subnav">
+        <a href="index.html">Overview</a><a href="course1-curriculum.html">Curriculum</a><a href="course1-assessment.html">Assessment &amp; Format</a><a href="course1-job-market-fit.html" class="active">Job-Market Fit</a><a href="course1-faq.html">FAQ</a>
+      </nav>
+      <a href="enrollment.html" class="nav-cta">Reserve a Seat</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">TIB-MKT-SKILLS-AUDIT-003 · Methodology &amp; Proof</span>
+    <h1>Scored against <em>live</em> job postings, not a syllabus template.</h1>
+    <p class="lede">Every domain in The Full Sweep is checked against real SAP SOX/ITGC, GRC, and Clean Core postings across three regions — built to match what the market actually asks for, not a generic syllabus.</p>
+    <div class="score-hero">
+      <div class="score-dial"><div class="num">91%</div><div class="lbl">Overall Market Match</div></div>
+      <div class="score-hero-notes">The Full Sweep was designed against the actual skill clusters live SAP SOX/ITGC and GRC postings test for — not a generic syllabus. The breakdown below shows exactly where the course stands, cluster by cluster.</div>
+    </div>
+  </div>
+</section>
+
+<section class="topic-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How We Checked</span>
+      <h2>A deep search across the markets this course is built for.</h2>
+      <p>Roles were pulled from Dice, Indeed, ZipRecruiter, and open web search — spanning hands-on ITGC testing analyst positions through SAP GRC configuration consultants to Big 4 advisory and enterprise platform-manager roles, so the resulting skills bank reflects the full career ladder, not just entry-level listings.</p>
+    </div>
+    <div class="method-strip">
+      <div class="method-card"><div class="m-num">3</div><div class="m-lbl">Regions: US/Canada, UK/Europe, UAE/Middle East</div></div>
+      <div class="method-card"><div class="m-num">14</div><div class="m-lbl">Recurring skill clusters identified</div></div>
+      <div class="method-card"><div class="m-num">4</div><div class="m-lbl">Job-board and web sources searched</div></div>
+      <div class="method-card"><div class="m-num">40</div><div class="m-lbl">Books checked against the bank</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="topic-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The Scorecard</span>
+      <h2>Fourteen clusters, scored individually — nothing averaged away.</h2>
+      <p>Each cluster below reflects a pattern seen repeatedly across live postings, matched against the specific Course 1 Books that cover it. Where the match isn't complete, the note says exactly why.</p>
+    </div>
+    <div class="cluster-grid">
+
+      <div class="cluster-card">
+        <div class="cc-top"><h3>SOX/ITGC Foundations</h3><span class="score-badge strong">100%</span></div>
+        <p>Access, change, computer operations, and logical security — the four classic ITGC domains — fully covered across Parts I–II.</p>
+      </div>
+
+      <div class="cluster-card">
+        <div class="cc-top"><h3>SAP GRC Access Control</h3><span class="score-badge strong">100%</span></div>
+        <p>ARA, ARM, EAM/Firefighter, BRM, and SoD ruleset design all covered in Part IV and Part I.</p>
+      </div>
+
+      <div class="cluster-card">
+        <div class="cc-top"><h3>SAP Security &amp; Role Design</h3><span class="score-badge good">90%</span></div>
+        <p>PFCG and Fiori security covered in Part I and Book 37; BTP security isn't yet its own Book.</p>
+      </div>
+
+      <div class="cluster-card">
+        <div class="cc-top"><h3>Control Execution &amp; Evidence</h3><span class="score-badge good">85%</span></div>
+        <p>Strong throughout — every Book ships an exhibit — though the term "IPE validation" itself isn't named anywhere yet.</p>
+      </div>
+
+      <div class="cluster-card">
+        <div class="cc-top"><h3>Root Cause &amp; Remediation</h3><span class="score-badge strong">100%</span></div>
+        <p>Remediation roadmap ownership is the entire arc of Book 39, in the Manager Track.</p>
+      </div>
+
+      <div class="cluster-card">
+        <div class="cc-top"><h3>Third-Party GRC Tools</h3><span class="score-badge strong">95%</span></div>
+        <p>Pathlock, Fastpath, and AuditBoard all named by product in Book 33.</p>
+      </div>
+
+      <div class="cluster-card">
+        <div class="cc-top"><h3>Data Analytics for Testing</h3><span class="score-badge strong">100%</span></div>
+        <p>Full-population analytics versus manual sampling is the entire plot of Book 34.</p>
+      </div>
+
+      <div class="cluster-card">
+        <div class="cc-top"><h3>RCM &amp; Governance Documentation</h3><span class="score-badge strong">100%</span></div>
+        <p>Book 36 builds a Risk &amp; Control Matrix from a live walkthrough — matching how the market actually expects this work done.</p>
+      </div>
+
+      <div class="cluster-card">
+        <div class="cc-top"><h3>Design vs. Operating Effectiveness</h3><span class="score-badge strong">100%</span></div>
+        <p>Both concepts get a dedicated Book — 37 and 38 — rather than being blended together.</p>
+      </div>
+
+      <div class="cluster-card">
+        <div class="cc-top"><h3>Deficiency Classification &amp; Reporting</h3><span class="score-badge strong">100%</span></div>
+        <p>Severity framework, full-population impact, and an Audit Committee readout all appear in Book 39.</p>
+      </div>
+
+      <div class="cluster-card">
+        <div class="cc-top"><h3>SAP Application/Business Controls</h3><span class="score-badge strong">100%</span></div>
+        <p>Matching, tolerances, batch jobs, Order-to-Cash, Treasury, and Tax all covered across Parts VII–IX.</p>
+      </div>
+
+      <div class="cluster-card">
+        <div class="cc-top"><h3>Clean Core / RISE Governance</h3><span class="score-badge strong">95%</span></div>
+        <p>Book 40, Part XII — extensibility-level classification, transport governance, and AI-generated-code review, one of the fastest-growing themes in 2026 postings.</p>
+      </div>
+
+      <div class="cluster-card">
+        <div class="cc-top"><h3>Regional/Regulatory Variants</h3><span class="score-badge gap">60%</span></div>
+        <p>Content technically supports all three regions; the marketing doesn't yet call out the UK FICO+CSV or UAE build/configure angles by name.</p>
+      </div>
+
+      <div class="cluster-card">
+        <div class="cc-top"><h3>Certifications</h3><span class="score-badge gap">50%</span></div>
+        <p>No CISA/CRISC/CPA domain cross-reference exists yet — on the roadmap below.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="topic-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Designed With Intent</span>
+      <h2>Built to match what the job actually requires — entry-level testing through manager-level governance.</h2>
+      <p>The Full Sweep was designed around one goal: give a trainee everything a live SAP SOX/ITGC or GRC posting actually asks for, across the full career ladder — not just the tasks a junior analyst handles on day one.</p>
+    </div>
+    <ul class="proof-list">
+      <li><strong>Every control domain a posting names has its own Book.</strong> Access, change, computer operations, GRC platform modules, business application controls, Order-to-Cash, and Treasury &amp; Tax each get full execution steps and a completed evidence exhibit — not a summary paragraph.</li>
+      <li><strong>Manager-level competencies are included, not assumed.</strong> RCM construction, design-versus-operating effectiveness, sampling rationale, and deficiency classification each get their own Book in the Manager Track — the exact skills postings expect once a role moves beyond pure testing.</li>
+      <li><strong>Emerging 2026 themes are covered directly.</strong> Clean Core/RISE governance — extensibility classification, transport governance, and reviewing AI-generated code — has its own dedicated Book, matching one of the fastest-growing requirements in current postings.</li>
+      <li><strong>Tools are named specifically, not described generically.</strong> Pathlock, Fastpath, and AuditBoard each appear by name, the same way a job posting names them.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="topic-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Where We're Adding Next</span>
+      <h2>Sharpening how we talk about what's already there.</h2>
+      <p>Three specific items are already in progress:</p>
+    </div>
+    <ul class="roadmap-list">
+      <li><strong>An "IPE validation" glossary note.</strong> The course already teaches the underlying discipline through its evidence/exhibit standard — the term itself just isn't named yet, and it shows up as an explicit line item in postings.</li>
+      <li><strong>Region-specific messaging.</strong> UK/Europe postings often pair SAP FICO + SOX with Computer System Validation and a chartered-accountant credential; UAE/Middle East postings skew toward build/configure work over testing/audit. The course content already supports both — the marketing hasn't caught up to say so explicitly yet.</li>
+      <li><strong>A certification cross-reference.</strong> A one-page map from course Books to CISA/CRISC exam domains — no new content, just a guide for trainees already pursuing those credentials alongside the course.</li>
+    </ul>
+
+    <div class="skip-note">
+      <h3>What we deliberately left out</h3>
+      <p>Two things came up in this search that we're not chasing: a single mention of SAP Ariba/SuccessFactors scope expansion at one company (not a recurring pattern), and general InfoSec GRC frameworks like ISO 27001, NIST, and SOC 2 that show up in postings blending SAP-specific and general cybersecurity responsibilities. Both belong to a different job family than the one this course targets — pulling them in would dilute the course rather than strengthen it.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-footer">
+  <div class="wrap">
+    <h2>See exactly which Books cover which scope area.</h2>
+    <p>Every claim on this page is checkable against the full curriculum.</p>
+    <div class="hero-cta-row" style="justify-content:center;">
+      <a href="course1-curriculum.html" class="btn btn-amber">See the full curriculum →</a>
+      <a href="enrollment.html" class="btn btn-outline">Reserve a seat</a>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="foot-links">
+    <a href="index.html">Overview</a> ·
+    <a href="course1-curriculum.html">Curriculum</a> ·
+    <a href="course1-assessment.html">Assessment &amp; Format</a> ·
+    <a href="course1-job-market-fit.html">Job-Market Fit</a> ·
+    <a href="course1-faq.html">FAQ</a>
+  </div>
+  TIB Systems — Atlanta · Hyderabad · Ras Al Khaimah
+</footer>
+
+</body>
+</html>
