@@ -203,6 +203,15 @@
   .library-block p{color:rgba(255,255,255,0.82);font-size:14.5px;max-width:70ch;}
   .library-block .lbl{color:var(--amber-bright);font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;display:block;margin-bottom:4px;}
 
+  .pricing-card{background:var(--navy);color:#fff;border-radius:8px;padding:40px 34px;margin-top:6px;text-align:center;}
+  .pricing-card .eyebrow{color:var(--amber-bright);}
+  .pricing-card .price-tag{font-family:'Spectral',serif;font-weight:700;font-size:56px;color:var(--amber-bright);margin:10px 0 4px;line-height:1;}
+  .pricing-card .price-note{font-size:13px;color:rgba(255,255,255,0.68);margin-bottom:26px;}
+  .pricing-includes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px 24px;
+    text-align:left;margin:0 auto 28px;max-width:920px;padding:0;list-style:none;}
+  .pricing-includes li{font-size:14px;color:rgba(255,255,255,0.88);display:flex;gap:10px;align-items:flex-start;}
+  .pricing-includes li::before{content:'✓';color:#2FBFA8;font-weight:800;flex-shrink:0;}
+
   .cta-footer{background:var(--paper);text-align:center;padding:56px 24px;border-top:1px solid var(--line);}
   .cta-footer h2{font-size:24px;max-width:34ch;margin:0 auto 10px;}
   .cta-footer p{color:var(--ink-soft);margin-bottom:22px;}
@@ -227,7 +236,7 @@
       <nav class="subnav">
         <a href="index.html" class="active">Overview</a><a href="course1-curriculum.html">Curriculum</a><a href="course1-assessment.html">Assessment & Format</a><a href="course1-job-market-fit.html">Job-Market Fit ★</a><a href="course1-faq.html">FAQ</a>
       </nav>
-      <a href="enrollment.html" class="nav-cta">Reserve a Seat</a>
+      <a href="enrollment.html" class="nav-cta">Reserve a Seat — $950</a>
     </div>
   </div>
 </header>
@@ -247,6 +256,7 @@
         <a href="course1-curriculum.html" class="btn btn-ghost">Full curriculum &amp; scope</a>
       </div>
       <p class="hero-benefit"><span class="hb-icon">🖥️</span><span><strong>Live S/4HANA server access</strong> — included for the full course, plus <strong>2 extra months after class</strong> to keep practicing and prepping for interviews.</span></p>
+      <p class="hero-benefit"><span class="hb-icon">💳</span><span><strong>$950 one-time</strong> — no subscription, one payment covers the full live course, either track.</span></p>
     </div>
     <div class="hero-right">
       <div class="roles-preview">
@@ -514,6 +524,30 @@
       <div class="score-row"><span class="sr-label">Clean Core / RISE Governance &amp; AI-Generated Code Review</span><span class="score-badge covered">Elective</span></div>
     </div>
     <p class="audit-note">Sourced from TIB-MKT-SKILLS-AUDIT-003, a full comparison of this course against the live global skills bank. <a href="course1-job-market-fit.html" style="color:var(--amber-deep);font-weight:700;">See the full audit, score by score →</a></p>
+  </div>
+</section>
+
+<section class="topic-section" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pricing</span>
+      <h2>One price. Everything included.</h2>
+      <p>Same price whether you pick the Weekday or Weekend rhythm — both run the identical 20-session course, live.</p>
+    </div>
+    <div class="pricing-card">
+      <span class="eyebrow">The Full Sweep</span>
+      <div class="price-tag">$950</div>
+      <div class="price-note">One-time payment · No subscription, no hidden fees</div>
+      <ul class="pricing-includes">
+        <li>20 live, instructor-led sessions across roughly 5 weeks</li>
+        <li>Live S/4HANA server access for the full course, plus 2 extra months after</li>
+        <li>Certificate of completion</li>
+        <li>Professional resume development &amp; job-search assistance</li>
+        <li>Choice of Weekday or Weekend track — identical content either way</li>
+        <li>All 35 core Books, plus the self-paced Manager Track Elective</li>
+      </ul>
+      <a href="enrollment.html" class="btn btn-amber">Reserve your seat — $950 →</a>
+    </div>
   </div>
 </section>
 
