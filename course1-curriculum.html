@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Full Sweep — Curriculum: 59 Topics, TIB Systems</title>
-<meta name="description" content="The full Full Sweep curriculum: Controls Theory prerequisite, Foundations, and 12 Parts of 40 Books across the Thornfield Industrial Group case.">
+<title>The Full Sweep — Curriculum: 65 Topics, TIB Systems</title>
+<meta name="description" content="The full Full Sweep curriculum: Controls Theory prerequisite, Foundations, and 13 Parts of 46 Books across the Thornfield Industrial Group case.">
 <style>
 
   @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap');
@@ -177,8 +177,9 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">The full curriculum</span>
-      <h2>59 topics across a Controls Theory prerequisite, Foundations, and 12 Parts of 40 Books</h2>
-      <p>One fictional company, Thornfield Industrial Group, worked front to back — the exact transaction codes, Fiori apps, and GRC navigation a working consultant uses, taught through 40 real deficiencies threaded into one connected case instead of scattered examples.</p>
+      <h2>65 topics across a Controls Theory prerequisite, Foundations, and 13 Parts of 46 Books</h2>
+      <p>One fictional company, Thornfield Industrial Group, worked front to back — the exact transaction codes, Fiori apps, and GRC navigation a working consultant uses, taught through 46 real deficiencies threaded into one connected case instead of scattered examples.</p>
+      <p style="font-weight:700;color:var(--navy);margin-top:10px;">Most SAP SOX/ITGC courses stop at FI, MM, and SD — this one adds Treasury depth (FX hedge accounting, In-House Cash), Payroll &amp; Personnel Controls, and Clean Core/RISE Governance, the areas a real audit scope memo includes that most training skips.</p>
     </div>
     <nav class="subnav" style="background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 18px;display:flex;">
       <a href="#prereq-controls-theory-exam" style="color:var(--navy);">PREREQ</a>
@@ -195,6 +196,7 @@
       <a href="#part-x-adjacent-tools-emerging-practice" style="color:var(--navy);">Part X</a>
       <a href="#part-xi-manager-track-elective" style="color:var(--navy);">Part XI</a>
       <a href="#part-xii-clean-core-rise-governance" style="color:var(--navy);">Part XII</a>
+      <a href="#part-xiii-payroll-personnel-controls" style="color:var(--navy);">Part XIII</a>
     </nav>
   </div>
 </section>
@@ -411,7 +413,7 @@
           <div class="topic-tab"><span class="topic-code">7</span></div>
           <div class="topic-body">
             <h3>The Fourth Chair</h3>
-            <p class="do"><span class="lbl">What You'll Do</span>Run GRC Access Risk Analysis against a Procurement-specific ruleset and confirm via SE16N whether flagged access was ever actually used.</p>
+            <p class="do"><span class="lbl">What You'll Do</span>Run GRC Access Risk Analysis against a Procurement-specific ruleset and confirm via SE16N whether flagged access was ever actually used, then test whether PO release approval is truly independent of PO creation.</p>
             <p class="job"><span class="lbl">On the Job</span>You’ll be able to distinguish access that’s merely risky from access that’s actually been exploited — the difference between a finding and a false alarm.</p>
           </div>
         </div>
@@ -651,7 +653,7 @@
           <div class="topic-tab"><span class="topic-code">24</span></div>
           <div class="topic-body">
             <h3>The Match That Wasn’t</h3>
-            <p class="do"><span class="lbl">What You'll Do</span>Pull purchase-order line items by plant via SE16N and confirm via ME23N and MB51 whether three-way match is actually enforced everywhere it’s supposed to be.</p>
+            <p class="do"><span class="lbl">What You'll Do</span>Pull purchase-order line items by plant via SE16N and confirm via ME23N and MB51 whether three-way match is actually enforced everywhere it’s supposed to be, and age the GR/IR clearing account for uncleared receipts and unsupported manual clearing.</p>
             <p class="job"><span class="lbl">On the Job</span>You’ll be able to test a match control’s configuration itself, not just sample invoices against a control that may never have been capable of catching anything.</p>
           </div>
         </div>
@@ -659,7 +661,7 @@
           <div class="topic-tab"><span class="topic-code">25</span></div>
           <div class="topic-body">
             <h3>The File That Left Twice</h3>
-            <p class="do"><span class="lbl">What You'll Do</span>Cross-reference payment run tables directly via SE16N to confirm proposal creation and execution were performed by different people, and count transmission records per file.</p>
+            <p class="do"><span class="lbl">What You'll Do</span>Cross-reference payment run tables directly via SE16N to confirm proposal creation and execution were performed by different people, and count transmission records per file, then hunt for duplicate invoices upstream of the payment file.</p>
             <p class="job"><span class="lbl">On the Job</span>You’ll be able to catch a duplicate payment file transmission and the segregation-of-duties gap behind it, not just the payment run’s summary screen.</p>
           </div>
         </div>
@@ -667,7 +669,7 @@
           <div class="topic-tab"><span class="topic-code">26</span></div>
           <div class="topic-body">
             <h3>The Bank Detail Nobody Approved</h3>
-            <p class="do"><span class="lbl">What You'll Do</span>Build your test population from raw change-document tables rather than the workflow log, and calculate the day-count between a bank-detail change and the next payment.</p>
+            <p class="do"><span class="lbl">What You'll Do</span>Build your test population from raw change-document tables rather than the workflow log, and calculate the day-count between a bank-detail change and the next payment, extending the population to new vendor creations and vendors that share a bank account.</p>
             <p class="job"><span class="lbl">On the Job</span>You’ll be able to test the single highest-value target in vendor-fraud schemes — a control most testers check from the wrong starting population.</p>
           </div>
         </div>
@@ -675,7 +677,7 @@
           <div class="topic-tab"><span class="topic-code">27</span></div>
           <div class="topic-body">
             <h3>The Tolerance That Swallowed It</h3>
-            <p class="do"><span class="lbl">What You'll Do</span>Pull invoice tolerance configuration via OMR6 and confirm whether an empty blocked-invoice list means the control works or means it’s set too wide to catch anything.</p>
+            <p class="do"><span class="lbl">What You'll Do</span>Pull invoice tolerance configuration via OMR6 and confirm whether an empty blocked-invoice list means the control works or means it’s set too wide to catch anything, and check who releases any invoice the tolerance does block.</p>
             <p class="job"><span class="lbl">On the Job</span>You’ll be able to correctly read a “clean” control report as a possible red flag instead of automatically treating it as good news.</p>
           </div>
         </div>
@@ -724,7 +726,7 @@
       <div class="section-head">
         <span class="eyebrow">Part IX</span>
         <h2>Treasury &amp; Tax Controls</h2>
-        <p>Bank reconciliation and tax configuration — exposure most junior testers never get assigned until someone asks them to look at it.</p>
+        <p>Bank reconciliation, tax configuration, FX hedge accounting, and intercompany cash movement — exposure most junior testers never get assigned until someone asks them to look at it.</p>
       </div>
       <div class="topic-grid">
         <div class="topic-card">
@@ -741,6 +743,22 @@
             <h3>The Rate That Didn’t Update</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Compare a tax code’s transport go-live date against its policy-effective date, then recompute the tax that should have posted using table BSET.</p>
             <p class="job"><span class="lbl">On the Job</span>You’ll be able to quantify exactly what a configuration change’s timing gap cost in real dollars, instead of noting the gap existed and moving on.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">41</span></div>
+          <div class="topic-body">
+            <h3>The Hedge That Wasn't Documented</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Confirm every active FX hedge carries a designation memo dated at or before trade inception, plus complete prospective and retrospective effectiveness testing.</p>
+            <p class="job"><span class="lbl">On the Job</span>You'll be able to tell a Treasury team that an economically effective hedge can still fail IFRS 9/ASC 815 documentation requirements — and why that distinction matters to an auditor.</p>
+          </div>
+        </div>
+        <div class="topic-card">
+          <div class="topic-tab"><span class="topic-code">42</span></div>
+          <div class="topic-body">
+            <h3>The In-House Bank</h3>
+            <p class="do"><span class="lbl">What You'll Do</span>Apply the same creator/approver segregation test used on external payment runs to intercompany netting settlements processed through In-House Cash.</p>
+            <p class="job"><span class="lbl">On the Job</span>You'll be able to recognize that "the cash never left the group" is not a reason to skip a segregation-of-duties test — the risk is the same.</p>
           </div>
         </div>
       </div>
@@ -847,6 +865,91 @@
       </div>
     </div>
   </section>
+
+<section class="topic-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Breadth, Not Just Depth</span>
+      <h2>SAP Modules &amp; Components Covered</h2>
+      <p>Eight core SAP modules and components, plus two areas most competing courses skip entirely — Fiori/UI-layer security and S/4HANA Cloud Clean Core governance.</p>
+    </div>
+    <div style="overflow-x:auto;border:1px solid var(--line);background:#fff;">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;min-width:640px;">
+        <thead>
+          <tr style="background:var(--navy);color:#fff;">
+            <th style="text-align:left;padding:10px 14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.3px;">MODULE</th>
+            <th style="text-align:left;padding:10px 14px;">Full Name</th>
+            <th style="text-align:left;padding:10px 14px;font-family:'JetBrains Mono',monospace;font-size:12px;">BOOKS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:9px 14px;font-weight:700;">FI</td><td style="padding:9px 14px;">Financial Accounting (GL, AP, AR)</td><td style="padding:9px 14px;color:var(--teal);">1, 3, 6, 9, 25, 26</td></tr>
+          <tr style="border-top:1px solid var(--line);background:var(--paper);"><td style="padding:9px 14px;font-weight:700;">FI-AA</td><td style="padding:9px 14px;">Asset Accounting</td><td style="padding:9px 14px;color:var(--teal);">28</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:9px 14px;font-weight:700;">FI-TR</td><td style="padding:9px 14px;">Treasury / Cash Management / FX Hedge Accounting</td><td style="padding:9px 14px;color:var(--teal);">31, 41, 42</td></tr>
+          <tr style="border-top:1px solid var(--line);background:var(--paper);"><td style="padding:9px 14px;font-weight:700;">FI (Tax)</td><td style="padding:9px 14px;">Tax Configuration</td><td style="padding:9px 14px;color:var(--teal);">32</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:9px 14px;font-weight:700;">MM</td><td style="padding:9px 14px;">Materials Management (Procurement, Invoice Verification)</td><td style="padding:9px 14px;color:var(--teal);">7, 24, 25, 27</td></tr>
+          <tr style="border-top:1px solid var(--line);background:var(--paper);"><td style="padding:9px 14px;font-weight:700;">SD</td><td style="padding:9px 14px;">Sales &amp; Distribution</td><td style="padding:9px 14px;color:var(--teal);">29, 30</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:9px 14px;font-weight:700;">BC</td><td style="padding:9px 14px;">Basis / NetWeaver Administration</td><td style="padding:9px 14px;color:var(--teal);">2, 5, 18, 19, 20, 23</td></tr>
+          <tr style="border-top:1px solid var(--line);background:var(--paper);"><td style="padding:9px 14px;font-weight:700;">BC-SEC</td><td style="padding:9px 14px;">Security &amp; Authorizations</td><td style="padding:9px 14px;color:var(--teal);">1, 4, 7, 13, 16, 17, 20</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:9px 14px;font-weight:700;">Fiori</td><td style="padding:9px 14px;">Fiori Launchpad / UI Technology</td><td style="padding:9px 14px;color:var(--teal);">13</td></tr>
+          <tr style="border-top:1px solid var(--line);background:var(--paper);"><td style="padding:9px 14px;font-weight:700;">GRC-AC</td><td style="padding:9px 14px;">GRC Access Control (ARA/ARM/EAM/BRM)</td><td style="padding:9px 14px;color:var(--teal);">1, 4, 7, 16, 33</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:9px 14px;font-weight:700;">GRC-PC</td><td style="padding:9px 14px;">GRC Process Control (CCM)</td><td style="padding:9px 14px;color:var(--teal);">14, 36</td></tr>
+          <tr style="border-top:1px solid var(--line);background:var(--paper);"><td style="padding:9px 14px;font-weight:700;">GRC-RM</td><td style="padding:9px 14px;">GRC Risk Management</td><td style="padding:9px 14px;color:var(--teal);">15</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:9px 14px;font-weight:700;">GRC 2026</td><td style="padding:9px 14px;">GRC + Joule (AI-assisted)</td><td style="padding:9px 14px;color:var(--teal);">35</td></tr>
+          <tr style="border-top:1px solid var(--line);background:var(--paper);"><td style="padding:9px 14px;font-weight:700;">ILM</td><td style="padding:9px 14px;">Information Lifecycle Management</td><td style="padding:9px 14px;color:var(--teal);">21</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:9px 14px;font-weight:700;">License Mgmt</td><td style="padding:9px 14px;">Digital Access / Indirect Usage</td><td style="padding:9px 14px;color:var(--teal);">22</td></tr>
+          <tr style="border-top:1px solid var(--line);background:var(--paper);"><td style="padding:9px 14px;font-weight:700;">S/4HANA Cloud / RISE</td><td style="padding:9px 14px;">Clean Core, Extensibility, BTP</td><td style="padding:9px 14px;color:var(--teal);">40</td></tr>
+          <tr style="border-top:1px solid var(--line);"><td style="padding:9px 14px;font-weight:700;">HR / PY</td><td style="padding:9px 14px;">HR (as an access-provisioning feed) &amp; full Payroll module</td><td style="padding:9px 14px;color:var(--teal);">4, 17, 43, 44, 45, 46</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px;font-size:13.5px;color:var(--ink-soft);">Plus adjacent non-SAP tooling used alongside these modules on real engagements: Pathlock, Fastpath, AuditBoard, SailPoint (Book 33) and SQL, Alteryx, Power BI (Book 34).</p>
+  </div>
+</section>
+
+<section class="topic-section" id="part-xiii-payroll-personnel-controls">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Part XIII · Required</span>
+      <h2>Payroll &amp; Personnel Controls</h2>
+      <p>Ghost-employee testing, pay-rate change approval, off-cycle payment segregation, and payroll-to-GL reconciliation — a domain most SAP SOX/ITGC courses skip entirely.</p>
+    </div>
+    <div class="topic-grid">
+      <div class="topic-card">
+        <div class="topic-tab"><span class="topic-code">43</span></div>
+        <div class="topic-body">
+          <h3>The Employee Who Wasn't</h3>
+          <p class="do"><span class="lbl">What You'll Do</span>Cross-reference bank details and addresses across the entire active-employee population to surface duplicate identities, then independently confirm any match with the cost-center manager.</p>
+          <p class="job"><span class="lbl">On the Job</span>You'll be able to tell the difference between an innocent data coincidence and an active ghost-employee exposure — and know which one requires an independent confirmation, not a plausible guess.</p>
+        </div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-tab"><span class="topic-code">44</span></div>
+        <div class="topic-body">
+          <h3>The Rate Nobody Signed Off</h3>
+          <p class="do"><span class="lbl">What You'll Do</span>Pull the full Basic Pay change population, confirm independent approval on every change, and check whether the changer's own role permits self-approval.</p>
+          <p class="job"><span class="lbl">On the Job</span>You'll be able to spot a role-design gap that lets one person both change and approve pay — a more serious finding than an isolated missed signature.</p>
+        </div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-tab"><span class="topic-code">45</span></div>
+        <div class="topic-body">
+          <h3>The Off-Cycle Exception</h3>
+          <p class="do"><span class="lbl">What You'll Do</span>Test requester/approver segregation on off-cycle payroll runs, then track off-cycle volume as a share of total payroll across several quarters.</p>
+          <p class="job"><span class="lbl">On the Job</span>You'll be able to catch a rising off-cycle trend before it's flagged as a bigger issue — a signal manual, single-quarter testing alone would miss.</p>
+        </div>
+      </div>
+      <div class="topic-card">
+        <div class="topic-tab"><span class="topic-code">46</span></div>
+        <div class="topic-body">
+          <h3>The Number That Didn't Match</h3>
+          <p class="do"><span class="lbl">What You'll Do</span>Independently reconcile the payroll posting run to the general ledger's payroll expense and liability accounts, then trace any variance to its source.</p>
+          <p class="job"><span class="lbl">On the Job</span>You'll be able to explain why a payroll run completing without errors is not proof the general ledger is right — and know exactly how to check.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="topic-section" id="reference">
   <div class="wrap">
