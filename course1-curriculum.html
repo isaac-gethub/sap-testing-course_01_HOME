@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Full Sweep — Curriculum: 22 Live Books + Beyond the Core, TIB Systems</title>
-<meta name="description" content="The Full Sweep curriculum: 22 live Books across 7 Parts in 20 sessions, plus 23 self-paced Beyond the Core Books, a Controls Theory prerequisite and SAP Foundations — one Thornfield Industrial Group case.">
+<meta name="description" content="The Full Sweep curriculum in two levels: Intermediate (19 Books, 16 sessions) and Advanced (8 Books, 12 sessions), plus 19 self-paced Beyond the Core Books, a Controls Theory prerequisite and SAP Foundations — one Thornfield Industrial Group case.">
 <style>
 
   @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap');
@@ -156,6 +156,8 @@
   .topic-mode.live{background:#2FBFA8;color:var(--navy);}
   .topic-mode.self{background:rgba(255,255,255,0.14);color:rgba(255,255,255,0.85);}
   .topic-mode.pre{background:var(--amber);color:#fff;}
+  .topic-mode.adv{background:#F0A868;color:var(--navy);}
+  .topic-mode.guided{background:#9ED9CF;color:var(--navy);}
   .mode-key{display:flex;flex-wrap:wrap;gap:14px;margin:14px 0 0;font-size:13px;color:var(--ink-soft);align-items:center;}
   .mode-key .topic-mode.self{background:var(--navy-2);color:#fff;}
   .count-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0 6px;}
@@ -211,19 +213,21 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">The full curriculum</span>
-      <h2>22 live Books in 20 sessions — plus a 23-Book Beyond the Core library</h2>
-      <p>One fictional company, Thornfield Industrial Group, worked front to back — the exact transaction codes, Fiori apps, and GRC navigation a working consultant uses. The live course carries the 22 Books current SAP GRC, Security and SOX/ITGC job postings ask for most. The other 23 — Treasury, Payroll, Clean Core/RISE, disclosure and more — stay with you as a self-paced library.</p>
+      <h2>Two levels: 19 Intermediate Books in 16 sessions, 8 Advanced Books in 12 — plus a 19-Book Beyond the Core library</h2>
+      <p>One fictional company, Thornfield Industrial Group, worked front to back — the exact transaction codes, Fiori apps, and GRC navigation a working consultant uses. Intermediate carries the testing work SOX/ITGC analyst postings ask for. Advanced carries the manager-level work — RCM, sampling, deficiency classification — plus third-party tools, analytics, AI-assisted review and Clean Core. The other 19 Books — Treasury, Payroll, disclosure and more — stay with you as a self-paced library.</p>
       <div class="count-strip">
-        <div class="count-pill"><div class="cp-num">22</div><div class="cp-lbl">Live Books</div></div>
-        <div class="count-pill"><div class="cp-num">20</div><div class="cp-lbl">Live Sessions</div></div>
-        <div class="count-pill"><div class="cp-num">23</div><div class="cp-lbl">Self-Paced Books</div></div>
+        <div class="count-pill"><div class="cp-num">19</div><div class="cp-lbl">Intermediate Books</div></div>
+        <div class="count-pill"><div class="cp-num">8</div><div class="cp-lbl">Advanced Books</div></div>
+        <div class="count-pill"><div class="cp-num">16 + 12</div><div class="cp-lbl">Live Sessions</div></div>
+        <div class="count-pill"><div class="cp-num">19</div><div class="cp-lbl">Self-Paced Books</div></div>
         <div class="count-pill"><div class="cp-num">11 + 8</div><div class="cp-lbl">Pre-Work Topics</div></div>
-        <div class="count-pill"><div class="cp-num">3</div><div class="cp-lbl">Marked Workpapers</div></div>
       </div>
       <div class="mode-key">
-        <span><span class="topic-mode live">Live · S#</span> taught in that live session</span>
+        <span><span class="topic-mode live">Int · S#</span> taught live in Intermediate</span>
+        <span><span class="topic-mode guided">Int · Guided</span> Intermediate self-study, checked in class</span>
+        <span><span class="topic-mode adv">Adv · S#</span> taught live in Advanced</span>
         <span><span class="topic-mode self">Self-paced</span> Beyond the Core</span>
-        <span><span class="topic-mode pre">Pre-work</span> before session 1</span>
+        <span><span class="topic-mode pre">Pre-work</span> before Intermediate session 1</span>
       </div>
     </div>
     <nav class="subnav" style="background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 18px;display:flex;">
@@ -249,41 +253,58 @@
 <section class="topic-section" id="session-plan">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">The 20-session plan</span>
+      <span class="eyebrow">The session plans</span>
       <h2>What happens in each live session</h2>
-      <p>Every session: Hour 1 Theory, Hour 2 live Demo Lab on S/4HANA — closing with 15 minutes of Defend It, where one student presents the conclusion and the instructor pushes back as the reviewer.</p>
+      <p>Every session at both levels: Hour 1 Theory, Hour 2 live Demo Lab on S/4HANA — closing with 15 minutes of Defend It, where one student presents the conclusion and the instructor pushes back as the reviewer.</p>
     </div>
+    <h3 style="margin:8px 0 10px;">Intermediate: Controls Testing — 16 sessions, 4 weeks</h3>
     <div class="session-table-wrap">
       <table class="session-table">
         <thead><tr><th>#</th><th>Session</th><th>Milestone</th></tr></thead>
         <tbody>
-            <tr><td class="sn">1</td><td>Kickoff — Controls Theory recap, evidence discipline (Foundations 108), SAP access check</td><td></td></tr>
+            <tr><td class="sn">1</td><td>Kickoff — evidence discipline, SAP access check, how Defend It works</td><td><span class='ms'>Prerequisite exam confirmed</span></td></tr>
             <tr><td class="sn">2</td><td>Book 1 — The Access List</td><td></td></tr>
-            <tr><td class="sn">3</td><td>Books 4 + 17 — The Next Badge, The Leaver (joiner/mover/leaver)</td><td></td></tr>
-            <tr><td class="sn">4</td><td>Books 7 + 13 — The Fourth Chair, The Tile (Procurement SoD, Fiori)</td><td></td></tr>
-            <tr><td class="sn">5</td><td>Book 16 — The Firefighter Log</td><td><span class='ms'>Workpaper 1 (access) assigned</span></td></tr>
-            <tr><td class="sn">6</td><td>Book 2 — The Emergency Change</td><td></td></tr>
-            <tr><td class="sn">7</td><td>Book 20 — The Back Door</td><td></td></tr>
-            <tr><td class="sn">8</td><td>Books 18 + 19 — The Untested Backup, The Interface Gap</td><td><span class='ms'>Workpaper 2 (change) assigned · WP1 returned</span></td></tr>
-            <tr><td class="sn">9</td><td>Book 14 + Book 23 — The Rule That Never Fired, The Job That Stopped Running</td><td></td></tr>
-            <tr><td class="sn">10</td><td>Book 3 — The Approval Limit</td><td></td></tr>
-            <tr><td class="sn">11</td><td>Book 36 — The Map Before the Testing: build the Thornfield RCM</td><td><span class='ms'>Midpoint RCM</span></td></tr>
+            <tr><td class="sn">3</td><td>Book 17 — The Leaver <span class='ms'>· self-study: Book 4 — The Next Badge</span></td><td></td></tr>
+            <tr><td class="sn">4</td><td>Book 7 — The Fourth Chair</td><td></td></tr>
+            <tr><td class="sn">5</td><td>Book 13 — The Tile</td><td></td></tr>
+            <tr><td class="sn">6</td><td>Book 16 — The Firefighter Log</td><td><span class='ms'>Workpaper 1 (Access / SoD) assigned — due before session 9</span></td></tr>
+            <tr><td class="sn">7</td><td>Book 2 — The Emergency Change</td><td></td></tr>
+            <tr><td class="sn">8</td><td>Book 20 — The Back Door <span class='ms'>· self-study: Book 18 — The Untested Backup</span></td><td></td></tr>
+            <tr><td class="sn">9</td><td>Book 19 — The Interface Gap</td><td><span class='ms'>Workpaper 2 (Change &amp; Operations) assigned — due before session 13 · Workpaper 1 returned marked</span></td></tr>
+            <tr><td class="sn">10</td><td>Book 14 — The Rule That Never Fired <span class='ms'>· self-study: Book 23 — The Job That Stopped Running</span></td><td></td></tr>
+            <tr><td class="sn">11</td><td>Book 3 — The Approval Limit</td><td></td></tr>
             <tr><td class="sn">12</td><td>Book 24 — The Match That Wasn't</td><td></td></tr>
-            <tr><td class="sn">13</td><td>Book 25 — The File That Left Twice</td><td><span class='ms'>WP2 returned</span></td></tr>
-            <tr><td class="sn">14</td><td>Book 26 — The Bank Detail Nobody Approved</td><td></td></tr>
-            <tr><td class="sn">15</td><td>Book 27 — The Tolerance That Swallowed It</td><td></td></tr>
-            <tr><td class="sn">16</td><td>Book 29 — The Held Order</td><td></td></tr>
-            <tr><td class="sn">17</td><td>Book 30 — The Early Invoice</td><td><span class='ms'>Workpaper 3 (ITAC / O2C) assigned</span></td></tr>
-            <tr><td class="sn">18</td><td>Books 37 + 38 — Design vs operating deficiency, sample size</td><td></td></tr>
-            <tr><td class="sn">19</td><td>Book 39 — What Kind of Finding Is This: rate the cohort's own findings</td><td><span class='ms'>WP3 returned</span></td></tr>
-            <tr><td class="sn">20</td><td>Stakeholder panel (auditor · developer · CFO) + Part X tools &amp; AI awareness + close</td><td><span class='ms'>Certificate</span></td></tr>
+            <tr><td class="sn">13</td><td>Book 25 — The File That Left Twice</td><td><span class='ms'>Workpaper 3 (ITAC — P2P / OTC) assigned — due before session 16 · Workpaper 2 returned marked</span></td></tr>
+            <tr><td class="sn">14</td><td>Book 26 — The Bank Detail Nobody Approved <span class='ms'>· self-study: Book 27 — The Tolerance That Swallowed It</span></td><td></td></tr>
+            <tr><td class="sn">15</td><td>Book 29 — The Held Order</td><td></td></tr>
+            <tr><td class="sn">16</td><td>Book 30 + close — certificate criteria and the Advanced pathway</td><td><span class='ms'>Workpaper 3 due · returned marked within a week · Intermediate certificate</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3 style="margin:26px 0 10px;">Advanced: Manager Track &amp; Emerging Practice — 12 sessions, 3 weeks</h3>
+    <div class="session-table-wrap">
+      <table class="session-table">
+        <thead><tr><th>#</th><th>Session</th><th>Milestone</th></tr></thead>
+        <tbody>
+            <tr><td class="sn">1</td><td>Bridge — entry check, Thornfield engagement brief, findings inventory from Intermediate</td><td><span class='ms'>Entry check (Intermediate certificate or experience review)</span></td></tr>
+            <tr><td class="sn">2</td><td>Book 36 — The Map Before the Testing</td><td></td></tr>
+            <tr><td class="sn">3</td><td>RCM workshop — finish the Thornfield RCM, select key controls</td><td><span class='ms'>Thornfield RCM marked</span></td></tr>
+            <tr><td class="sn">4</td><td>Book 37 — The Control That Was Never Built to Hold</td><td></td></tr>
+            <tr><td class="sn">5</td><td>Book 38 — How Many Is Enough</td><td></td></tr>
+            <tr><td class="sn">6</td><td>Book 39 — What Kind of Finding Is This</td><td><span class='ms'>Deficiency memo assigned — due before session 11</span></td></tr>
+            <tr><td class="sn">7</td><td>Book 33 — The Other Platform</td><td></td></tr>
+            <tr><td class="sn">8</td><td>Book 34 — The Spreadsheet That Found It</td><td></td></tr>
+            <tr><td class="sn">9</td><td>Book 35 — The Recommendation Nobody Checked</td><td></td></tr>
+            <tr><td class="sn">10</td><td>Book 40 — The Control That Moved</td><td></td></tr>
+            <tr><td class="sn">11</td><td>Capstone — severity rating and Audit Committee readout preparation</td><td><span class='ms'>Deficiency memo marked</span></td></tr>
+            <tr><td class="sn">12</td><td>Stakeholder panel — one finding to an auditor, an SAP developer and a CFO + close</td><td><span class='ms'>Panel graded · Advanced certificate</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-  <section class="topic-section" id="prereq-controls-theory-exam">
+<section class="topic-section" id="prereq-controls-theory-exam">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">PREREQ · Self-paced pre-work</span>
@@ -470,13 +491,13 @@
   <section class="topic-section" id="part-i-access-control-identity">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Part I · Live · Sessions 2–5</span>
+        <span class="eyebrow">Part I · Intermediate · Sessions 2–6 · + 1 guided self-study</span>
         <h2>Access Control &amp; Identity</h2>
         <p>Access Control/SoD is the domain most job postings ask for by name — this Part carries it in full, not as one topic among many.</p>
       </div>
       <div class="topic-grid">
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">1</span><span class="topic-mode live">Live · S2</span></div>
+          <div class="topic-tab"><span class="topic-code">1</span><span class="topic-mode live">Int · S2</span></div>
           <div class="topic-body">
             <h3>The Access List ★</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Run a GRC Access Risk Analysis at user level, then independently confirm the flagged conflict yourself through SUIM and PFCG.</p>
@@ -484,7 +505,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">4</span><span class="topic-mode live">Live · S3</span></div>
+          <div class="topic-tab"><span class="topic-code">4</span><span class="topic-mode guided">Int · Guided</span></div>
           <div class="topic-body">
             <h3>The Next Badge</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Test new-hire and turnover access using SU01, SUIM, and the GRC Access Request History to confirm provisioning matched what was actually approved.</p>
@@ -492,7 +513,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">7</span><span class="topic-mode live">Live · S4</span></div>
+          <div class="topic-tab"><span class="topic-code">7</span><span class="topic-mode live">Int · S4</span></div>
           <div class="topic-body">
             <h3>The Fourth Chair</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Run GRC Access Risk Analysis against a Procurement-specific ruleset and confirm via SE16N whether flagged access was ever actually used, then test whether PO release approval is truly independent of PO creation.</p>
@@ -500,7 +521,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">13</span><span class="topic-mode live">Live · S4</span></div>
+          <div class="topic-tab"><span class="topic-code">13</span><span class="topic-mode live">Int · S5</span></div>
           <div class="topic-body">
             <h3>The Tile</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Review Fiori Launchpad catalog and role assignments and cross-check them against the backend authorization objects the tile actually calls.</p>
@@ -508,7 +529,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">16</span><span class="topic-mode live">Live · S5</span></div>
+          <div class="topic-tab"><span class="topic-code">16</span><span class="topic-mode live">Int · S6</span></div>
           <div class="topic-body">
             <h3>The Firefighter Log ★</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Review firefighter ID activation logs in GRAC_SPM and cross-check actual transactions executed against the System Log in SM20.</p>
@@ -516,7 +537,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">17</span><span class="topic-mode live">Live · S3</span></div>
+          <div class="topic-tab"><span class="topic-code">17</span><span class="topic-mode live">Int · S3</span></div>
           <div class="topic-body">
             <h3>The Leaver</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Confirm a terminated user’s lock status in SU01, check for post-termination logins via SUIM and SM20, and verify their removal from access recertification.</p>
@@ -530,13 +551,13 @@
   <section class="topic-section" id="part-ii-it-general-controls-change-operations">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Part II · Live · Sessions 6–8 · + 2 self-paced extensions</span>
+        <span class="eyebrow">Part II · Intermediate · Sessions 7–9 · + 1 guided self-study · + 2 self-paced extensions</span>
         <h2>IT General Controls: Change &amp; Operations</h2>
         <p>ITGC Change Management is the second domain nearly every posting names explicitly — this Part gives you all three years of the recurring thread plus the operations and code-security topics around it.</p>
       </div>
       <div class="topic-grid">
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">2</span><span class="topic-mode live">Live · S6</span></div>
+          <div class="topic-tab"><span class="topic-code">2</span><span class="topic-mode live">Int · S7</span></div>
           <div class="topic-body">
             <h3>The Emergency Change ★</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Confirm every transport’s contents and release timestamp in SE01, then cross-reference it against the change ticket system to catch anything logged as emergency but never justified.</p>
@@ -560,7 +581,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">18</span><span class="topic-mode live">Live · S8</span></div>
+          <div class="topic-tab"><span class="topic-code">18</span><span class="topic-mode guided">Int · Guided</span></div>
           <div class="topic-body">
             <h3>The Untested Backup ★</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Review backup job completion in DB13/DB12 and confirm whether a live restore test has ever actually been performed.</p>
@@ -568,7 +589,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">19</span><span class="topic-mode live">Live · S8</span></div>
+          <div class="topic-tab"><span class="topic-code">19</span><span class="topic-mode live">Int · S9</span></div>
           <div class="topic-body">
             <h3>The Interface Gap ★</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Monitor RFC calls in SM58, check IDoc processing status in WE02/WE05, and reprocess errored IDocs via BD87.</p>
@@ -576,7 +597,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">20</span><span class="topic-mode live">Live · S7</span></div>
+          <div class="topic-tab"><span class="topic-code">20</span><span class="topic-mode live">Int · S8</span></div>
           <div class="topic-body">
             <h3>The Back Door</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Review a custom transaction’s AUTHORITY-CHECK statements in SE38/SE80 and compare them against standard authorization defaults in SU24.</p>
@@ -590,13 +611,13 @@
   <section class="topic-section" id="part-iii-record-to-report">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Part III · Live · Session 10 · + 2 self-paced extensions</span>
+        <span class="eyebrow">Part III · Intermediate · Session 11 · + 2 self-paced extensions</span>
         <h2>Record to Report</h2>
         
       </div>
       <div class="topic-grid">
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">3</span><span class="topic-mode live">Live · S10</span></div>
+          <div class="topic-tab"><span class="topic-code">3</span><span class="topic-mode live">Int · S11</span></div>
           <div class="topic-body">
             <h3>The Approval Limit ★</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Pull a population of journal entries via FBL3N and confirm each one’s approval workflow in SWI1/SWIA against the configured routing threshold.</p>
@@ -626,13 +647,13 @@
   <section class="topic-section" id="part-iv-sap-grc-platform-modules">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Part IV · Live · Session 9 · + 1 self-paced extension</span>
+        <span class="eyebrow">Part IV · Intermediate · Session 10 · + 1 self-paced extension</span>
         <h2>SAP GRC Platform Modules</h2>
         <p>Testing whether the automated controls tools themselves are actually working — a level up from testing the controls they monitor.</p>
       </div>
       <div class="topic-grid">
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">14</span><span class="topic-mode live">Live · S9</span></div>
+          <div class="topic-tab"><span class="topic-code">14</span><span class="topic-mode live">Int · S10</span></div>
           <div class="topic-body">
             <h3>The Rule That Never Fired ★</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Review a GRC Process Control business rule’s exception history, confirm the underlying job actually ran via SM37, and independently query the source table to see what the rule should have found.</p>
@@ -718,21 +739,21 @@
   <section class="topic-section" id="part-vii-business-application-controls">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Part VII · Live · Sessions 9, 12–15 · + 1 self-paced extension</span>
+        <span class="eyebrow">Part VII · Intermediate · Sessions 12–14 · + 2 guided self-study · + 1 self-paced extension</span>
         <h2>Business Application Controls</h2>
         <p>Matching, payments, tolerances, batch jobs, and asset parameters — the business-process control layer above ITGC that most competing courses don’t cover at all.</p>
       </div>
       <div class="topic-grid">
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">23</span><span class="topic-mode live">Live · S9</span></div>
+          <div class="topic-tab"><span class="topic-code">23</span><span class="topic-mode guided">Int · Guided</span></div>
           <div class="topic-body">
-            <h3>The Job That Stopped Running <span style="font-size:12px;font-weight:600;color:var(--teal);font-family:'Inter',sans-serif;">· taught with Book 14</span></h3>
+            <h3>The Job That Stopped Running</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Review a job’s actual execution history in SM37 with cancelled runs included, and cross-check it against SM36’s defined schedule.</p>
             <p class="job"><span class="lbl">On the Job</span>You’ll be able to catch a batch job that’s silently failing or silently doing nothing — invisible to a review that only checks for a “finished” status.</p>
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">24</span><span class="topic-mode live">Live · S12</span></div>
+          <div class="topic-tab"><span class="topic-code">24</span><span class="topic-mode live">Int · S12</span></div>
           <div class="topic-body">
             <h3>The Match That Wasn’t</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Pull purchase-order line items by plant via SE16N and confirm via ME23N and MB51 whether three-way match is actually enforced everywhere it’s supposed to be, and age the GR/IR clearing account for uncleared receipts and unsupported manual clearing.</p>
@@ -740,7 +761,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">25</span><span class="topic-mode live">Live · S13</span></div>
+          <div class="topic-tab"><span class="topic-code">25</span><span class="topic-mode live">Int · S13</span></div>
           <div class="topic-body">
             <h3>The File That Left Twice</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Cross-reference payment run tables directly via SE16N to confirm proposal creation and execution were performed by different people, and count transmission records per file, then hunt for duplicate invoices upstream of the payment file.</p>
@@ -748,7 +769,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">26</span><span class="topic-mode live">Live · S14</span></div>
+          <div class="topic-tab"><span class="topic-code">26</span><span class="topic-mode live">Int · S14</span></div>
           <div class="topic-body">
             <h3>The Bank Detail Nobody Approved</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Build your test population from raw change-document tables rather than the workflow log, and calculate the day-count between a bank-detail change and the next payment, extending the population to new vendor creations and vendors that share a bank account.</p>
@@ -756,7 +777,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">27</span><span class="topic-mode live">Live · S15</span></div>
+          <div class="topic-tab"><span class="topic-code">27</span><span class="topic-mode guided">Int · Guided</span></div>
           <div class="topic-body">
             <h3>The Tolerance That Swallowed It</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Pull invoice tolerance configuration via OMR6 and confirm whether an empty blocked-invoice list means the control works or means it’s set too wide to catch anything, and check who releases any invoice the tolerance does block.</p>
@@ -778,13 +799,13 @@
   <section class="topic-section" id="part-viii-order-to-cash-controls">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Part VIII · Live · Sessions 16–17</span>
+        <span class="eyebrow">Part VIII · Intermediate · Sessions 15–16</span>
         <h2>Order-to-Cash Controls</h2>
         <p>The revenue side of the business, held to the same standard as the money already covered in Part VII — credit release independence and billing cutoff.</p>
       </div>
       <div class="topic-grid">
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">29</span><span class="topic-mode live">Live · S16</span></div>
+          <div class="topic-tab"><span class="topic-code">29</span><span class="topic-mode live">Int · S15</span></div>
           <div class="topic-body">
             <h3>The Held Order</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Pull the population of credit-blocked sales orders straight from table VBUK and compare each release against the order’s original creator in VA03.</p>
@@ -792,7 +813,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">30</span><span class="topic-mode live">Live · S17</span></div>
+          <div class="topic-tab"><span class="topic-code">30</span><span class="topic-mode live">Int · S16</span></div>
           <div class="topic-body">
             <h3>The Early Invoice</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Reconstruct the billing population from tables VBRK/VBRP and compare each document’s creation timestamp against its delivery’s actual goods-issue time in VL03N.</p>
@@ -850,13 +871,13 @@
   <section class="topic-section" id="part-x-adjacent-tools-emerging-practice">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Part X · Beyond the Core · Self-paced · introduced live in session 20</span>
+        <span class="eyebrow">Part X · Advanced · Sessions 7–9</span>
         <h2>Adjacent Tools &amp; Emerging Practice</h2>
         <p>The tools and methods increasingly sitting alongside native SAP GRC — third-party platforms, full-population data analytics, and AI-assisted review.</p>
       </div>
       <div class="topic-grid">
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">33</span><span class="topic-mode self">Self-paced</span></div>
+          <div class="topic-tab"><span class="topic-code">33</span><span class="topic-mode adv">Adv · S7</span></div>
           <div class="topic-body">
             <h3>The Other Platform</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Run the same SoD risk analysis on native SAP GRC AC and a third-party platform side by side, then reconcile any mismatch back to its ruleset.</p>
@@ -864,7 +885,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">34</span><span class="topic-mode self">Self-paced</span></div>
+          <div class="topic-tab"><span class="topic-code">34</span><span class="topic-mode adv">Adv · S8</span></div>
           <div class="topic-body">
             <h3>The Spreadsheet That Found It</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Pull a full transaction population into a simple query and calculate every record’s variance against a control threshold in one pass, instead of a small manual sample.</p>
@@ -872,7 +893,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">35</span><span class="topic-mode self">Self-paced</span></div>
+          <div class="topic-tab"><span class="topic-code">35</span><span class="topic-mode adv">Adv · S9</span></div>
           <div class="topic-body">
             <h3>The Recommendation Nobody Checked</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Compare access-approval decisions against SAP GRC 2026’s Joule-generated recommendation and the elapsed decision time, to test whether real review is still happening.</p>
@@ -886,13 +907,13 @@
   <section class="topic-section" id="part-xi-manager-track-elective">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Part XI · Live · Sessions 11, 18–19</span>
+        <span class="eyebrow">Part XI · Advanced · Sessions 2–6</span>
         <h2>Manager Track — From Finding to Closure</h2>
-        <p>Turn the findings from every other Part into a Risk &amp; Control Matrix, a severity rating, and a defensible conclusion — the manager’s side of the engagement. <span class="part-note">Now part of the live course — it feeds the midpoint RCM and Workpaper 3.</span></p>
+        <p>Turn the findings from every other Part into a Risk &amp; Control Matrix, a severity rating, and a defensible conclusion — the manager’s side of the engagement. <span class="part-note">Taught live in Advanced — you build the Thornfield RCM from your Intermediate testing and write a deficiency memo.</span></p>
       </div>
       <div class="topic-grid">
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">36</span><span class="topic-mode live">Live · S11</span></div>
+          <div class="topic-tab"><span class="topic-code">36</span><span class="topic-mode adv">Adv · S2</span></div>
           <div class="topic-body">
             <h3>The Map Before the Testing</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Turn a control-owner walkthrough into a fully attributed Risk &amp; Control Matrix — owner, frequency, key/non-key, and testing approach — before any fieldwork begins.</p>
@@ -900,7 +921,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">37</span><span class="topic-mode live">Live · S18</span></div>
+          <div class="topic-tab"><span class="topic-code">37</span><span class="topic-mode adv">Adv · S4</span></div>
           <div class="topic-body">
             <h3>The Control That Was Never Built to Hold</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Review a control’s role design in PFCG to determine whether it could ever enforce independence — independent of what any operating sample happened to show.</p>
@@ -908,7 +929,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">38</span><span class="topic-mode live">Live · S18</span></div>
+          <div class="topic-tab"><span class="topic-code">38</span><span class="topic-mode adv">Adv · S5</span></div>
           <div class="topic-body">
             <h3>How Many Is Enough</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Apply a frequency-based sample-size standard across an engagement’s key controls, and retest whether earlier populations were sourced independently.</p>
@@ -916,7 +937,7 @@
           </div>
         </div>
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">39</span><span class="topic-mode live">Live · S19</span></div>
+          <div class="topic-tab"><span class="topic-code">39</span><span class="topic-mode adv">Adv · S6</span></div>
           <div class="topic-body">
             <h3>What Kind of Finding Is This</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Rate a set of engagement findings as deficiency, significant deficiency, or material weakness using one consistent framework — impact, pervasiveness, and compensating controls.</p>
@@ -931,13 +952,13 @@
   <section class="topic-section" id="part-xii-clean-core-rise-governance">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Part XII · Beyond the Core · Self-paced</span>
+        <span class="eyebrow">Part XII · Advanced · Session 10</span>
         <h2>Clean Core / RISE Governance</h2>
         <p>Confirm a control's underlying custom object actually survives a move to S/4HANA Cloud under Clean Core — classification, transport governance, and reviewing AI-generated code before it ships.</p>
       </div>
       <div class="topic-grid">
         <div class="topic-card">
-          <div class="topic-tab"><span class="topic-code">40</span><span class="topic-mode self">Self-paced</span></div>
+          <div class="topic-tab"><span class="topic-code">40</span><span class="topic-mode adv">Adv · S10</span></div>
           <div class="topic-body">
             <h3>The Control That Moved</h3>
             <p class="do"><span class="lbl">What You'll Do</span>Classify a custom object's extensibility level (A–D), audit its transport history for a Clean Core impact note, and confirm AI-generated ABAP got a human compliance review before promotion.</p>
