@@ -337,6 +337,8 @@ header.site-nav nav.subnav a.active{border-bottom:2px solid #D97B29;}
 header.site-nav .nav-cta{background:#D97B29;color:#fff;padding:8px 16px;border-radius:4px;font-size:12.5px;
   font-weight:700;text-decoration:none;white-space:nowrap;font-family:'IBM Plex Sans',sans-serif;}
 header.site-nav .nav-cta:hover{background:#A85A1D;}
+.level-tabs{margin-bottom:8px;}
+.level-note{font-size:14px;color:var(--steel);margin:0 0 16px;}
 </style>
 </head>
 <body>
@@ -355,11 +357,13 @@ header.site-nav .nav-cta:hover{background:#A85A1D;}
 <div class="wrap">
 <p class="kicker">TIB SYSTEMS — SAP SOX/ITGC LIVE COHORT</p>
 <h1>The Full Sweep</h1>
-<p class="sub">Choose a cohort, then reserve one of 5 seats in the class time that works for you. Each class meets four days a week, at the same time every class day, for the full one-month run.</p>
+<p class="sub">Choose your level, then a start date, then reserve one of 5 seats in the class time that works for you. Each class meets four days a week at the same time: Intermediate runs 16 sessions over 4 weeks, Advanced 12 sessions over 3 weeks.</p>
 <div class="glance" id="scheduleGlance"></div>
 </div>
 </header>
 <div class="wrap">
+<nav class="cohort-tabs level-tabs" id="levelTabs"></nav>
+<p class="level-note" id="levelNote"></p>
 <nav class="cohort-tabs" id="cohortTabs"></nav>
 <div id="cohortPanels"></div>
 <footer>
@@ -378,7 +382,8 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
    CONFIGURATION NOTES
    ============================================================
    1. SYSTEME_CHECKOUT_URL — your Systeme.io order/checkout page
-      URL for The Full Sweep ($950). Already set below.
+      URL per level — see LEVELS below. Intermediate uses the existing $950 checkout;
+      add the Advanced ($850) and Both ($1,650) URLs when they exist.
    2. Only email is collected and passed through on the checkout
       URL — confirmed against the real checkout page that its
       "email" field is the one Systeme.io parameter that actually
@@ -395,11 +400,23 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         https://blfgwysgekfqhcafofhe.supabase.co/functions/v1/fullsweep-payment-webhook
       event: "New sale".
    ============================================================ */
-const SYSTEME_CHECKOUT_URL = 'https://live-course1-2-homepage.systeme.io/fullsweeporder';
-const COURSE_PRICE_DISPLAY = '$950';
+/* Two levels from January 2027. One Systeme.io checkout per option.
+   Empty URL = that checkout is not live yet; the page offers email instead. */
+const LEVELS = {
+  intermediate: { label: 'Intermediate: Controls Testing', price: '$950', checkout: 'https://live-course1-2-homepage.systeme.io/fullsweeporder',
+    note: '16 live sessions over 4 weeks · 19 Books · 3 marked workpapers · Intermediate certificate.' },
+  advanced: { label: 'Advanced: Manager Track & Emerging Practice', price: '$850', checkout: '',
+    note: '12 live sessions over 3 weeks · Books 33–40 · RCM, deficiency memo and stakeholder panel. Entry: Intermediate certificate or an entry check.' },
+  both: { label: 'Both levels', price: '$1,650', checkout: '',
+    note: 'Pick an Intermediate start and class time below — your seat in the same class time of the next Advanced cohort is held for you. Save $150.' },
+};
+let LEVEL = 'intermediate';
+let COURSE_PRICE_DISPLAY = LEVELS[LEVEL].price;
+let SYSTEME_CHECKOUT_URL = LEVELS[LEVEL].checkout;
 
 function buildCheckoutUrl(email, slotId, slotLabel){
   const url = new URL(SYSTEME_CHECKOUT_URL);
+  url.searchParams.set('level', LEVEL);
   url.searchParams.set('email', email);
   url.searchParams.set('slot_id', slotId);
   url.searchParams.set('class_slot', slotLabel);
@@ -450,6 +467,11 @@ async function handleSubmit(e, formEl){
 
   const btn = formEl.querySelector('button.submit');
   const msg = formEl.querySelector('.msg');
+  if (!SYSTEME_CHECKOUT_URL){
+    msg.innerHTML = `Online checkout for ${LEVELS[LEVEL].label} (${COURSE_PRICE_DISPLAY}) opens shortly. To reserve this seat now, email <a href="mailto:academy@tib-systems.com?subject=${encodeURIComponent('Reserve: ' + LEVELS[LEVEL].label + ' — ' + selectedSlotText)}">academy@tib-systems.com</a>.`;
+    msg.className = 'msg success show';
+    return;
+  }
   btn.disabled = true;
   btn.textContent = 'Checking seat…';
   msg.className = 'msg';
@@ -545,8 +567,25 @@ function openForm(slot, block, seatEl){
   form.scrollIntoView({ behavior:'smooth', block:'nearest' });
 }
 
+function renderLevelTabs(){
+  const el = document.getElementById('levelTabs');
+  el.innerHTML = '';
+  Object.entries(LEVELS).forEach(([key, lv]) => {
+    const b = document.createElement('button');
+    b.className = 'cohort-tab' + (key === LEVEL ? ' active' : '');
+    b.textContent = `${lv.label} — ${lv.price}`;
+    b.addEventListener('click', () => {
+      LEVEL = key; COURSE_PRICE_DISPLAY = lv.price; SYSTEME_CHECKOUT_URL = lv.checkout;
+      delete tabsEl.dataset.activeCohort;
+      renderLevelTabs(); loadAll();
+    });
+    el.appendChild(b);
+  });
+  document.getElementById('levelNote').textContent = LEVELS[LEVEL].note;
+}
+
 async function loadAll(){
-  const { data, error } = await supabase
+  const { data: allRows, error } = await supabase
     .from('fullsweep_slot_availability')
     .select('*')
     .order('start_date', { ascending:true })
@@ -557,8 +596,12 @@ async function loadAll(){
     console.error(error);
     return;
   }
-  if (!data || data.length === 0){
-    panelsEl.innerHTML = `<p class="msg error show">No cohorts are currently available.</p>`;
+  const wanted = LEVEL === 'advanced' ? 'advanced' : 'intermediate';
+  const today = new Date().toISOString().slice(0, 10);
+  const data = (allRows || []).filter(r => r.level === wanted && r.start_date >= today);
+  if (data.length === 0){
+    tabsEl.innerHTML = '';
+    panelsEl.innerHTML = `<p class="msg error show">No cohorts are currently open for this level.</p>`;
     return;
   }
 
@@ -594,7 +637,7 @@ async function loadAll(){
   glanceEl.innerHTML = `
     <div class="glance-pill price">
       <span class="gp-label">Investment</span>
-      <span class="gp-value">${COURSE_PRICE_DISPLAY} one-time</span>
+      <span class="gp-value">${COURSE_PRICE_DISPLAY} one-time · ${LEVELS[LEVEL].label}</span>
     </div>
     <div class="glance-pill days">
       <span class="gp-label">Meets</span>
@@ -610,7 +653,7 @@ async function loadAll(){
     const isActive = cohort.cohort_id === activeCohortId;
     const tab = document.createElement('button');
     tab.className = 'cohort-tab' + (isActive ? ' active' : '');
-    tab.textContent = cohort.cohort_name.replace(/^Cohort \d+ — /, `Cohort ${idx+1}: `);
+    tab.textContent = `Starts ${formatDate(cohort.start_date)}`;
     tab.addEventListener('click', () => {
       tabsEl.dataset.activeCohort = cohort.cohort_id;
       loadAll();
@@ -637,6 +680,7 @@ async function loadAll(){
   });
 }
 
+renderLevelTabs();
 loadAll();
 </script>
 </body>

@@ -264,6 +264,14 @@
     .score-badge{justify-self:start;}
   }
 
+  .level-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px;}
+  .price-grid .pricing-card{margin-top:0;}
+  .pricing-card.featured{outline:3px solid var(--amber-bright);}
+  .cohort-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:14px;}
+  .cohort-row .cr-label{font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;min-width:150px;}
+  @media (max-width: 880px){.level-grid{grid-template-columns:1fr;}.price-grid{grid-template-columns:1fr;}}
+  @media (max-width: 600px){.cohort-row .cr-label{min-width:100%;}.pricing-card{padding:26px 18px;}}
 </style>
 </head>
 <body>
@@ -295,8 +303,8 @@
         <a href="course1-curriculum.html" class="btn btn-ghost">Full curriculum &amp; scope</a>
       </div>
       <p class="hero-benefit"><span class="hb-icon">🖥️</span><span><strong>Live S/4HANA server access</strong> — included for the full course, plus <strong>2 extra months after class</strong> to keep practicing and prepping for interviews.</span></p>
-      <p class="hero-benefit"><span class="hb-icon">💳</span><span><strong>$950 one-time</strong> — no subscription, one payment covers the full live course.</span></p>
-      <p class="hero-benefit"><span class="hb-icon">🗣️</span><span><strong>You don't just run the test — you defend it.</strong> Three marked workpapers and a final panel in front of an auditor, a developer and a CFO.</span></p>
+      <p class="hero-benefit"><span class="hb-icon">💳</span><span><strong>Two levels, one-time prices</strong> — Intermediate $950, Advanced $850, or both for $1,650. No subscription.</span></p>
+      <p class="hero-benefit"><span class="hb-icon">🗣️</span><span><strong>You don't just run the test — you defend it.</strong> Three marked workpapers in Intermediate; an RCM, a deficiency memo and a final panel in front of an auditor, a developer and a CFO in Advanced.</span></p>
     </div>
     <div class="hero-right">
       <div class="roles-preview">
@@ -311,14 +319,13 @@
       <div class="scope-preview">
         <span class="sp-label">The Course Scope</span>
         <ul>
-          <li><span class="sp-tag">Part I</span>Access Control &amp; Identity</li>
-          <li><span class="sp-tag">Part II</span>Change &amp; Operations</li>
-          <li><span class="sp-tag">III–IV</span>Record to Report &amp; SAP GRC</li>
-          <li><span class="sp-tag">Part VII</span>Business Application Controls</li>
-          <li><span class="sp-tag">Part VIII</span>Order-to-Cash Controls</li>
-          <li><span class="sp-tag">Part XI</span>Manager Track — RCM to Closure</li>
+          <li><span class="sp-tag">Intermediate</span>Access, Change &amp; Operations, R2R, GRC Process Control</li>
+          <li><span class="sp-tag">Intermediate</span>Business Application Controls &amp; Order-to-Cash</li>
+          <li><span class="sp-tag">Advanced</span>Manager Track — RCM to Closure</li>
+          <li><span class="sp-tag">Advanced</span>Third-Party Tools, Analytics &amp; AI-Assisted Review</li>
+          <li><span class="sp-tag">Advanced</span>Clean Core / RISE Governance</li>
         </ul>
-        <a href="#scope" class="sp-more">22 live Books + 23 self-paced ↓</a>
+        <a href="#scope" class="sp-more">Two levels · 27 core Books + 19 self-paced ↓</a>
       </div>
     </div>
   </div>
@@ -370,43 +377,53 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">What's covered</span>
-      <h2>22 live Books. 7 Parts. One connected case.</h2>
-      <p>The live course covers exactly what current SAP GRC, Security and SOX/ITGC job postings ask for — no padding. Everything else is still yours, as a self-paced Beyond the Core library.</p>
+      <h2>Two levels. 27 core Books. One connected case.</h2>
+      <p>Intermediate makes you job-ready for SOX/ITGC testing roles. Advanced adds what senior and lead postings ask for. Take Intermediate first, or go straight to Advanced after an entry check if you already test controls for a living.</p>
     </div>
-    <div class="parts-panel">
-      <span class="pp-label">The live course — 7 Parts, 22 Books, 20 sessions</span>
-      <ul class="parts-list">
-        <li><span class="pl-tag">PART I — Access Control &amp; Identity · 6 Books</span><p>The domain most job postings name directly — SoD conflicts, joiner/mover/leaver, Fiori access and Firefighter logs.</p></li>
-        <li><span class="pl-tag">PART II — Change &amp; Operations · 4 Books</span><p>Emergency change, backups, interfaces and custom-code authorization checks.</p></li>
-        <li><span class="pl-tag">PART III — Record to Report · 1 Book</span><p>Journal-entry approval limits, tested against the full population.</p></li>
-        <li><span class="pl-tag">PART IV — SAP GRC Platform · 1 Book</span><p>The automated control that never fired — Process Control rules and the batch jobs behind them.</p></li>
-        <li><span class="pl-tag">PART VII — Business Application Controls · 4 Books</span><p>Three-way match, payment files, vendor bank changes and invoice tolerances.</p></li>
-        <li><span class="pl-tag">PART VIII — Order-to-Cash · 2 Books</span><p>Credit-block release independence and billing cutoff.</p></li>
-        <li><span class="pl-tag">PART XI — Manager Track · 4 Books · now live</span><p>RCM construction, design vs operating deficiencies, sample size and deficiency classification — from finding to closure.</p></li>
-      </ul>
+    <div class="level-grid">
+      <div class="parts-panel" style="margin-top:0;">
+        <span class="pp-label">Intermediate: Controls Testing — 16 sessions · 4 weeks · 19 Books</span>
+        <ul class="parts-list" style="column-count:1;">
+          <li><span class="pl-tag">PART I — Access Control &amp; Identity · 6 Books</span><p>SoD conflicts, joiner/mover/leaver, procurement SoD, Fiori access and Firefighter logs.</p></li>
+          <li><span class="pl-tag">PART II — Change &amp; Operations · 4 Books</span><p>Emergency change, custom-code authorization checks, backups and interfaces.</p></li>
+          <li><span class="pl-tag">PARTS III–IV — Record to Report &amp; GRC · 2 Books</span><p>Journal-entry approval limits and the Process Control rule that never fired.</p></li>
+          <li><span class="pl-tag">PART VII — Business Application Controls · 5 Books</span><p>Batch jobs, three-way match, payment files, vendor bank changes and invoice tolerances.</p></li>
+          <li><span class="pl-tag">PART VIII — Order-to-Cash · 2 Books</span><p>Credit-block release independence and billing cutoff.</p></li>
+        </ul>
+        <p class="pp-note">15 Books taught live, 4 as guided self-study checked in class · 3 marked workpapers.</p>
+      </div>
+      <div class="parts-panel" style="margin-top:0;">
+        <span class="pp-label">Advanced: Manager Track &amp; Emerging Practice — 12 sessions · 3 weeks · 8 Books</span>
+        <ul class="parts-list" style="column-count:1;">
+          <li><span class="pl-tag">PART XI — Manager Track · 4 Books</span><p>RCM construction, design vs operating effectiveness, sample size and deficiency classification — from finding to closure.</p></li>
+          <li><span class="pl-tag">PART X — Adjacent Tools &amp; AI · 3 Books</span><p>Fastpath, Pathlock, SailPoint and AuditBoard, full-population analytics and Joule-assisted review.</p></li>
+          <li><span class="pl-tag">PART XII — Clean Core / RISE · 1 Book</span><p>Extensibility classification, transport governance and AI-generated code review.</p></li>
+          <li><span class="pl-tag">Capstone</span><p>RCM workshop, a deficiency memo, an Audit Committee readout and the stakeholder panel.</p></li>
+        </ul>
+        <p class="pp-note">Entry: the Intermediate certificate, or an entry check for experienced testers.</p>
+      </div>
     </div>
 
     <div class="parts-panel btc">
-      <span class="pp-label">Beyond the Core — 23 self-paced Books, yours to keep</span>
+      <span class="pp-label">Beyond the Core — 19 self-paced Books, yours to keep</span>
       <ul class="parts-list">
         <li><span class="pl-tag">Extensions to Parts II–IV and VII</span><p>Cutover, third-party change, post-acquisition ledgers, tip-line investigations, risk registers and asset depreciation.</p></li>
         <li><span class="pl-tag">PART V — Governance &amp; Disclosure</span><p>How testing work becomes a CFO's signature and an SEC response.</p></li>
         <li><span class="pl-tag">PART VI — Legal &amp; Compliance Adjacent</span><p>Data retention and indirect-access licensing exposure.</p></li>
         <li><span class="pl-tag">PART IX — Treasury &amp; Tax</span><p>Bank reconciliation, tax configuration, FX hedge documentation and In-House Cash.</p></li>
-        <li><span class="pl-tag">PART X — Adjacent Tools &amp; AI</span><p>Fastpath, Pathlock, SailPoint, full-population analytics and Joule-assisted review — introduced live in session 20.</p></li>
-        <li><span class="pl-tag">PARTS XII–XIII — Clean Core &amp; Payroll</span><p>RISE/Clean Core governance and payroll &amp; personnel controls.</p></li>
+        <li><span class="pl-tag">PART XIII — Payroll &amp; Personnel</span><p>Ghost employees, pay-rate changes, off-cycle payments and payroll-to-GL reconciliation.</p></li>
       </ul>
-      <p class="pp-note">The Controls Theory prerequisite (11 topics + exam) and the 8 SAP navigation Foundations are self-paced pre-work, completed before session 1.</p>
+      <p class="pp-note">The Controls Theory prerequisite (11 topics + exam) and the 8 SAP navigation Foundations are self-paced pre-work, completed before Intermediate session 1.</p>
     </div>
 
     <div class="scope-strip" style="margin-top:22px;">
-      <div class="scope-pill"><div class="sp-num">22</div><div class="sp-lbl">Live Books</div></div>
-      <div class="scope-pill"><div class="sp-num">7</div><div class="sp-lbl">Live Parts</div></div>
-      <div class="scope-pill"><div class="sp-num">23</div><div class="sp-lbl">Self-Paced Books</div></div>
-      <div class="scope-pill"><div class="sp-num">3</div><div class="sp-lbl">Marked Workpapers</div></div>
+      <div class="scope-pill"><div class="sp-num">19</div><div class="sp-lbl">Intermediate Books</div></div>
+      <div class="scope-pill"><div class="sp-num">8</div><div class="sp-lbl">Advanced Books</div></div>
+      <div class="scope-pill"><div class="sp-num">19</div><div class="sp-lbl">Self-Paced Books</div></div>
+      <div class="scope-pill"><div class="sp-num">28</div><div class="sp-lbl">Live Sessions</div></div>
       <div class="scope-pill"><div class="sp-num">1</div><div class="sp-lbl">Connected Case</div></div>
     </div>
-    <p style="margin-top:20px;"><a href="course1-curriculum.html" class="btn btn-outline">See every Book, live and self-paced →</a></p>
+    <p style="margin-top:20px;"><a href="course1-curriculum.html" class="btn btn-outline">See every Book, level by level →</a></p>
   </div>
 </section>
 
@@ -423,8 +440,8 @@
         <div class="fact-desc">per class time slot — not a webinar, not an open cohort of hundreds</div>
       </div>
       <div class="fact">
-        <div class="fact-num">20 live sessions</div>
-        <div class="fact-desc">every one instructor-led, over roughly 5 weeks</div>
+        <div class="fact-num">16 + 12 live sessions</div>
+        <div class="fact-desc">Intermediate over 4 weeks, Advanced over 3 — every session instructor-led</div>
       </div>
       <div class="fact">
         <div class="fact-num">Tue · Thu · Sat · Sun</div>
@@ -454,7 +471,7 @@
       <div class="distinction-card">
         <span class="dc-icon">Real Schedule</span>
         <h3>A start date and an end date.</h3>
-        <p>Not "whenever you get to it." Five monthly cohorts run Tue/Thu/Sat/Sun on a fixed 2-hour block, so you finish in weeks, not whenever.</p>
+        <p>Not "whenever you get to it." Intermediate and Advanced cohorts run Tue/Thu/Sat/Sun on a fixed 2-hour block, so you finish each level in weeks, not whenever.</p>
       </div>
     </div>
   </div>
@@ -465,7 +482,7 @@
     <div class="section-head">
       <span class="eyebrow">Every single class</span>
       <h2>Every session is a lab. Not just some of them.</h2>
-      <p>Every one of the 20 live sessions runs the same two-hour structure — no session is theory-only, no session is a passive watch.</p>
+      <p>Every live session, at both levels, runs the same two-hour structure — no session is theory-only, no session is a passive watch.</p>
     </div>
     <div class="day-flow">
       <div class="hour1">
@@ -492,23 +509,23 @@
     </div>
     <div class="defend-lead">
       <h3>Every Demo Lab ends with <em>Defend It.</em></h3>
-      <p>One student presents that day's conclusion as if to an external auditor, and the instructor pushes back as the reviewer would. With five seats per class, you defend your work four times across the course — before you ever face it in an interview.</p>
+      <p>One student presents that day's conclusion as if to an external auditor, and the instructor pushes back as the reviewer would. With five seats per class, you defend your work three times in Intermediate and twice more in Advanced — before you ever face it in an interview.</p>
     </div>
     <div class="distinction-grid">
       <div class="distinction-card">
-        <span class="dc-icon">Three marked workpapers</span>
+        <span class="dc-icon">Intermediate · Three marked workpapers</span>
         <h3>Built and reviewed like real deliverables.</h3>
-        <p>An access/SoD test after Part I, a change-management test after Part II, and an ITAC or Order-to-Cash test after Part VIII — each marked by a facilitator and returned within a week.</p>
+        <p>An access/SoD test after Part I, a change and operations test after Part II, and an ITAC test across Procure-to-Pay and Order-to-Cash — each marked by a facilitator and returned within a week.</p>
       </div>
       <div class="distinction-card">
-        <span class="dc-icon">Your own RCM</span>
+        <span class="dc-icon">Advanced · Your own RCM</span>
         <h3>You map it before you test it.</h3>
-        <p>At the midpoint you build the Thornfield Risk &amp; Control Matrix from everything tested so far — the document a manager uses to scope a whole engagement.</p>
+        <p>You build the Thornfield Risk &amp; Control Matrix from your Intermediate testing, then write a deficiency memo — the documents a manager uses to scope and close an engagement.</p>
       </div>
       <div class="distinction-card">
-        <span class="dc-icon">Final stakeholder panel</span>
+        <span class="dc-icon">Advanced · Final stakeholder panel</span>
         <h3>One finding. Three audiences.</h3>
-        <p>In session 20 you present a real finding three times — to an auditor, an SAP developer and a CFO — each in their own language.</p>
+        <p>In the last Advanced session you present a real finding three times — to an auditor, an SAP developer and a CFO — each in their own language.</p>
       </div>
     </div>
     <div class="rubric">
@@ -528,16 +545,17 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">The schedule</span>
-      <h2>Pick a month, pick a time. That's your seat.</h2>
-      <p>Five monthly cohorts are open, each running the identical 20-session course on the same weekly rhythm.</p>
+      <h2>Pick a start date, pick a time. That's your seat.</h2>
+      <p>Each 8-week cycle runs Intermediate for 4 weeks, a one-week gap, then Advanced for 3 weeks. Cohorts start through 2027.</p>
     </div>
     <div class="cohort-calendar">
-      <div class="cohort-months">
-        <span class="cohort-month">OCT 2026</span>
-        <span class="cohort-month">NOV 2026</span>
-        <span class="cohort-month">DEC 2026</span>
-        <span class="cohort-month">JAN 2027</span>
-        <span class="cohort-month">FEB 2027</span>
+      <div class="cohort-row"><span class="cr-label">Intermediate starts</span>
+        <span class="cohort-month">JAN 5</span><span class="cohort-month">MAR 2</span><span class="cohort-month">APR 27</span>
+        <span class="cohort-month">JUN 22</span><span class="cohort-month">AUG 17</span><span class="cohort-month">OCT 12</span>
+      </div>
+      <div class="cohort-row"><span class="cr-label">Advanced starts</span>
+        <span class="cohort-month">FEB 9</span><span class="cohort-month">APR 6</span><span class="cohort-month">JUN 1</span>
+        <span class="cohort-month">JUL 27</span><span class="cohort-month">SEP 21</span><span class="cohort-month">NOV 16</span>
       </div>
       <div class="day-pattern">
         <div class="day-pip on">TUE</div>
@@ -566,7 +584,7 @@
         </div>
       </div>
     </div>
-    <div class="homework-note"><strong>20 live sessions, roughly 5 weeks.</strong> Four class days a week at 2 hours each — every cohort runs the same 20-session course covering all 22 live Books, including the Manager Track. The Controls Theory prerequisite is completed before session 1, and the 23 Beyond the Core Books are self-paced and yours to keep.</div>
+    <div class="homework-note"><strong>All dates 2027. Plan for about 12 hours a week.</strong> Four class days a week at 2 hours each, plus repeating each walkthrough on your own login and your marked work. The Controls Theory prerequisite is completed before Intermediate session 1, and the 19 Beyond the Core Books are self-paced and yours to keep.</div>
   </div>
 </section>
 
@@ -588,7 +606,7 @@
         <div class="seat-dot open">—</div>
       </div>
       <div>
-        <p style="color:rgba(255,255,255,0.82);font-size:14.5px;margin:0;">Three time slots run in parallel each cohort month, so the small class size isn't a bottleneck on getting a seat — it's a ceiling on how many people are ever in the room with you and the instructor at once.</p>
+        <p style="color:rgba(255,255,255,0.82);font-size:14.5px;margin:0;">Three time slots run in parallel in every cohort, so the small class size isn't a bottleneck on getting a seat — it's a ceiling on how many people are ever in the room with you and the instructor at once.</p>
       </div>
     </div>
   </div>
@@ -599,21 +617,21 @@
     <div class="section-head">
       <span class="eyebrow">Checked against the live market</span>
       <h2>Built against real, current job postings — not a generic syllabus.</h2>
-      <p>Every domain below was checked against live SAP SOX/ITGC and GRC postings on Dice, Indeed, Glassdoor, and GulfTalent, across the US/Canada, UK/Europe, and UAE/Middle East. Where the audit found a gap, the course was expanded to close it.</p>
+      <p>Every domain below was checked against live SAP SOX/ITGC and GRC postings on Dice, Indeed, ZipRecruiter and open web search, across the US/Canada, UK/Europe, and UAE/Middle East. Where the audit found a gap, the course was expanded to close it.</p>
     </div>
     <div class="scorecard">
       <div class="score-row"><span class="sr-label">Access Control &amp; Segregation of Duties</span><span class="score-badge strong">Strong</span></div>
       <div class="score-row"><span class="sr-label">Change Management &amp; Computer Operations</span><span class="score-badge strong">Strong</span></div>
       <div class="score-row"><span class="sr-label">Procure-to-Pay &amp; Record-to-Report Controls</span><span class="score-badge strong">Strong</span></div>
-      <div class="score-row"><span class="sr-label">Order-to-Cash Controls</span><span class="score-badge covered">Newly Added</span></div>
+      <div class="score-row"><span class="sr-label">Order-to-Cash Controls</span><span class="score-badge strong">Live — Intermediate</span></div>
       <div class="score-row"><span class="sr-label">Treasury &amp; Tax Configuration Controls</span><span class="score-badge self">Self-Paced</span></div>
       <div class="score-row"><span class="sr-label">GRC Process Control &amp; Risk Management</span><span class="score-badge strong">Strong</span></div>
       <div class="score-row"><span class="sr-label">Defending Conclusions to Auditors &amp; Stakeholders</span><span class="score-badge strong">Live — Graded</span></div>
-      <div class="score-row"><span class="sr-label">Third-Party GRC Tools (Fastpath, Pathlock, SailPoint)</span><span class="score-badge self">Awareness + Self-Paced</span></div>
-      <div class="score-row"><span class="sr-label">Audit Data Analytics (SQL, Alteryx, Power BI)</span><span class="score-badge self">Awareness + Self-Paced</span></div>
-      <div class="score-row"><span class="sr-label">GRC 2026 / Joule AI-Assisted Review Awareness</span><span class="score-badge self">Awareness + Self-Paced</span></div>
-      <div class="score-row"><span class="sr-label">Manager-Level: RCM, Sampling &amp; Deficiency Classification</span><span class="score-badge strong">Live — Core</span></div>
-      <div class="score-row"><span class="sr-label">Clean Core / RISE Governance &amp; AI-Generated Code Review</span><span class="score-badge self">Self-Paced</span></div>
+      <div class="score-row"><span class="sr-label">Third-Party GRC Tools (Fastpath, Pathlock, SailPoint)</span><span class="score-badge strong">Live — Advanced</span></div>
+      <div class="score-row"><span class="sr-label">Audit Data Analytics (SQL, Alteryx, Power BI)</span><span class="score-badge strong">Live — Advanced</span></div>
+      <div class="score-row"><span class="sr-label">GRC 2026 / Joule AI-Assisted Review Awareness</span><span class="score-badge strong">Live — Advanced</span></div>
+      <div class="score-row"><span class="sr-label">Manager-Level: RCM, Sampling &amp; Deficiency Classification</span><span class="score-badge strong">Live — Advanced</span></div>
+      <div class="score-row"><span class="sr-label">Clean Core / RISE Governance &amp; AI-Generated Code Review</span><span class="score-badge strong">Live — Advanced</span></div>
     </div>
     <p class="audit-note">Sourced from TIB-MKT-SKILLS-AUDIT-003, a full comparison of this course against the live global skills bank. <a href="course1-job-market-fit.html" style="color:var(--amber-deep);font-weight:700;">See the full audit, score by score →</a></p>
   </div>
@@ -623,23 +641,48 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Pricing</span>
-      <h2>One price. Everything included.</h2>
-      <p>One track, one schedule — 20 live sessions, Tue/Thu/Sat/Sun, with the same instructor throughout.</p>
+      <h2>Two levels. One-time prices. Everything included.</h2>
+      <p>Same weekly rhythm at both levels — Tue/Thu/Sat/Sun, 2 hours a class, 5 seats per class time.</p>
     </div>
-    <div class="pricing-card">
-      <span class="eyebrow">The Full Sweep</span>
-      <div class="price-tag">$950</div>
-      <div class="price-note">One-time payment · No subscription, no hidden fees</div>
-      <ul class="pricing-includes">
-        <li>20 live, instructor-led sessions across roughly 5 weeks</li>
-        <li>Live S/4HANA server access for the full course, plus 2 extra months after</li>
-        <li>Certificate of completion</li>
-        <li>Professional resume development &amp; job-search assistance</li>
-        <li>All 22 live Books, including the Manager Track</li>
-        <li>3 marked workpapers, Defend It in every lab, and a final stakeholder panel</li>
-        <li>23 self-paced Beyond the Core Books, plus the Controls Theory prerequisite &amp; exam</li>
-      </ul>
-      <a href="enrollment.html" class="btn btn-amber">Reserve your seat — $950 →</a>
+    <div class="price-grid">
+      <div class="pricing-card">
+        <span class="eyebrow">Intermediate · Controls Testing</span>
+        <div class="price-tag">$950</div>
+        <div class="price-note">One-time payment · 16 live sessions · 4 weeks</div>
+        <ul class="pricing-includes">
+          <li>19 Books: 15 live, 4 guided self-study</li>
+          <li>3 marked workpapers and Defend It in every lab</li>
+          <li>Live S/4HANA access for the course, plus 2 extra months</li>
+          <li>Controls Theory prerequisite &amp; exam, plus 19 Beyond the Core Books</li>
+          <li>Intermediate certificate · resume &amp; job-search assistance</li>
+        </ul>
+        <a href="enrollment.html" class="btn btn-amber">Reserve Intermediate — $950 →</a>
+      </div>
+      <div class="pricing-card">
+        <span class="eyebrow">Advanced · Manager Track</span>
+        <div class="price-tag">$850</div>
+        <div class="price-note">One-time payment · 12 live sessions · 3 weeks</div>
+        <ul class="pricing-includes">
+          <li>8 Books live: Manager Track, tools &amp; AI, Clean Core</li>
+          <li>Marked RCM and deficiency memo, Audit Committee capstone</li>
+          <li>Final stakeholder panel: auditor, developer, CFO</li>
+          <li>Live S/4HANA access for the course, plus 2 extra months</li>
+          <li>Advanced certificate · resume &amp; job-search assistance</li>
+        </ul>
+        <a href="enrollment.html" class="btn btn-amber">Reserve Advanced — $850 →</a>
+      </div>
+      <div class="pricing-card featured">
+        <span class="eyebrow">Both levels · Best value</span>
+        <div class="price-tag">$1,650</div>
+        <div class="price-note">One-time payment · 28 live sessions · save $150</div>
+        <ul class="pricing-includes">
+          <li>Intermediate and Advanced, back to back</li>
+          <li>Everything in both levels, both certificates</li>
+          <li>One seat held for you in the matching Advanced cohort</li>
+          <li>Live S/4HANA access through both levels, plus 2 extra months</li>
+        </ul>
+        <a href="enrollment.html" class="btn btn-amber">Reserve both — $1,650 →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -648,8 +691,8 @@
   <div class="wrap">
     <div class="library-block">
       <span class="eyebrow" style="color:var(--amber-bright);">Ready to pick a seat?</span>
-      <h2>Five cohorts are open. Each one caps at 5 seats per time slot.</h2>
-      <p>Choose the month and the class time that works, and reserve your seat directly — no waiting for a "next intake" announcement.</p>
+      <h2>Cohorts start through 2027. Each one caps at 5 seats per time slot.</h2>
+      <p>Choose your level, start date and class time, and reserve your seat directly — no waiting for a "next intake" announcement.</p>
       <a href="enrollment.html" class="btn btn-amber" style="margin-top:14px;">See open cohort dates →</a>
     </div>
   </div>
