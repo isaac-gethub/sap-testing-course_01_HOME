@@ -272,6 +272,24 @@
   .cohort-row .cr-label{font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;min-width:150px;}
   @media (max-width: 880px){.level-grid{grid-template-columns:1fr;}.price-grid{grid-template-columns:1fr;}}
   @media (max-width: 600px){.cohort-row .cr-label{min-width:100%;}.pricing-card{padding:26px 18px;}}
+
+  /* career guide + job market (mobile-first; 600px / 880px) */
+  .cg{display:grid;gap:18px;}
+  .cg-card{background:#fff;border:1px solid #D9DEE7;border-radius:10px;padding:18px;}
+  .cg-card h3{margin:0 0 6px;}
+  .cg-card ul{margin:6px 0 0;padding-left:18px;font-size:14.5px;}
+  .cg-form label{display:block;font-size:12.5px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;margin:10px 0 4px;color:#5A6472;}
+  .cg-form input,.cg-form select{width:100%;padding:10px 12px;font-size:15px;border:1px solid #C9D1DD;border-radius:6px;font-family:inherit;background:#fff;box-sizing:border-box;}
+  .cg-form button{margin-top:14px;width:100%;padding:12px;font-size:15px;font-weight:700;border:0;border-radius:6px;cursor:pointer;color:#fff;background:var(--amber-deep,#A84B0D);font-family:inherit;}
+  .cg-form button:disabled{opacity:.6;cursor:wait;}
+  .cg-note{font-size:12.5px;color:#5A6472;margin-top:8px;}
+  .cg-msg{display:none;margin-top:12px;padding:10px 12px;border-radius:6px;font-size:14px;}
+  .cg-msg.ok{display:block;background:#E6F2EA;color:#1E7145;}
+  .cg-msg.err{display:block;background:#F6E5E2;color:#A24B3F;}
+  .jm{display:flex;flex-direction:column;gap:12px;align-items:flex-start;background:#fff;border:1px solid #D9DEE7;border-radius:10px;padding:18px;}
+  .jm a.jm-btn{display:inline-block;background:var(--amber-deep,#A84B0D);color:#fff;text-decoration:none;font-weight:700;padding:11px 16px;border-radius:6px;}
+  @media (min-width:600px){.cg-form .cg-row{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}.cg-form button{width:auto;padding:12px 22px;}}
+  @media (min-width:880px){.cg{grid-template-columns:1fr 1.1fr;align-items:start;}.jm{flex-direction:row;align-items:center;justify-content:space-between;}}
 </style>
 </head>
 <body>
@@ -302,6 +320,7 @@
         <a href="enrollment.html" class="btn btn-amber">See open cohort dates →</a>
         <a href="course1-curriculum.html" class="btn btn-ghost">Full curriculum &amp; scope</a>
       </div>
+      <p style="margin:10px 0 0;font-size:14px;">Not ready to pick a seat? <a href="#career-guide" style="color:inherit;font-weight:700;">Get the free SAP Controls Career Guide →</a></p>
       <p class="hero-benefit"><span class="hb-icon">🖥️</span><span><strong>Live S/4HANA server access</strong> — included for the full course, plus <strong>2 extra months after class</strong> to keep practicing and prepping for interviews.</span></p>
       <p class="hero-benefit"><span class="hb-icon">💳</span><span><strong>Two levels, one-time prices</strong> — Intermediate $950, Advanced $850, or both for $1,650. No subscription.</span></p>
       <p class="hero-benefit"><span class="hb-icon">🗣️</span><span><strong>You don't just run the test — you defend it.</strong> Three marked workpapers in Intermediate; an RCM, a deficiency memo and a final panel in front of an auditor, a developer and a CFO in Advanced.</span></p>
@@ -637,6 +656,20 @@
   </div>
 </section>
 
+
+<section class="topic-section" id="job-market">
+  <div class="wrap">
+    <div class="jm">
+      <div>
+        <span class="eyebrow">Live job market</span>
+        <h2>See the real demand — not our word for it.</h2>
+        <p style="margin:0;">Browse live SAP GRC, SOX and ITGC openings on Indeed, LinkedIn, Google Jobs, Dice, ZipRecruiter and Naukri — refreshed daily.</p>
+      </div>
+      <a class="jm-btn" href="https://sap-grc-job-mkt-auto-refresh.vercel.app/" target="_blank" rel="noopener">Open the live job board ↗</a>
+    </div>
+  </div>
+</section>
+
 <section class="topic-section" id="pricing">
   <div class="wrap">
     <div class="section-head">
@@ -686,6 +719,51 @@
     </div>
   </div>
 </section>
+
+
+<section class="topic-section" id="career-guide">
+  <div class="wrap">
+    <div class="cg">
+      <div class="cg-card">
+        <span class="eyebrow">Not ready to pick a seat?</span>
+        <h2>Get the free SAP Controls Career Guide</h2>
+        <p>A plain-language guide to the work, the job titles, what employers ask for and how to prepare — emailed to you as a PDF. No payment, no obligation.</p>
+        <ul><li>What SOX / ITGC controls work involves, day to day</li><li>The roles and the skills employers ask for</li><li>How to prepare for interviews — with or without a course</li></ul>
+      </div>
+      <form class="cg-card cg-form" id="cgForm">
+        <div class="cg-row">
+          <div><label for="cgName">Full name</label><input id="cgName" autocomplete="name" required></div>
+          <div><label for="cgEmail">Email</label><input id="cgEmail" type="email" autocomplete="email" required></div>
+          <div><label for="cgPhone">Phone</label><input id="cgPhone" type="tel" autocomplete="tel" required></div>
+          <div><label for="cgCountry">Country</label><input id="cgCountry" autocomplete="country-name" required></div>
+        </div>
+        <label for="cgGoal">I'm interested in</label>
+        <select id="cgGoal"><option>Not sure yet</option><option>Intermediate</option><option>Advanced</option><option>Both levels</option></select>
+        <button type="submit" id="cgBtn">Email me the free guide</button>
+        <p class="cg-note">Intermediate $950 · Advanced $850 · both $1,650. We'll follow up personally — no payment is taken here.</p>
+        <div class="cg-msg" id="cgMsg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+<script type="module">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/+esm';
+const sb = createClient('https://blfgwysgekfqhcafofhe.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJsZmd3eXNnZWtmcWhjYWZvZmhlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyODY0NDksImV4cCI6MjA5NTg2MjQ0OX0.HPdIMd-X30QBufoL9BVSVte6s_Fc-OOKIq9MbwLrzcI');
+const f = document.getElementById('cgForm'), btn = document.getElementById('cgBtn'), msg = document.getElementById('cgMsg');
+f.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const rec = { full_name: v('cgName'), email: v('cgEmail').toLowerCase(), phone: v('cgPhone'), country: v('cgCountry'),
+    goal: v('cgGoal'), source: 'full_sweep', request_type: 'career_guide', landing_page: location.href, consent_to_contact: true };
+  if (!rec.full_name || !rec.email || !rec.phone || !rec.country) { msg.className = 'cg-msg err'; msg.textContent = 'Please fill in every field.'; return; }
+  btn.disabled = true; btn.textContent = 'Sending…'; msg.className = 'cg-msg';
+  const { error } = await sb.from('brochure_leads').insert(rec);
+  btn.disabled = false; btn.textContent = 'Email me the free guide';
+  if (error) { console.error(error); msg.className = 'cg-msg err'; msg.textContent = 'Something went wrong. Please try again, or email academy@tib-systems.com.'; return; }
+  f.reset(); msg.className = 'cg-msg ok';
+  msg.textContent = `Thanks, ${rec.full_name.split(' ')[0]} — your guide is on its way to ${rec.email}. Check your inbox (and spam folder) in a few minutes.`;
+});
+</script>
 
 <section class="topic-section">
   <div class="wrap">
