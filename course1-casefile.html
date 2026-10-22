@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Full Sweep — Case File: Thornfield Industrial Group, TIB Systems</title>
+<meta name="description" content="See how The Full Sweep works: one company, Thornfield Industrial Group, a sample case from Book 1 (The Access List), the four-beat method, and every Book at both levels.">
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700&display=swap');
+  :root{
+    --navy:#12213A; --navy-2:#1B3358; --amber:#C0812A; --amber-deep:#8F5D18;
+    --teal:#1F6B67; --paper:#EDE7D8; --paper-2:#F7F4EA; --line:#C9BFA3;
+    --ink:#12213A; --ink-soft:#4A5872; --text:#2B3548;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:var(--paper-2);color:var(--text);line-height:1.55;}
+  h1,h2,h3{font-family:'Spectral',Georgia,serif; color:var(--navy); margin:0 0 10px;}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 32px;}
+  a{color:inherit;}
+
+  header.site-nav{background:var(--navy);color:#fff;position:sticky;top:0;z-index:50;
+    border-bottom:3px solid var(--amber);}
+  header.site-nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;flex-wrap:wrap;gap:14px;}
+  .brand{font-family:'Spectral',serif;font-weight:700;font-size:19px;color:#fff;text-decoration:none;font-style:italic;}
+  .brand span{color:var(--amber);font-style:normal;}
+  .nav-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+  nav.subnav{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;letter-spacing:0.2px;}
+  nav.subnav a{color:rgba(255,255,255,0.72);text-decoration:none;white-space:nowrap;padding-bottom:3px;border-bottom:2px solid transparent;}
+  nav.subnav a:hover{color:#fff;}
+  nav.subnav a.active{color:#fff;border-bottom:2px solid var(--amber);}
+  .nav-cross{font-size:11.5px;color:rgba(255,255,255,0.6);text-decoration:none;white-space:nowrap;font-style:italic;}
+  .nav-cross:hover{color:#fff;}
+  .nav-cta{background:var(--amber);color:#fff;padding:8px 16px;border-radius:4px;font-size:12.5px;
+    font-weight:700;text-decoration:none;white-space:nowrap;}
+  .nav-cta:hover{background:var(--amber-deep);}
+
+  .hero{background:linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);color:#fff;padding:56px 0 40px;}
+  .eyebrow{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:var(--amber);margin-bottom:16px;}
+  .hero h1{color:#fff;font-size:36px;line-height:1.2;max-width:20ch;margin-bottom:14px;}
+  .hero h1 em{color:var(--amber);font-style:italic;}
+  .hero .lede{max-width:64ch;color:rgba(255,255,255,0.78);font-size:16px;margin-bottom:22px;}
+  .role-tagline{max-width:60ch;color:#E7D9B8;font-size:14.5px;font-weight:500;margin-bottom:22px;
+    padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.16);}
+  .role-tagline strong{color:#fff;}
+
+  .role-tags{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 26px;}
+  .role-tag{display:inline-block;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.22);
+    color:#fff;font-size:12px;padding:6px 13px;border-radius:20px;font-weight:500;}
+
+  .hero-cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px;}
+  .btn{display:inline-block;padding:13px 26px;border-radius:5px;font-weight:600;font-size:14.5px;text-decoration:none;}
+  .btn-amber{background:var(--amber);color:#fff;}
+  .btn-amber:hover{background:var(--amber-deep);}
+  .btn-ghost{border:1px solid rgba(255,255,255,0.4);color:#fff;}
+  .btn-ghost:hover{border-color:#fff;}
+  .btn-outline{border:1px solid var(--line);color:var(--navy);background:#fff;}
+  .btn-outline:hover{border-color:var(--amber-deep);}
+
+  .stat-bar{display:grid;grid-template-columns:repeat(auto-fit, minmax(190px,1fr));gap:1px;
+    background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.14);border-radius:6px;overflow:hidden;margin-top:8px;}
+  .stat{background:var(--navy-2);padding:20px 18px;}
+  .stat-num{font-family:'Spectral',serif;font-weight:700;font-size:22px;color:var(--amber);margin-bottom:6px;}
+  .stat-desc{font-size:13px;color:rgba(255,255,255,0.72);line-height:1.5;}
+
+  .section-head{max-width:78ch;margin-bottom:28px;}
+  .section-head .eyebrow{color:var(--amber-deep);}
+  .section-head h2{font-size:26px;}
+  .section-head p{color:var(--ink-soft);font-size:15px;font-style:italic;max-width:70ch;}
+
+  .topic-section{padding:52px 0;border-bottom:1px solid var(--line);}
+  .topic-section:nth-child(even){background:var(--paper);}
+
+  .topic-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(310px, 1fr));gap:18px;}
+  .topic-card{background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden;
+    display:flex;flex-direction:column;}
+  .topic-tab{background:var(--navy-2);padding:7px 14px;}
+  .topic-code{font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:700;color:var(--amber);letter-spacing:0.5px;}
+  .topic-body{padding:16px 18px 18px;flex:1;}
+  .topic-body h3{font-size:16.5px;margin-bottom:10px;line-height:1.35;}
+  .topic-body p{margin:0 0 10px;font-size:13.5px;color:var(--text);line-height:1.55;}
+  .topic-body p.job{margin-bottom:0;}
+  .topic-body .lbl{display:block;font-size:10.5px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;margin-bottom:3px;}
+  .topic-body p.do .lbl{color:var(--teal);}
+  .topic-body p.job .lbl{color:var(--amber-deep);}
+
+  .library-block{background:var(--navy);color:#fff;border-radius:8px;padding:32px 30px;margin-top:6px;}
+  .library-block h2{color:#fff;font-size:22px;}
+  .library-block p{color:rgba(255,255,255,0.82);font-size:14.5px;max-width:70ch;}
+  .library-block .lbl{color:var(--amber);font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;display:block;margin-bottom:4px;}
+
+  .story-block{background:var(--navy);color:#fff;border-radius:8px;padding:38px 34px;margin-top:6px;}
+  .story-block h2{color:#fff;font-size:24px;max-width:26ch;}
+  .story-block p{color:rgba(255,255,255,0.82);font-size:14.5px;max-width:70ch;margin-bottom:0;}
+  .story-block strong{color:var(--amber);}
+
+  .promise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:6px;}
+  .promise-col{background:#fff;border:1px solid var(--line);border-radius:8px;padding:26px 24px;}
+  .promise-col h3{font-size:16px;margin-bottom:14px;}
+  .promise-col.no h3{color:var(--amber-deep);}
+  .promise-col.yes h3{color:var(--teal);}
+  .promise-col ul{margin:0;padding-left:18px;}
+  .promise-col li{font-size:13.5px;color:var(--text);margin-bottom:10px;line-height:1.5;}
+
+  .outcomes-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+  .outcomes-list li{background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:4px;
+    padding:13px 16px;font-size:13.5px;color:var(--text);}
+
+  .included-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+  .included-list li{background:#fff;border:1px solid var(--line);border-radius:6px;padding:14px 18px;font-size:14px;
+    display:flex;gap:10px;align-items:flex-start;}
+  .included-list li::before{content:"✓";color:var(--teal);font-weight:700;flex-shrink:0;}
+
+  .reviewer-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
+  .reviewer-list li{background:#fff;border:1px solid var(--line);border-left:3px solid var(--amber);
+    border-radius:4px;padding:12px 16px;font-size:13.5px;color:var(--text);}
+  .reviewer-list .pct{font-family:'JetBrains Mono',monospace;color:var(--amber-deep);font-weight:700;margin-right:8px;}
+
+  .format-note{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:22px 24px;font-size:13.5px;
+    color:var(--ink-soft);margin-top:8px;}
+
+  .crosssell{background:#fff;border:1px dashed var(--line);border-radius:8px;padding:20px 22px;margin-top:32px;
+    font-size:13.5px;color:var(--ink-soft);}
+  .crosssell a{color:var(--amber-deep);font-weight:600;text-decoration:underline;}
+
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%;text-align:left;background:none;border:none;padding:18px 4px;font-family:'Spectral',serif;
+    font-size:16px;font-weight:600;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;
+    align-items:center;gap:14px;}
+  .faq-q .plus{font-family:'JetBrains Mono',monospace;color:var(--amber-deep);font-size:18px;flex-shrink:0;}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height 0.25s ease;}
+  .faq-a p{padding:0 4px 18px;font-size:14px;color:var(--ink-soft);margin:0;max-width:70ch;}
+
+  .page-links-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:34px;}
+  .page-link-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px 22px;text-decoration:none;
+    display:block;}
+  .page-link-card:hover{border-color:var(--amber-deep);}
+  .page-link-card .plc-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:0.6px;
+    text-transform:uppercase;color:var(--amber-deep);display:block;margin-bottom:6px;}
+  .page-link-card h3{font-size:15.5px;margin-bottom:6px;}
+  .page-link-card p{font-size:12.5px;color:var(--ink-soft);margin:0;}
+
+  .cta-footer{background:var(--paper);text-align:center;padding:56px 24px;border-top:1px solid var(--line);}
+  .cta-footer h2{font-size:24px;max-width:30ch;margin:0 auto 10px;}
+  .cta-footer p{color:var(--ink-soft);margin-bottom:22px;}
+
+  footer.site-footer{background:var(--navy);color:rgba(255,255,255,0.6);padding:22px 24px;text-align:center;font-size:12.5px;}
+  footer.site-footer a{color:rgba(255,255,255,0.75);text-decoration:underline;}
+  footer.site-footer .foot-links{margin-bottom:8px;}
+
+  .reviewer-list .pct{display:inline-block;min-width:42px;}
+  .wp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:6px;}
+  .wp-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--teal);border-radius:6px;padding:20px 20px;}
+  .wp-card .wp-tag{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.5px;
+    text-transform:uppercase;color:var(--amber-deep);display:block;margin-bottom:8px;}
+  .wp-card h3{font-size:16.5px;margin-bottom:8px;}
+  .wp-card p{font-size:13.5px;color:var(--text);margin:0 0 8px;}
+  .wp-card .wp-when{font-size:12.5px;color:var(--teal);font-weight:600;margin:0;}
+
+  @media (max-width: 880px){
+    .wrap{padding:0 20px;}
+    .section-head h2{font-size:23px;}
+    .hero h1{font-size:28px;}
+  }
+  @media (max-width: 680px){
+    .hero h1{font-size:27px;}
+    nav.subnav{display:none;}
+    .nav-cross{display:none;}
+  }
+  @media (max-width: 600px){
+    .wrap{padding:0 16px;}
+    .hero h1{font-size:23px !important;}
+    .section-head h2{font-size:20px;}
+    .topic-section{padding:36px 0;}
+    .promise-col{padding:20px 18px;}
+    .wp-grid{grid-template-columns:1fr;}
+  }
+
+
+  .incl-wrap{overflow-x:auto;border:1px solid #D9DEE7;border-radius:8px;background:#fff;}
+  .incl{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px;}
+  .incl th{background:var(--navy);color:#fff;text-align:left;padding:10px 14px;font-size:13px;}
+  .incl td{padding:9px 14px;border-top:1px solid #E3E7EE;vertical-align:top;}
+  .incl tr:nth-child(even) td{background:#F6F8FB;}
+  .incl td:first-child{font-weight:700;}
+  .cap-list{margin:0;padding-left:20px;display:grid;gap:8px;font-size:15px;}
+
+  /* case file */
+  .cf-card{background:#fff;border:1px solid #D9DEE7;border-radius:10px;padding:20px;margin-bottom:14px;}
+  .cf-step{display:grid;grid-template-columns:1fr;gap:4px;margin:0 0 14px;}
+  .cf-step .n{font-size:11.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--amber-deep);}
+  .cf-step p{margin:0;}
+  .cf-steps{margin:6px 0 0;padding-left:20px;display:grid;gap:6px;font-size:14.5px;}
+  .cf-compare{display:grid;grid-template-columns:1fr;gap:14px;}
+  .cf-compare .cf-card{margin:0;}
+  .cf-compare .lbl{font-size:11.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#5A6472;}
+  .cf-compare q{display:block;font-size:18px;font-weight:700;margin:8px 0;quotes:"\201C" "\201D";}
+  .cf-beats{display:grid;grid-template-columns:1fr;gap:12px;counter-reset:b;}
+  .cf-beats .cf-card{margin:0;position:relative;padding-left:62px;}
+  .cf-beats .cf-card::before{counter-increment:b;content:"0" counter(b);position:absolute;left:18px;top:18px;font-weight:800;font-size:20px;color:var(--amber-deep);}
+  .cf-beats h3{margin:0 0 4px;font-size:16px;}
+  .cf-beats p{margin:0;font-size:14.5px;}
+  details.reveal{margin-top:10px;border:1px dashed var(--amber-deep);border-radius:8px;padding:10px 14px;background:#FFFBF2;}
+  details.reveal summary{cursor:pointer;font-weight:700;}
+  .cf-thread{font-size:19px;font-weight:700;border-left:4px solid var(--amber-deep);padding:6px 0 6px 16px;margin:10px 0;}
+  .cf-list{display:grid;grid-template-columns:1fr;gap:8px;margin:0;padding:0;list-style:none;}
+  .cf-list li{background:#fff;border:1px solid #D9DEE7;border-radius:8px;padding:10px 12px;font-size:14px;}
+  .cf-list b{display:block;}
+  @media (min-width:600px){.cf-compare{grid-template-columns:1fr 1fr;}.cf-list{grid-template-columns:1fr 1fr;}}
+  @media (min-width:880px){.cf-beats{grid-template-columns:1fr 1fr;}.cf-step{grid-template-columns:180px 1fr;gap:16px;}.cf-list{grid-template-columns:repeat(3,1fr);}}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">TIB <span>Systems</span></a>
+    <div class="nav-right">
+      <nav class="subnav">
+        <a href="index.html">Overview</a><a href="course1-curriculum.html">Curriculum</a><a href="course1-assessment.html">Assessment & Format</a><a href="course1-job-market-fit.html">Job-Market Fit ★</a><a href="course1-casefile.html" class="active">Case File</a><a href="course1-faq.html">FAQ</a>
+      </nav>
+      <a href="enrollment.html" class="nav-cta">Enroll</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" style="padding:44px 0 34px;">
+  <div class="wrap">
+    <span class="eyebrow">Case File · Thornfield Industrial Group</span>
+    <h1 style="font-size:30px;max-width:26ch;">Real controls testing doesn't start with a transaction code.</h1>
+    <p class="lede">It starts with a company, a control nobody has looked at closely, and a question you have to answer before you open SAP. One company. 27 core Books across two levels. The diagnosis comes first — every time — because that's the order a real engagement forces on you.</p>
+  </div>
+</section>
+
+<section class="topic-section" id="sample">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">A sample from the case file</span>
+      <h2>Book 1 — The Access List</h2>
+      <p>SoD conflict testing · Intermediate, session 2 · taught live on S/4HANA and GRC Access Control.</p>
+    </div>
+    <div class="cf-card">
+      <div class="cf-step"><span class="n">1 · The situation</span><p>Pull the current Segregation of Duties (SoD) conflict report for Accounts Payable and confirm whether vendor master maintenance and payment run execution sit on the same user ID.</p></div>
+      <div class="cf-step"><span class="n">2 · What proves it</span><p>A dated export of the Access Risk Analysis report, the specific role names and authorization objects in conflict, and — if one is claimed — the mitigating control ID with its last review date.</p></div>
+      <div class="cf-step"><span class="n">3 · The trap</span><p>Running Access Risk Analysis at the role level instead of the user level can hide a real conflict when two separate, individually clean roles combine only when assigned to the same person. Always confirm at the user level.</p></div>
+      <div class="cf-step"><span class="n">4 · Demo Lab</span><div><ol class="cf-steps">
+        <li>Run Access Risk Analysis for the vendor-master + payment-run risk at <b>user</b> level for the Accounts Payable unit.</li>
+        <li>Export the results — that is your population of flagged users.</li>
+        <li>In PFCG (display only), confirm which roles actually carry both authorization objects.</li>
+        <li>Cross-check role assignment history in SUIM, in case a role changed recently.</li>
+        <li>If a mitigating control is claimed, pull its Mitigation ID and its last review date.</li>
+      </ol></div></div>
+      <div class="cf-step"><span class="n">5 · Defend It</span><div><p><b>Reviewer challenge:</b> “Did you confirm the conflict at user level, or only trust the role-level report? What mitigating control exists, and when was it last reviewed?”</p>
+        <details class="reveal"><summary>Answer it yourself first — then reveal the model answer</summary>
+        <p style="margin:8px 0 0;">A role-level run can show two roles as individually clean while one person holds both, so the conflict is confirmed per user — from the user-level Access Risk Analysis export, cross-checked in PFCG and SUIM. A mitigating control counts only with its Mitigation ID and a dated record of its last review; “it's mitigated” without that evidence is a claim, not a control.</p></details>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="topic-section" id="why-not-a-manual">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Why this isn't a manual</span>
+      <h2>Most SAP training teaches you where the buttons are. This teaches you what to look for before you touch one.</h2>
+    </div>
+    <div class="cf-compare">
+      <div class="cf-card"><span class="lbl">Conventional training</span><q>Run Access Risk Analysis. Export the report. No conflicts — done.</q><p>Correct, and not enough. It says nothing about whether the report could have missed the conflict, or what evidence an auditor will actually accept.</p></div>
+      <div class="cf-card"><span class="lbl">TIB case file — Book 1, Thornfield</span><q>Two clean roles, one person. Which user actually holds both — and when was the mitigating control last reviewed?</q><p>You find the answer yourself on the live system, then defend it while the instructor pushes back the way a reviewer would.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="topic-section" id="method">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The method</span>
+      <h2>Every live session runs on the same four beats.</h2>
+      <p>Because this is the order an engagement forces on you — and rehearsing it every session is what makes it automatic on a client system.</p>
+    </div>
+    <div class="cf-beats">
+      <div class="cf-card"><h3>Understand the control before the system</h3><p>Hour 1: the scenario, the control objective, the trap it's built around, and what good evidence looks like.</p></div>
+      <div class="cf-card"><h3>Watch it done live</h3><p>Hour 2: the instructor runs the real T-codes and Fiori apps on a live S/4HANA training client, display-only, as on a client system.</p></div>
+      <div class="cf-card"><h3>Do it yourself</h3><p>You repeat the full walkthrough on your own login before the next class; your evidence is spot-checked at the start of it.</p></div>
+      <div class="cf-card"><h3>Defend it</h3><p>The last 15 minutes: one student presents the conclusion as if to an external auditor, and the instructor pushes back.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="topic-section" id="curriculum">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The case file</span>
+      <h2>One company. 27 core Books. Two levels.</h2>
+      <p>Every Book is a real control at Thornfield Industrial Group, worked in the order an engagement runs. 19 more Books stay with you in the self-paced Beyond the Core library.</p>
+    </div>
+    <h3 style="margin:6px 0 10px;">Intermediate: Controls Testing — 19 Books</h3>
+    <ul class="cf-list"><li><b>Book 1 — The Access List</b>SoD Conflict Testing · <em>Intermediate · session 2</em></li><li><b>Book 17 — The Leaver</b>Joiner-Mover-Leaver (Termination Access) Testing · <em>Intermediate · session 3</em></li><li><b>Book 7 — The Fourth Chair</b>SoD Testing Outside Finance (Procurement) · <em>Intermediate · session 4</em></li><li><b>Book 13 — The Tile</b>Fiori Launchpad Security Testing · <em>Intermediate · session 5</em></li><li><b>Book 16 — The Firefighter Log</b>Emergency Access Management (EAM) Testing · <em>Intermediate · session 6</em></li><li><b>Book 2 — The Emergency Change</b>Change Management Testing · <em>Intermediate · session 7</em></li><li><b>Book 20 — The Back Door</b>Custom Code / ABAP Security Testing · <em>Intermediate · session 8</em></li><li><b>Book 19 — The Interface Gap</b>Interface Control Testing · <em>Intermediate · session 9</em></li><li><b>Book 14 — The Rule That Never Fired</b>GRC Process Control (CCM) Testing · <em>Intermediate · session 10</em></li><li><b>Book 3 — The Approval Limit</b>Manual Journal Entry Review Testing · <em>Intermediate · session 11</em></li><li><b>Book 24 — The Match That Wasn't</b>Two-Way vs. Three-Way Match Configuration Testing · <em>Intermediate · session 12</em></li><li><b>Book 25 — The File That Left Twice</b>Payment Run Duplicate & SoD Testing · <em>Intermediate · session 13</em></li><li><b>Book 26 — The Bank Detail Nobody Approved</b>Vendor Bank Detail Change Testing · <em>Intermediate · session 14</em></li><li><b>Book 29 — The Held Order</b>Credit Management & Billing-Block Release Testing · <em>Intermediate · session 15</em></li><li><b>Book 30 — The Early Invoice</b>Billing Cutoff & Revenue Recognition Testing · <em>Intermediate · session 16</em></li><li><b>Book 4 — The Next Badge</b>New-Hire & Turnover Access Testing · <em>Intermediate · guided self-study</em></li><li><b>Book 18 — The Untested Backup</b>Computer Operations Testing · <em>Intermediate · guided self-study</em></li><li><b>Book 23 — The Job That Stopped Running</b>Batch Job Monitoring Testing · <em>Intermediate · guided self-study</em></li><li><b>Book 27 — The Tolerance That Swallowed It</b>Invoice Price Tolerance Testing · <em>Intermediate · guided self-study</em></li></ul>
+    <h3 style="margin:24px 0 10px;">Advanced: Manager Track &amp; Emerging Practice — 8 Books</h3>
+    <ul class="cf-list"><li><b>Book 36 — The Map Before the Testing</b>RCM (Risk & Control Matrix) Construction · <em>Advanced · session 2</em></li><li><b>Book 37 — The Control That Was Never Built to Hold</b>Design Effectiveness Testing · <em>Advanced · session 4</em></li><li><b>Book 38 — How Many Is Enough</b>Operating Effectiveness Sampling · <em>Advanced · session 5</em></li><li><b>Book 39 — What Kind of Finding Is This</b>Deficiency Classification · <em>Advanced · session 6</em></li><li><b>Book 33 — The Other Platform</b>Third-Party GRC Tools vs. Native SAP GRC AC · <em>Advanced · session 7</em></li><li><b>Book 34 — The Spreadsheet That Found It</b>Data Analytics for Full-Population Testing · <em>Advanced · session 8</em></li><li><b>Book 35 — The Recommendation Nobody Checked</b>Joule-Assisted Review & Continuous Controls Monitoring · <em>Advanced · session 9</em></li><li><b>Book 40 — The Control That Moved</b>Extensibility Classification, Transport Governance & AI Code Review · <em>Advanced · session 10</em></li></ul>
+    <p style="margin-top:18px;"><a href="course1-curriculum.html" class="btn btn-outline">See the full curriculum and session plans →</a></p>
+  </div>
+</section>
+
+<section class="topic-section" id="thread">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The thread through every Book</span>
+      <h2>Every case ends by naming the pattern, not just the finding.</h2>
+    </div>
+    <p class="cf-thread">The test: would a failure actually show up in the evidence you're relying on? If not, you are holding the wrong evidence.</p>
+    <p>The same error — mistaking a control's documentation for evidence that it operated — comes back in a different disguise in Book after Book. Recognising the pattern is what lets you catch it on a system you've never seen.</p>
+  </div>
+</section>
+
+<div class="cta-footer">
+  <div class="wrap">
+    <h2>Questions before you start?</h2>
+    <p>See the FAQ, or go straight to the session-by-session curriculum.</p>
+    <div class="hero-cta-row" style="justify-content:center;">
+      <a href="course1-faq.html" class="btn btn-amber">Read the FAQ →</a>
+      <a href="course1-curriculum.html" class="btn btn-outline">Browse the curriculum</a>
+    </div>
+  </div>
+</div>
+
+
+<footer class="site-footer">
+  <div class="foot-links">
+    <a href="index.html">Overview</a> ·
+    <a href="course1-curriculum.html">Curriculum</a> ·
+    <a href="course1-assessment.html">Assessment &amp; Format</a> ·
+    <a href="course1-job-market-fit.html">Job-Market Fit</a> ·
+    <a href="course1-casefile.html">Case File</a> ·
+    <a href="course1-faq.html">FAQ</a>
+  </div>
+  TIB Systems — Atlanta · Hyderabad · Ras Al Khaimah
+</footer>
+
+</body>
+</html>
